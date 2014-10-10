@@ -2,7 +2,12 @@ package cityboys.golfapp;
 
 import android.app.Activity;
 import android.app.ActionBar;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -14,21 +19,29 @@ import android.os.Build;
 import android.widget.TextView;
 
 
-public class profile extends Activity {
+public class profile extends FragmentActivity {
+
+    // Fjöldi síða sem á að bjóða uppá
+    private static final int NUM_PAGES = 2;
+
+    // Pager widget, sér um swipe-ið
+    private ViewPager myViewpager;
+
+    // Pager adapter sem sér um síðurnar fyrir viewpager
+    private PagerAdapter myPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_profile);
+
+        // Búa til Viewpager og PageAdapter
+        myViewpager = (ViewPager)findViewById(R.id.pager);
+        myPagerAdapter = new ScreenSlide(getSupportFragmentManager());
+        myViewpager.setAdapter(myPagerAdapter);
 
         //getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         //getSupportActionBar().setCustomView(R.layout.actionbar);
-
-        setContentView(R.layout.activity_profile);
-        if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
-        }
     }
 
 
@@ -52,19 +65,19 @@ public class profile extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-
-        public PlaceholderFragment() {
+    private class ScreenSlide extends FragmentStatePagerAdapter {
+        public ScreenSlide(FragmentManager myFragment) {
+            super(myFragment);
         }
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
-            return rootView;
+        public Fragment getItem(int position) {
+            return SlideFragment.create(position);
+        }
+
+        @Override
+        public int getCount() {
+            return NUM_PAGES;
         }
     }
 }
