@@ -1,8 +1,15 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+    <style name="LoginTheme" parent="@android:style/Theme.Holo.Light.NoActionBar">
         <!-- Customize your theme here. -->
     </style>
+
+        <style name="MyTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+            <item name="android:actionBarStyle">@style/MyActionBar</item>
+        </style>
+
+        <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+            <item name="android:background">#2d7165</item>
+        </style>
 
 </resources>

@@ -4,13 +4,14 @@ import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
-
+import android.widget.TextView;
 
 
 public class profile extends Activity {
@@ -18,6 +19,10 @@ public class profile extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        //getSupportActionBar().setCustomView(R.layout.actionbar);
+
         setContentView(R.layout.activity_profile);
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
@@ -25,6 +30,7 @@ public class profile extends Activity {
                     .commit();
         }
     }
+
 
 
     @Override
