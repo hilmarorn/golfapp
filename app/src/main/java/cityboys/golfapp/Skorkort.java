@@ -1,18 +1,10 @@
 package cityboys.golfapp;
 
 import android.app.Activity;
-import android.app.ActionBar;
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.app.ActionBarDrawerToggle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,18 +14,7 @@ import android.widget.ListView;
 import android.content.res.Configuration;
 
 
-public class profile extends FragmentActivity {
-
-    private static final String TAG = "Position";
-
-    // Fjöldi síða sem á að bjóða uppá
-    private final int NUM_PAGE = 2;
-    //private int FRAGMENT_COUNT = 0;
-
-    // Pager widget, sér um swipe-ið
-    private ViewPager myViewpager;
-    // Pager adapter sem heldur utan um síðurnar fyrir viewpager
-    private PagerAdapter myPagerAdapter;
+public class Skorkort extends Activity {
 
     //Fyrir navigation drawer
     private String[] nav_menu_values;
@@ -44,12 +25,7 @@ public class profile extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
-
-        // Búa til Viewpager og PageAdapter
-        myViewpager = (ViewPager)findViewById(R.id.pager);
-        myPagerAdapter = new ScreenSlide(getSupportFragmentManager());
-        myViewpager.setAdapter(myPagerAdapter);
+        setContentView(R.layout.skorkort);
 
         // Núllstilla nav drawer
         nav_menu_values = getResources().getStringArray(R.array.nav_drawer);
@@ -58,7 +34,7 @@ public class profile extends FragmentActivity {
 
         //Set the adapter for the list view
         myDrawerList.setAdapter(new ArrayAdapter<String>(this,
-                R.layout.drawer_list_item,nav_menu_values));
+                R.layout.drawer_list_item, nav_menu_values));
         // onClickListener fyrir menu-ið
         myDrawerList.setOnItemClickListener(new NavMenuItemClickListener());
 
@@ -67,7 +43,7 @@ public class profile extends FragmentActivity {
         getActionBar().setHomeButtonEnabled(true);
 
         myDrawerToggle = new ActionBarDrawerToggle(this, myDrawerLayout, R.drawable.ic_drawer,
-                            R.string.drawer_open, R.string.drawer_closed) {
+                R.string.drawer_open, R.string.drawer_closed) {
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
@@ -80,9 +56,6 @@ public class profile extends FragmentActivity {
         };
 
         myDrawerLayout.setDrawerListener(myDrawerToggle);
-
-        //getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        //getSupportActionBar().setCustomView(R.layout.actionbar);
     }
 
     @Override
@@ -97,31 +70,11 @@ public class profile extends FragmentActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        if (myDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    private class ScreenSlide extends FragmentStatePagerAdapter {
-        public ScreenSlide(FragmentManager myFragment) {
-            super(myFragment);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return SlideFragment.create(position);
-        }
-
-        @Override
-        public int getCount() {
-            return NUM_PAGE;
-        }
     }
 
 /*
@@ -135,7 +88,6 @@ Allt sem tengist Navigation Menu
     }
 
     private void selectItem(int position) {
-        Log.i(TAG, Integer.toString(position));
         switch(position) {
             case 0:
                 Intent open_profile = new Intent(this, profile.class);
@@ -150,10 +102,10 @@ Allt sem tengist Navigation Menu
                 startActivity(open_rastimar);
                 break;
         }
-            // Highlight the selected item
-            myDrawerList.setItemChecked(position, true);
-            // Loka nav menu
-            myDrawerLayout.closeDrawer(myDrawerList);
+        // Highlight the selected item
+        myDrawerList.setItemChecked(position, true);
+        // Loka nav menu
+        myDrawerLayout.closeDrawer(myDrawerList);
     }
 
     @Override

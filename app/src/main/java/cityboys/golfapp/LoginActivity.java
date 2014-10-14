@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.ContentResolver;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
@@ -16,6 +17,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -31,9 +33,8 @@ import java.util.List;
 
 /**
  * A login screen that offers login via email/password.
-
  */
-public class LoginActivity extends Activity implements LoaderCallbacks<Cursor>{
+public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
     /**
      * A dummy authentication store containing known user names and passwords.
@@ -139,11 +140,18 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor>{
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
+            // Hér er verið að búa til "þráð" til að skrá notanda inn
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
+            /* Keyra upp notendaskjá ef þetta heppnast.
+             Þarf samt líklegast að bæta við ef vitlaust notendanafn/lykilorð kemur
+             úr dæminu að ofan */
+            Intent open_profile = new Intent(this, profile.class);
+            startActivity(open_profile);
         }
     }
     private boolean isEmailValid(String email) {
+        //TODO: Replace this with your own logic
         //TODO: Replace this with your own logic
         return email.contains("@");
     }
@@ -300,6 +308,3 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor>{
         }
     }
 }
-
-
-
