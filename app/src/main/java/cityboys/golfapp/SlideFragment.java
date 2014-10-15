@@ -5,9 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 public class SlideFragment extends Fragment {
 
@@ -36,10 +33,10 @@ public class SlideFragment extends Fragment {
                              Bundle savedInstanceState) {
         if(currentPageNumber == 0) {
             mainView = (ViewGroup)inflater
-                    .inflate(R.layout.fragment_profile, container, false);
+                    .inflate(R.layout.profile_screen1, container, false);
         } else {
             mainView = (ViewGroup)inflater
-                    .inflate(R.layout.fragment_page2, container, false);
+                    .inflate(R.layout.profile_screen2, container, false);
         }
 
         return mainView;
