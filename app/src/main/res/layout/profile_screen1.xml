@@ -8,180 +8,281 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".profile$PlaceholderFragment">
 
-    <View android:id="@+id/strut"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_centerHorizontal="true"/>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/strut"
-        android:layout_alignParentRight="true"
-        android:weightSum="1"
-        android:id="@+id/info">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Golfklúbbur Reykjavíkur"
-            android:id="@+id/textView5"
-            android:textStyle="bold"
-            android:textColor="#2d7165"
-            android:layout_marginBottom="10dp"/>
-
-        <LinearLayout
-            android:orientation="vertical"
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginBottom="10dp">
+            android:layout_height="fill_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <View android:id="@+id/strut"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_centerHorizontal="true"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Forgjöf: "
-                android:id="@+id/textView3"
-                android:textColor="#2d7165"
-                android:textStyle="bold"/>
+                android:layout_alignLeft="@id/strut"
+                android:layout_alignParentRight="true"
+                android:weightSum="1"
+                android:id="@+id/info">
 
-            <TextView
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Golfklúbbur Reykjavíkur"
+                    android:id="@+id/textView5"
+                    android:textStyle="bold"
+                    android:textColor="#2d7165"
+                    android:layout_marginBottom="10dp"/>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Forgjöf: "
+                        android:id="@+id/textView3"
+                        android:textColor="#2d7165"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="17.8"
+                        android:id="@+id/textView6"
+                        android:textColor="#2d7165"
+                        android:layout_marginLeft="10dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="17.8"
-                android:id="@+id/textView6"
-                android:textColor="#2d7165"
-                android:layout_marginLeft="10dp"/>
-        </LinearLayout>
+                android:layout_alignRight="@id/strut"
+                android:layout_alignParentLeft="true"
+                android:weightSum="1"
+                android:id="@+id/linearLayout2"
+                android:layout_marginBottom="10dp">
 
-    </LinearLayout>
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@id/strut"
+                    android:layout_alignParentLeft="true"
+                    android:text="Right"
+                    android:id="@+id/imageView2"
+                    android:src="@drawable/default_user"
+                    android:layout_weight="0.9"/>
+            </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@id/strut"
-        android:layout_alignParentLeft="true"
-        android:weightSum="1"
-        android:id="@+id/linearLayout2"
-        android:layout_marginBottom="10dp">
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#ff2d7165"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/info"
+                android:id="@+id/horizontalline"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"/>
 
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@id/strut"
-            android:layout_alignParentLeft="true"
-            android:text="Right"
-            android:id="@+id/imageView2"
-            android:src="@drawable/default_user"
-            android:layout_weight="0.9"/>
-    </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/horizontalline"
+                android:id="@+id/linearLayout5"
+                android:layout_marginBottom="10dp">>
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:background="#ff2d7165"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/linearLayout2"
-        android:id="@+id/horizontalline"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/textView4"
+                    android:textColor="#2d7165"
+                    android:textStyle="bold"
+                    android:text="Forgjafarröð innan klúbbs:" />
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/horizontalline"
-        android:id="@+id/linearLayout5"
-        android:layout_marginBottom="10dp">>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="317"
+                    android:id="@+id/textView7"
+                    android:textColor="#2d7165"
+                    android:layout_marginLeft="10dp"/>
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/textView4"
-            android:textColor="#2d7165"
-            android:textStyle="bold"
-            android:text="Forgjafarröð innan klúbbs:" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linearLayout5"
+                android:id="@+id/linearLayout4"
+                android:layout_marginBottom="10dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="100"
-            android:id="@+id/textView7"
-            android:textColor="#2d7165"
-            android:layout_marginLeft="10dp"/>
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/textView8"
+                    android:textColor="#2d7165"
+                    android:textStyle="bold"
+                    android:text="Forgjafarröð á landsvísu:" />
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout5"
-        android:id="@+id/linearLayout4"
-        android:layout_marginBottom="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="1232"
+                    android:id="@+id/textView9"
+                    android:textColor="#2d7165"
+                    android:layout_marginLeft="10dp"/>
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/textView8"
-            android:textColor="#2d7165"
-            android:textStyle="bold"
-            android:text="Fjöldi spilaðra hringja á árinu: " />
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#ff2d7165"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/linearLayout4"
+                android:id="@+id/horizontalline2"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="30"
-            android:id="@+id/textView9"
-            android:textColor="#2d7165"
-            android:layout_marginLeft="10dp"/>
-    </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/horizontalline2"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/linearLayout6">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout4"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/linearLayout6">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/textView10"
+                    android:textColor="#2d7165"
+                    android:textStyle="bold"
+                    android:text="Fjöldi spilaðra hringja á árinu: " />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/textView10"
-            android:textColor="#2d7165"
-            android:textStyle="bold"
-            android:text="Síðasti spilaði hringur: " />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="30"
+                    android:id="@+id/textView11"
+                    android:textColor="#2d7165"
+                    android:layout_marginLeft="10dp"/>
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="2. september 2014"
-            android:id="@+id/textView11"
-            android:textColor="#2d7165"
-            android:layout_marginLeft="10dp"/>
-    </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linearLayout6"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/linearLayout7">
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:background="#ff2d7165"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/linearLayout6"
-        android:id="@+id/horizontalline2"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/textView15"
+                    android:textColor="#2d7165"
+                    android:textStyle="bold"
+                    android:text="Síðasti spilaði hringur: " />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="2. september 2014"
+                    android:id="@+id/textView16"
+                    android:textColor="#2d7165"
+                    android:layout_marginLeft="10dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linearLayout7"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/linearLayout8">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/textView17"
+                    android:textColor="#2d7165"
+                    android:textStyle="bold"
+                    android:text="Besti spilaði hringur á árinu: " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="13. ágúst 2014"
+                    android:id="@+id/textView18"
+                    android:textColor="#2d7165"
+                    android:layout_marginLeft="10dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linearLayout8"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/linearLayout9">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/textView19"
+                    android:textColor="#2d7165"
+                    android:textStyle="bold"
+                    android:text="Meðal punktafjöldi: " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="132"
+                    android:id="@+id/textView20"
+                    android:textColor="#2d7165"
+                    android:layout_marginLeft="10dp"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#ff2d7165"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/linearLayout9"
+                android:id="@+id/horizontalline3"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"/>
+
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

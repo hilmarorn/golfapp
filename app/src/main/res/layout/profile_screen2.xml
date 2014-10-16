@@ -8,176 +8,911 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".profile$PlaceholderFragment">
 
-    <View android:id="@+id/strut"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_centerHorizontal="true"/>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/strut"
-        android:layout_alignParentRight="true"
-        android:weightSum="1"
-        android:id="@+id/info">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Golfklúbbur Reykjavíkur"
-            android:id="@+id/textView5"
-            android:textStyle="bold"
-            android:textColor="#2d7165"
-            android:layout_marginBottom="10dp"/>
-
-        <LinearLayout
-            android:orientation="horizontal"
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginBottom="10dp">
+            android:layout_height="fill_parent">
 
-            <TextView
+
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Forgjöf: "
-                android:id="@+id/textView3"
-                android:textColor="#2d7165"
-                android:textStyle="bold"/>
+                android:id="@+id/relative">
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/textView2"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:text="Forgjafarspjald"
+                    android:alpha="0.7"
+                    android:background="#2d7165"
+                    android:layout_marginBottom="10dp"/>
 
-            <TextView
+                <View android:id="@+id/strut"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_centerHorizontal="true"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/strut"
+                    android:layout_alignParentRight="true"
+                    android:weightSum="1"
+                    android:id="@+id/info"
+                    android:layout_below="@+id/textView2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Punktar"
+                        android:id="@+id/textView102"
+                        android:textStyle="bold"
+                        android:textColor="#2d7165"
+                        android:layout_marginLeft="30dp"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Forgjöf"
+                        android:id="@+id/textView123"
+                        android:textColor="#2d7165"
+                        android:textStyle="bold"
+                        android:layout_marginRight="10dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@id/strut"
+                    android:layout_alignParentLeft="true"
+                    android:weightSum="1"
+                    android:id="@+id/linearLayout51"
+                    android:layout_below="@+id/textView2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Dagsetning"
+                        android:id="@+id/textView124"
+                        android:textColor="#2d7165"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="10dp"/>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linearLayout16"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:layout_below="@+id/linearLayout51">
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="#ff2d7165"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@+id/linearLayout51"
+                        android:id="@+id/horizontalline6"
+                        />
+                </LinearLayout>
+
+
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/linearLayout51"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/rel2">
+                    <View android:id="@+id/strut3"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut3"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/info2"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="30"
+                            android:id="@+id/textView112"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="30dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="17.8"
+                            android:id="@+id/textView121"
+                            android:textColor="#2d7165"
+
+                            android:layout_marginRight="10dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut3"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/linearLayout52">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="6.9.2014"
+                            android:id="@+id/textView156"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel2"
+                    android:id="@+id/rel3">
+                    <View android:id="@+id/strut4"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut4"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/info2"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="25"
+                            android:id="@+id/textView112"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="30dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="17.7"
+                            android:id="@+id/textView121"
+                            android:textColor="#2d7165"
+
+                            android:layout_marginRight="10dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut4"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/linearLayout52">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="13.8.2014"
+                            android:id="@+id/textView156"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel3"
+                    android:id="@+id/rel4">
+                    <View android:id="@+id/strut5"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut5"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/info2"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="26"
+                            android:id="@+id/textView112"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="30dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="17.7"
+                            android:id="@+id/textView121"
+                            android:textColor="#2d7165"
+
+                            android:layout_marginRight="10dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut5"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/linearLayout52">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="12.8.2014"
+                            android:id="@+id/textView156"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel4"
+                    android:id="@+id/rel5">
+                    <View android:id="@+id/strut6"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut6"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/info2"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="26"
+                            android:id="@+id/textView112"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="30dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="17.6"
+                            android:id="@+id/textView121"
+                            android:textColor="#2d7165"
+
+                            android:layout_marginRight="10dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut6"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/linearLayout52">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="9.8.2014"
+                            android:id="@+id/textView156"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel5"
+                    android:id="@+id/rel6">
+                    <View android:id="@+id/strut7"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut7"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/info2"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="28"
+                            android:id="@+id/textView112"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="30dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="17.5"
+                            android:id="@+id/textView121"
+                            android:textColor="#2d7165"
+
+                            android:layout_marginRight="10dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut7"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/linearLayout52">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="5.8.2014"
+                            android:id="@+id/textView156"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+
+
+
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="17.8"
-                android:id="@+id/textView6"
-                android:textColor="#2d7165" />
-        </LinearLayout>
+                android:id="@+id/relative2"
+                android:layout_below="@+id/relative"
+                android:layout_marginTop="50dp">
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/textView2"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:text="Tölfræði"
+                    android:alpha="0.7"
+                    android:background="#2d7165"
+                    android:layout_marginBottom="10dp"/>
 
-    </LinearLayout>
+                <View android:id="@+id/strut"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_centerHorizontal="true"/>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@id/strut"
-        android:layout_alignParentLeft="true"
-        android:weightSum="1"
-        android:id="@+id/linearLayout2"
-        android:layout_marginBottom="10dp">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/strut"
+                    android:layout_alignParentRight="true"
+                    android:weightSum="1"
+                    android:id="@+id/info"
+                    android:layout_below="@+id/textView2">
 
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@id/strut"
-            android:layout_alignParentLeft="true"
-            android:text="Right"
-            android:id="@+id/imageView2"
-            android:src="@drawable/default_user"
-            android:layout_weight="0.9"/>
-    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Fjöldi"
+                        android:id="@+id/textView102"
+                        android:textStyle="bold"
+                        android:textColor="#2d7165"
+                        android:layout_marginLeft="30dp"/>
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:background="#ff2d7165"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/linearLayout2"
-        android:id="@+id/horizontalline"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        />
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/horizontalline"
-        android:id="@+id/linearLayout5"
-        android:layout_marginBottom="10dp">>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Alls"
+                        android:id="@+id/textView123"
+                        android:textColor="#2d7165"
+                        android:textStyle="bold"
+                        android:layout_marginRight="10dp"/>
+                </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/textView4"
-            android:textColor="#2d7165"
-            android:textStyle="bold"
-            android:text="Hér var ég að breyta:" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@id/strut"
+                    android:layout_alignParentLeft="true"
+                    android:weightSum="1"
+                    android:id="@+id/linearLayout51"
+                    android:layout_below="@+id/textView2">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="100"
-            android:id="@+id/textView7"
-            android:textColor="#2d7165" />
-    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text=""
+                        android:id="@+id/textView124"
+                        android:textColor="#2d7165"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="10dp"/>
+                </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout5"
-        android:id="@+id/linearLayout4"
-        android:layout_marginBottom="10dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/textView8"
-            android:textColor="#2d7165"
-            android:textStyle="bold"
-            android:text="og hér líka: " />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="30"
-            android:id="@+id/textView9"
-            android:textColor="#2d7165" />
-    </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linearLayout16"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:layout_below="@+id/linearLayout51">
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="#ff2d7165"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@+id/linearLayout51"
+                        android:id="@+id/horizontalline6"
+                        />
+                </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout4"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/linearLayout6">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/textView10"
-            android:textColor="#2d7165"
-            android:textStyle="bold"
-            android:text="Síðasti spilaði hringur: " />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="2. september 2014"
-            android:id="@+id/textView11"
-            android:textColor="#2d7165" />
-    </LinearLayout>
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:background="#ff2d7165"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/linearLayout6"
-        android:id="@+id/horizontalline2"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/linearLayout51"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/rel2">
+                    <View android:id="@+id/strut3"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
 
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut3"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/info2"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="0"
+                            android:id="@+id/textView112"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="30dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="0%"
+                            android:id="@+id/textView121"
+                            android:textColor="#2d7165"
+
+                            android:layout_marginRight="10dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut3"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/linearLayout52">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Ernir"
+                            android:id="@+id/textView156"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel2"
+                    android:id="@+id/rel3">
+                    <View android:id="@+id/strut4"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut4"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/info2"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="31"
+                            android:id="@+id/textView112"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="30dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="1%"
+                            android:id="@+id/textView121"
+                            android:textColor="#2d7165"
+
+                            android:layout_marginRight="10dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut4"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/linearLayout52">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Fuglar"
+                            android:id="@+id/textView156"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel3"
+                    android:id="@+id/rel4">
+                    <View android:id="@+id/strut5"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut5"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/info2"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="461"
+                            android:id="@+id/textView112"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="30dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="18%"
+                            android:id="@+id/textView121"
+                            android:textColor="#2d7165"
+
+                            android:layout_marginRight="10dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut5"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/linearLayout52">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Pör"
+                            android:id="@+id/textView156"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel4"
+                    android:id="@+id/rel5">
+                    <View android:id="@+id/strut6"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut6"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/info2"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="1030"
+                            android:id="@+id/textView112"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="30dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="40%"
+                            android:id="@+id/textView121"
+                            android:textColor="#2d7165"
+
+                            android:layout_marginRight="10dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut6"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/linearLayout52">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Skollar"
+                            android:id="@+id/textView156"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel5"
+                    android:id="@+id/rel6">
+                    <View android:id="@+id/strut7"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut7"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/info2"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="1034"
+                            android:id="@+id/textView112"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="30dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="40%"
+                            android:id="@+id/textView121"
+                            android:textColor="#2d7165"
+
+                            android:layout_marginRight="10dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut7"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/linearLayout52">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Skrambar"
+                            android:id="@+id/textView156"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

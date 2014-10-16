@@ -10,10 +10,11 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name"
-            android:windowSoftInputMode="adjustResize|stateVisible"
-            android:theme="@style/LoginTheme">
+            android:theme="@style/LoginTheme"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -21,11 +22,13 @@
             android:name=".profile"
             android:label="@string/golfer_name" >
         </activity>
-        <activity
-            android:name=".Skorkort">
+        <activity android:name=".Skorkort" >
+        </activity>
+        <activity android:name=".RastimaSkraning" >
         </activity>
         <activity
-            android:name=".RastimaSkraning">
+            android:name=".Test"
+            android:label="@string/title_activity_test" >
         </activity>
     </application>
 

@@ -7,7 +7,6 @@
     <string name="action_search">"Search"</string>
     <string name="action_refresh">Refresh</string>
     <string name="action_next_item">Play Course</string>
-
     <string name="drawer_open">Drawer open</string>
     <string name="drawer_closed">Drawer closed</string>
 
@@ -18,4 +17,8 @@
         <item>Skrá út</item>
         <item>Hjálp</item>
     </string-array>
+
+    <string name="title_activity_test">Test</string>
+    <string name="hello_world">Hello world!</string>
+
 </resources>
