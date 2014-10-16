@@ -1,7 +1,5 @@
 package cityboys.golfapp;
 
-import android.app.Activity;
-import android.app.ActionBar;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.Fragment;
@@ -13,7 +11,6 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.app.ActionBarDrawerToggle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,16 +19,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.content.res.Configuration;
 
-
+/*
+Notkun: Intent open_profile = new Intent(this, profile.class);
+        startActivity(open_profile);
+Fyrir: ekkert
+Eftir: Búið er að búa til nýtt Activity sem inniheldur 2 síður fyrir notanda
+ */
 public class profile extends FragmentActivity {
-
-    private static final String TAG = "Position";
 
     // Fjöldi síða sem á að bjóða uppá
     private final int NUM_PAGE = 2;
-    //private int FRAGMENT_COUNT = 0;
-
-    // Pager widget, sér um swipe-ið
+    // Pager widget, sér um swipe-ið á milli fragment-a
     private ViewPager myViewpager;
     // Pager adapter sem heldur utan um síðurnar fyrir viewpager
     private PagerAdapter myPagerAdapter;
@@ -40,36 +38,46 @@ public class profile extends FragmentActivity {
     private String[] nav_menu_values;
     private DrawerLayout myDrawerLayout;
     private ListView myDrawerList;
+    // Heldur utan hvort navigation drawer sér opið eða lokað
     private ActionBarDrawerToggle myDrawerToggle;
 
+    /*
+    Notkun: Kallað er á þetta fall þegar klasinn er búinn til
+    Fyrir: ekkert
+    Eftir: Búið er að núllstilla alla hluti sem sýna skal. Þar má nefna Activity með
+           2 fragment til að sýna notendasíðurnar, navigation drawer og tengslin milli
+           navigation drawer og Action Bar
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        // Búa til Viewpager og PageAdapter
+        // Búa til Viewpager og PageAdapter. Því næst tengja þá saman
         myViewpager = (ViewPager)findViewById(R.id.pager);
         myPagerAdapter = new ScreenSlide(getSupportFragmentManager());
         myViewpager.setAdapter(myPagerAdapter);
 
-        // Núllstilla nav drawer
+        // Núllstilla navigation drawer
         nav_menu_values = getResources().getStringArray(R.array.nav_drawer);
         myDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         myDrawerList = (ListView)findViewById(R.id.left_drawer);
 
-        //Set the adapter for the list view
+        // Setja adapter á listann sem á að birtast í navigation drawer
         myDrawerList.setAdapter(new ArrayAdapter<String>(this,
                 R.layout.drawer_list_item,nav_menu_values));
-        // onClickListener fyrir menu-ið
+        // onClickListener fyrir navigation drawer
         myDrawerList.setOnItemClickListener(new NavMenuItemClickListener());
 
-        // enable ActionBar app icon to behave as action to toggle nav drawer
+        // Partur af því að gera myndtáknið ásmellanlegt, þannig að það opnar/lokar navigation drawer
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
+        // Fela myndtákn í Action Bar
         getActionBar().setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
 
+        // Fall sem hlustar eftir því hvort ýtt hafi verið á myndtákn í Action Bar
         myDrawerToggle = new ActionBarDrawerToggle(this, myDrawerLayout, R.drawable.ic_drawer,
-                            R.string.drawer_open, R.string.drawer_closed) {
+                R.string.drawer_open, R.string.drawer_closed) {
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
@@ -82,9 +90,6 @@ public class profile extends FragmentActivity {
         };
 
         myDrawerLayout.setDrawerListener(myDrawerToggle);
-
-        //getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        //getSupportActionBar().setCustomView(R.layout.actionbar);
     }
 
     @Override
@@ -96,9 +101,7 @@ public class profile extends FragmentActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        // Ef ýtt er á myndtákn í Action Bar skilar þetta true
         if (myDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
@@ -110,16 +113,38 @@ public class profile extends FragmentActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /*
+    Notkun: pagerAdapter = new ScreenSlide(myFragment)
+    Fyrir: myFragment verður að vera af taginu FragmentManager
+    Eftir: Búið er að búa til nýtt fragment og setja það inn í PagerAdapter sem heldur
+           utan um öll fragments sem búin hafa verið til og gerir okkur kleift að nýta
+           HorizontalScrollView á milli fragment-anna
+     */
     private class ScreenSlide extends FragmentStatePagerAdapter {
+        /*
+        Notkun: Kallað er á fallið um leið og búið er til eintak af klasanum
+        Fyrir: myFragment verður að vera af taginu FragmentManager
+        Eftir: Búið er að bæta fragmentManager-num við PagerAdapter-inn
+         */
         public ScreenSlide(FragmentManager myFragment) {
             super(myFragment);
         }
 
+        /*
+        Notkun y = myScreenSlide.getItem(x)
+        Fyrir: 0 <= x <= NUM_PAGES
+        Eftir: y er fragment með blaðsíðutal x
+         */
         @Override
         public Fragment getItem(int position) {
             return SlideFragment.create(position);
         }
 
+        /*
+        Notkun: x = myScreenSlide.getCount()
+        Fyrir: myScreenSlide er af taginu ScreenSlide
+        Eftir: x er blaðsíðutal myScreenSlide
+         */
         @Override
         public int getCount() {
             return NUM_PAGE;
@@ -128,16 +153,32 @@ public class profile extends FragmentActivity {
 
 /*
 Allt sem tengist Navigation Menu
- */
+*/
+    /*
+    Notkun: myListView.setOnItemClickListener(NavMenuItemClickListener())
+    Fyrir: myListView verður að vera af taginu ListView
+    Eftir: búið er að tengja onClickListener við myListView
+     */
     private class NavMenuItemClickListener implements ListView.OnItemClickListener {
         @Override
+        /*
+        Notkun: Kallað er á þetta þegar eintak er búið til af klasanum NavMenuClickListener,
+                þar sem position er staðsetning á element-inu sem ýtt var á
+        Fyrir: ekkert
+        Eftir: búið er að finna út á hvaða element var ýtt á
+         */
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             selectItem(position);
         }
     }
 
+    /*
+    Notkun: selectItem(x)
+    Fyrir: x er af taginu int
+    Eftir: Búið er að finna út á hvaða element var ýtt á
+     */
     private void selectItem(int position) {
-        Log.i(TAG, Integer.toString(position));
+        // Hér er fundið hvað var ýtt á
         switch(position) {
             case 0:
                 Intent open_profile = new Intent(this, profile.class);
@@ -152,10 +193,10 @@ Allt sem tengist Navigation Menu
                 startActivity(open_rastimar);
                 break;
         }
-            // Highlight the selected item
-            myDrawerList.setItemChecked(position, true);
-            // Loka nav menu
-            myDrawerLayout.closeDrawer(myDrawerList);
+        // Ljóma element-ið sem ýtt var á
+        myDrawerList.setItemChecked(position, true);
+
+        myDrawerLayout.closeDrawer(myDrawerList);
     }
 
     @Override

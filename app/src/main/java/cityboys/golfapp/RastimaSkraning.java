@@ -14,15 +14,27 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.content.res.Configuration;
 
-
+/*
+Notkun: Intent open_ras = new Intent(this, RastimaSkraning.class);
+        startActivity(open_ras);
+Fyrir: ekkert
+Eftir: Búið er að búa til nýtt Activity sem inniheldur rástíma skráningu
+ */
 public class RastimaSkraning extends Activity {
 
     //Fyrir navigation drawer
     private String[] nav_menu_values;
     private DrawerLayout myDrawerLayout;
     private ListView myDrawerList;
+    // Heldur utan hvort navigation drawer sér opið eða lokað
     private ActionBarDrawerToggle myDrawerToggle;
 
+    /*
+    Notkun: Kallað er á þetta fall þegar klasinn er búinn til
+    Fyrir: ekkert
+    Eftir: Búið er að núllstilla alla hluti sem sýna skal. Þar má nefna navigation drawer
+           og tengslin milli navigation drawer og Action Bar
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,17 +45,19 @@ public class RastimaSkraning extends Activity {
         myDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         myDrawerList = (ListView)findViewById(R.id.left_drawer);
 
-        //Set the adapter for the list view
+        // Setja adapter á listann sem á að birtast í navigation drawer
         myDrawerList.setAdapter(new ArrayAdapter<String>(this,
                 R.layout.drawer_list_item, nav_menu_values));
-        // onClickListener fyrir menu-ið
+        // onClickListener fyrir navigation drawer
         myDrawerList.setOnItemClickListener(new NavMenuItemClickListener());
 
-        // enable ActionBar app icon to behave as action to toggle nav drawer
+        // Partur af því að gera myndtáknið ásmellanlegt, þannig að það opnar/lokar navigation drawer
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
+        // Fela myndtákn í Action Bar
         getActionBar().setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
 
+        // Fall sem hlustar eftir því hvort ýtt hafi verið á myndtákn í Action Bar
         myDrawerToggle = new ActionBarDrawerToggle(this, myDrawerLayout, R.drawable.ic_drawer,
                 R.string.drawer_open, R.string.drawer_closed) {
             public void onDrawerClosed(View view) {
@@ -69,10 +83,7 @@ public class RastimaSkraning extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-
+        // Ef ýtt er á myndtákn í Action Bar skilar þetta true
         if (myDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
@@ -84,17 +95,34 @@ public class RastimaSkraning extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+/*
+Allt sem tengist Navigation Menu
+*/
     /*
-    Allt sem tengist Navigation Menu
+    Notkun: myListView.setOnItemClickListener(NavMenuItemClickListener())
+    Fyrir: myListView verður að vera af taginu ListView
+    Eftir: búið er að tengja onClickListener við myListView
      */
     private class NavMenuItemClickListener implements ListView.OnItemClickListener {
         @Override
+        /*
+        Notkun: Kallað er á þetta þegar eintak er búið til af klasanum NavMenuClickListener,
+                þar sem position er staðsetning á element-inu sem ýtt var á
+        Fyrir: ekkert
+        Eftir: búið er að finna út á hvaða element var ýtt á
+         */
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             selectItem(position);
         }
     }
 
+    /*
+    Notkun: selectItem(x)
+    Fyrir: x er af taginu int
+    Eftir: Búið er að finna út á hvaða element var ýtt á
+     */
     private void selectItem(int position) {
+        // Hér er fundið hvað var ýtt á
         switch(position) {
             case 0:
                 Intent open_profile = new Intent(this, profile.class);
@@ -109,9 +137,9 @@ public class RastimaSkraning extends Activity {
                 startActivity(open_rastimar);
                 break;
         }
-        // Highlight the selected item
+        // Ljóma element-ið sem ýtt var á
         myDrawerList.setItemChecked(position, true);
-        // Loka nav menu
+
         myDrawerLayout.closeDrawer(myDrawerList);
     }
 

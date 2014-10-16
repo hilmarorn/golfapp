@@ -30,7 +30,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/*
+Þessi klasi fékkst með því að gera nýjan Login Activity skjá og því er einungis skjalað því
+sem var breytt.
+ */
 /**
  * A login screen that offers login via email/password.
  */
@@ -143,9 +146,10 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             // Hér er verið að búa til "þráð" til að skrá notanda inn
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
-            /* Keyra upp notendaskjá ef þetta heppnast.
-             Þarf samt líklegast að bæta við ef vitlaust notendanafn/lykilorð kemur
-             úr dæminu að ofan */
+            // Keyra upp notendaskjá ef þetta heppnast.
+            /*  Áminning: Þarf að bæta við ef vitlaust notendanafn/lykilorð kemur
+                úr dæminu að ofan
+             */
             Intent open_profile = new Intent(this, profile.class);
             startActivity(open_profile);
         }
