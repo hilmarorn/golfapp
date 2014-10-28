@@ -1,15 +1,8 @@
 package cityboys.golfapp;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -20,21 +13,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.content.res.Configuration;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 /*
-Notkun: Intent open_profile = new Intent(this, profile.class);
-        startActivity(open_profile);
+Notkun: Intent open_skor = new Intent(this, Skorkort.class);
+        startActivity(open_skor);
 Fyrir: ekkert
-Eftir: Búið er að búa til nýtt Activity sem inniheldur 2 síður fyrir notanda
+Eftir: Búið er að búa til nýtt Activity sem inniheldur skorkort
  */
-public class profile extends FragmentActivity {
-
-    // Fjöldi síða sem á að bjóða uppá
-    private final int NUM_PAGE = 2;
-    // Pager widget, sér um swipe-ið á milli fragment-a
-    private ViewPager myViewpager;
-    // Pager adapter sem heldur utan um síðurnar fyrir viewpager
-    private PagerAdapter myPagerAdapter;
+public class nextTimeScreen extends Activity {
 
     //Fyrir navigation drawer
     private String[] nav_menu_values;
@@ -46,28 +35,22 @@ public class profile extends FragmentActivity {
     /*
     Notkun: Kallað er á þetta fall þegar klasinn er búinn til
     Fyrir: ekkert
-    Eftir: Búið er að núllstilla alla hluti sem sýna skal. Þar má nefna Activity með
-           2 fragment til að sýna notendasíðurnar, navigation drawer og tengslin milli
-           navigation drawer og Action Bar
+    Eftir: Búið er að núllstilla alla hluti sem sýna skal. Þar má nefna navigation drawer
+           og tengslin milli navigation drawer og Action Bar
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_next_time_screen);
 
-        // Búa til Viewpager og PageAdapter. Því næst tengja þá saman
-        myViewpager = (ViewPager)findViewById(R.id.pager);
-        myPagerAdapter = new ScreenSlide(getSupportFragmentManager());
-        myViewpager.setAdapter(myPagerAdapter);
-
-        // Núllstilla navigation drawer
+        // Núllstilla nav drawer
         nav_menu_values = getResources().getStringArray(R.array.nav_drawer);
         myDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         myDrawerList = (ListView)findViewById(R.id.left_drawer);
 
         // Setja adapter á listann sem á að birtast í navigation drawer
         myDrawerList.setAdapter(new ArrayAdapter<String>(this,
-                R.layout.drawer_list_item,nav_menu_values));
+                R.layout.drawer_list_item, nav_menu_values));
         // onClickListener fyrir navigation drawer
         myDrawerList.setOnItemClickListener(new NavMenuItemClickListener());
 
@@ -92,6 +75,14 @@ public class profile extends FragmentActivity {
         };
 
         myDrawerLayout.setDrawerListener(myDrawerToggle);
+
+        //Prófa að ná í hlutina frá hinum skjánum
+        Intent intent = getIntent();
+        TextView time_text = (TextView)findViewById(R.id.showTime);
+        TextView course_text = (TextView)findViewById(R.id.showCourse);
+        time_text.setText(intent.getStringExtra("time"));
+        course_text.setText(intent.getStringExtra("course"));
+
     }
 
     @Override
@@ -103,10 +94,10 @@ public class profile extends FragmentActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Ef ýtt er á myndtákn í Action Bar skilar þetta true
-        /*if (myDrawerToggle.onOptionsItemSelected(item)) {
+        // Ef ýtt er á myndtákn í Action Bar skilar þetta tru
+        if (myDrawerToggle.onOptionsItemSelected(item)) {
             return true;
-        }*/
+        }
 
         int id = item.getItemId();
         if (id == R.id.action_settings) {
@@ -116,46 +107,8 @@ public class profile extends FragmentActivity {
     }
 
     /*
-    Notkun: pagerAdapter = new ScreenSlide(myFragment)
-    Fyrir: myFragment verður að vera af taginu FragmentManager
-    Eftir: Búið er að búa til nýtt fragment og setja það inn í PagerAdapter sem heldur
-           utan um öll fragments sem búin hafa verið til og gerir okkur kleift að nýta
-           HorizontalScrollView á milli fragment-anna
-     */
-    private class ScreenSlide extends FragmentStatePagerAdapter {
-        /*
-        Notkun: Kallað er á fallið um leið og búið er til eintak af klasanum
-        Fyrir: myFragment verður að vera af taginu FragmentManager
-        Eftir: Búið er að bæta fragmentManager-num við PagerAdapter-inn
-         */
-        public ScreenSlide(FragmentManager myFragment) {
-            super(myFragment);
-        }
-
-        /*
-        Notkun y = myScreenSlide.getItem(x)
-        Fyrir: 0 <= x <= NUM_PAGES
-        Eftir: y er fragment með blaðsíðutal x
-         */
-        @Override
-        public Fragment getItem(int position) {
-            return SlideFragment.create(position);
-        }
-
-        /*
-        Notkun: x = myScreenSlide.getCount()
-        Fyrir: myScreenSlide er af taginu ScreenSlide
-        Eftir: x er blaðsíðutal myScreenSlide
-         */
-        @Override
-        public int getCount() {
-            return NUM_PAGE;
-        }
-    }
-
-/*
-Allt sem tengist Navigation Menu
-*/
+    Allt sem tengist Navigation Menu
+    */
     /*
     Notkun: myListView.setOnItemClickListener(NavMenuItemClickListener())
     Fyrir: myListView verður að vera af taginu ListView
@@ -195,8 +148,6 @@ Allt sem tengist Navigation Menu
             case 2:
                 Intent open_rastimar = new Intent(this, RastimaSkraning.class);
                 startActivity(open_rastimar);
-                /*Intent open_test = new Intent(this, Test.class);
-                startActivity(open_test);*/
                 finish();
                 break;
         }

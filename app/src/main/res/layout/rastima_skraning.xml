@@ -4,19 +4,79 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <LinearLayout
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/skor_text"
-            android:textColor="#2d7165"
-            android:textStyle="bold"
-            android:text="Hér kemur rástíma skráning" />
-    </LinearLayout>
+            android:layout_height="50dp">
+            <TextView
+                android:id="@+id/skor_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rástímaskráning"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textColor="#2d7165"
+                android:layout_centerHorizontal="true"
+                android:paddingBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/skor_title"
+                android:layout_alignParentLeft="true"
+                android:layout_toRightOf="@+id/spinner_dates"
+                android:text="Klukkan:"
+                android:textSize="20dp"
+                android:textColor="#2d7165"/>
+
+            <Spinner
+                android:id="@+id/spinner_dates"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/skor_title"
+                android:textColor="#2d7165"
+                android:layout_alignParentRight="true" />
+
+            <View android:id="@+id/divider"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_below="@+id/spinner_dates"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/course"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/divider"
+                android:layout_toRightOf="@+id/spinner_courses"
+                android:text="Golfvöllur:"
+                android:textSize="20dp"
+                android:textColor="#2d7165"/>
+
+            <Spinner
+                android:id="@+id/spinner_courses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divider"
+                android:textColor="#2d7165"
+                android:layout_alignParentRight="true"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Velja tíma"
+                android:id="@+id/button"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/spinner_courses"
+                android:layout_gravity="center"
+                android:onClick="findTime" />
+        </RelativeLayout>
+
+    </ScrollView>
 
     <!-- The navigation drawer -->
     <ListView android:id="@+id/left_drawer"

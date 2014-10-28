@@ -17,8 +17,18 @@
         <item>Skrá út</item>
         <item>Hjálp</item>
     </string-array>
+    <string-array name="dates">
+        <item>10:00</item>
+        <item>11:00</item>
+        <item>12:00</item>
+    </string-array>
+    <string-array name="string_courses">
+        <item>Golfklúbbur Reykjavíkur</item>
+        <item>Golfklubbur Akureyrar</item>
+    </string-array>
 
     <string name="title_activity_test">Test</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_next_time_screen">nextTimeScreen</string>
 
 </resources>

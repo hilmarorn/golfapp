@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.content.res.Configuration;
+import android.widget.Spinner;
 
 /*
 Notkun: Intent open_ras = new Intent(this, RastimaSkraning.class);
@@ -28,6 +29,10 @@ public class RastimaSkraning extends Activity {
     private ListView myDrawerList;
     // Heldur utan hvort navigation drawer sér opið eða lokað
     private ActionBarDrawerToggle myDrawerToggle;
+
+    // Breytur fyrir Spinners
+    private String time;
+    private String course;
 
     /*
     Notkun: Kallað er á þetta fall þegar klasinn er búinn til
@@ -72,6 +77,56 @@ public class RastimaSkraning extends Activity {
         };
 
         myDrawerLayout.setDrawerListener(myDrawerToggle);
+
+        Spinner spinner = (Spinner) findViewById(R.id.spinner_dates);
+        Spinner spinner_courses = (Spinner) findViewById(R.id.spinner_courses);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.dates, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> course_adapter = ArrayAdapter.createFromResource(this,
+                R.array.string_courses, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        course_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+        spinner_courses.setAdapter(course_adapter);
+
+        spinner_courses.setOnItemSelectedListener(new onSpinnerSelected2());
+        spinner.setOnItemSelectedListener(new onSpinnerSelected());
+    }
+
+    private class onSpinnerSelected implements AdapterView.OnItemSelectedListener {
+        public void onItemSelected(AdapterView<?> parent, View view,
+                                   int pos, long id) {
+            // An item was selected. You can retrieve the selected item using
+            time = parent.getItemAtPosition(pos).toString();
+        }
+
+        public void onNothingSelected(AdapterView<?> parent) {
+            // Another interface callback
+        }
+    }
+
+    private class onSpinnerSelected2 implements AdapterView.OnItemSelectedListener {
+        public void onItemSelected(AdapterView<?> parent, View view,
+                                   int pos, long id) {
+            // An item was selected. You can retrieve the selected item using
+            course = parent.getItemAtPosition(pos).toString();
+        }
+
+        public void onNothingSelected(AdapterView<?> parent) {
+            // Another interface callback
+        }
+    }
+
+    public void findTime(View view) {
+        if(time != "" && course != "") {
+            Intent nextScreen = new Intent(this, nextTimeScreen.class);
+            nextScreen.putExtra("time", time);
+            nextScreen.putExtra("course", course);
+            startActivity(nextScreen);
+        }
     }
 
     @Override
@@ -127,14 +182,17 @@ Allt sem tengist Navigation Menu
             case 0:
                 Intent open_profile = new Intent(this, profile.class);
                 startActivity(open_profile);
+                finish();
                 break;
             case 1:
                 Intent open_skorkort = new Intent(this, Skorkort.class);
                 startActivity(open_skorkort);
+                finish();
                 break;
             case 2:
                 Intent open_rastimar = new Intent(this, RastimaSkraning.class);
                 startActivity(open_rastimar);
+                finish();
                 break;
         }
         // Ljóma element-ið sem ýtt var á

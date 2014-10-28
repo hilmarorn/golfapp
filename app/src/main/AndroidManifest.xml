@@ -22,13 +22,21 @@
             android:name=".profile"
             android:label="@string/golfer_name" >
         </activity>
-        <activity android:name=".Skorkort" >
+        <activity
+            android:name=".Skorkort"
+            android:label="Skorkort" >
         </activity>
-        <activity android:name=".RastimaSkraning" >
+        <activity
+            android:name=".RastimaSkraning"
+            android:label="Rástímaskráning" >
         </activity>
         <activity
             android:name=".Test"
             android:label="@string/title_activity_test" >
+        </activity>
+        <activity
+            android:name=".nextTimeScreen"
+            android:label="@string/title_activity_next_time_screen" >
         </activity>
     </application>
 
