@@ -15,22 +15,19 @@ import android.widget.ListView;
 import android.content.res.Configuration;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 /*
-Notkun: Intent open_skor = new Intent(this, Skorkort.class);
-        startActivity(open_skor);
+Notkun: Intent finnaRas = new Intent(this, finnaRastima.class);
+        startActivity(finnaRas);
 Fyrir: ekkert
-Eftir: Búið er að búa til nýtt Activity sem inniheldur skorkort
+Eftir: Búið er að búa til nýtt Activity þar sem notandi getur fundið rastima
  */
-public class nextTimeScreen extends Activity {
+public class finnaRastima extends Activity {
 
     //Fyrir navigation drawer
     private String[] nav_menu_values;
     private DrawerLayout myDrawerLayout;
     private ListView myDrawerList;
-    // Heldur utan hvort navigation drawer sér opið eða lokað
-    private ActionBarDrawerToggle myDrawerToggle;
+    private ActionBarDrawerToggle myDrawerToggle; //Heldur utan hvort navigation drawer sér opið/lokað
 
     /*
     Notkun: Kallað er á þetta fall þegar klasinn er búinn til
@@ -43,6 +40,9 @@ public class nextTimeScreen extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_next_time_screen);
 
+        /////////////////////////////
+        // Fyrir navigation drawer //
+        /////////////////////////////
         // Núllstilla nav drawer
         nav_menu_values = getResources().getStringArray(R.array.nav_drawer);
         myDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
@@ -76,11 +76,13 @@ public class nextTimeScreen extends Activity {
 
         myDrawerLayout.setDrawerListener(myDrawerToggle);
 
-        //Prófa að ná í hlutina frá hinum skjánum
+        // Ná í upplýsingar frá RastimaSkraning klasanum sem kallaði á þennan klasa
         Intent intent = getIntent();
+
         TextView time_text = (TextView)findViewById(R.id.showTime);
         TextView course_text = (TextView)findViewById(R.id.showCourse);
-        time_text.setText(intent.getStringExtra("time"));
+
+        time_text.setText(intent.getStringExtra("date"));
         course_text.setText(intent.getStringExtra("course"));
 
     }
@@ -106,9 +108,9 @@ public class nextTimeScreen extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    /*
-    Allt sem tengist Navigation Menu
-    */
+/*
+Allt sem tengist Navigation Menu
+*/
     /*
     Notkun: myListView.setOnItemClickListener(NavMenuItemClickListener())
     Fyrir: myListView verður að vera af taginu ListView

@@ -14,6 +14,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.content.res.Configuration;
 import android.widget.Spinner;
+import java.util.Calendar;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.GregorianCalendar;
 
 /*
 Notkun: Intent open_ras = new Intent(this, RastimaSkraning.class);
@@ -27,12 +31,13 @@ public class RastimaSkraning extends Activity {
     private String[] nav_menu_values;
     private DrawerLayout myDrawerLayout;
     private ListView myDrawerList;
-    // Heldur utan hvort navigation drawer sér opið eða lokað
-    private ActionBarDrawerToggle myDrawerToggle;
+    private ActionBarDrawerToggle myDrawerToggle; // Heldur utan hvort nav drawer sér opið/lokað
 
     // Breytur fyrir Spinners
-    private String time;
+    private Spinner spinner_dates, spinner_courses;
+    private String selectedDate; // Þarf kannski að breyta breytuheitinu þar sem þetta á að vera dagsetning
     private String course;
+    private ArrayAdapter<String> dates_adapter;
 
     /*
     Notkun: Kallað er á þetta fall þegar klasinn er búinn til
@@ -45,6 +50,9 @@ public class RastimaSkraning extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rastima_skraning);
 
+        /////////////////////////////
+        // Fyrir navigation drawer //
+        /////////////////////////////
         // Núllstilla nav drawer
         nav_menu_values = getResources().getStringArray(R.array.nav_drawer);
         myDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
@@ -78,29 +86,59 @@ public class RastimaSkraning extends Activity {
 
         myDrawerLayout.setDrawerListener(myDrawerToggle);
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner_dates);
-        Spinner spinner_courses = (Spinner) findViewById(R.id.spinner_courses);
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.dates, android.R.layout.simple_spinner_item);
+        ////////////////////
+        // Fyrir Spinners //
+        ////////////////////
+        // Finna spinner-ana
+        spinner_dates = (Spinner) findViewById(R.id.spinner_dates);
+        spinner_courses = (Spinner) findViewById(R.id.spinner_courses);
+
+        // ArrayAdapter fyrir spinner-ana
+        dates_adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, android.R.id.text1);
+        // Hér þarf líklegast að nota CursorAdapter þar sem við erum með dataquery
         ArrayAdapter<CharSequence> course_adapter = ArrayAdapter.createFromResource(this,
                 R.array.string_courses, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // Setjum default layout á Spinner-ana
+        dates_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         course_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
+
+        // Festa adapter-ana við spinner-ana
+        spinner_dates.setAdapter(dates_adapter);
         spinner_courses.setAdapter(course_adapter);
 
+        //Setja inn dagsetningar í Spinner
+        makeDates();
+
+        // onClickListeners fyrir Spinner-ana
         spinner_courses.setOnItemSelectedListener(new onSpinnerSelected2());
-        spinner.setOnItemSelectedListener(new onSpinnerSelected());
+        spinner_dates.setOnItemSelectedListener(new onSpinnerSelected());
     }
 
+    // Notkun: makeDates();
+    // Fyrir: ekkert
+    // Eftir: Búið er að setja dagsetningar inn í Spinner
+    private void makeDates() {
+        Calendar currentDate = new GregorianCalendar();
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+        // Dagsetningar settar inn, frá deginum í dag og 10 dagar fram í tímann
+        for(int i = 0; i < 10; i++) {
+            dates_adapter.add(dateFormat.format(currentDate.getTime()));
+            currentDate.add(Calendar.DAY_OF_MONTH, 1);
+            dates_adapter.notifyDataSetChanged();
+        }
+    }
+
+    // Notkun: new onSpinnerSelected();
+    // Fyrir: ekkert
+    // Eftir: Búið er að finna út á hvaða element var smellt á í Spinner
     private class onSpinnerSelected implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View view,
                                    int pos, long id) {
-            // An item was selected. You can retrieve the selected item using
-            time = parent.getItemAtPosition(pos).toString();
+            // Fundið dagsetningu sem smellt var á
+            selectedDate = parent.getItemAtPosition(pos).toString();
         }
 
         public void onNothingSelected(AdapterView<?> parent) {
@@ -108,10 +146,13 @@ public class RastimaSkraning extends Activity {
         }
     }
 
+    // Notkun: new onSpinnerSelected2();
+    // Fyrir: ekkert
+    // Eftir: Búið er að finna út á hvaða element var smellt á í Spinner
     private class onSpinnerSelected2 implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View view,
                                    int pos, long id) {
-            // An item was selected. You can retrieve the selected item using
+            // Fundið hvaða völlur var valinn
             course = parent.getItemAtPosition(pos).toString();
         }
 
@@ -120,12 +161,16 @@ public class RastimaSkraning extends Activity {
         }
     }
 
+    // Notkun findTime();
+    // Fyrir: ekkert
+    // Eftir: Búið er að byrja nýtt Activity og fært er á milli dagsetninguna og völlinn sem
+    //        sem notandi valdi
     public void findTime(View view) {
-        if(time != "" && course != "") {
-            Intent nextScreen = new Intent(this, nextTimeScreen.class);
-            nextScreen.putExtra("time", time);
-            nextScreen.putExtra("course", course);
-            startActivity(nextScreen);
+        if(selectedDate != "" && course != "") {
+            Intent intent = new Intent(this, finnaRastima.class);
+            intent.putExtra("date", selectedDate);
+            intent.putExtra("course", course);
+            startActivity(intent);
         }
     }
 
