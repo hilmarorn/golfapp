@@ -28,9 +28,9 @@
                 android:text="Spila Völl"
                 android:id="@+id/spilavoll_button"
                 android:layout_gravity="center"
-                android:onClick="buttonOnClick"
                 android:focusableInTouchMode="false"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:onClick="SpilaNyjanVoll" />
 
         </LinearLayout>
 

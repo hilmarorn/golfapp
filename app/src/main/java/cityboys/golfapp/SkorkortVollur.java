@@ -2,26 +2,20 @@ package cityboys.golfapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-import android.content.res.Configuration;
 
-/*
-Notkun: Intent open_skor = new Intent(this, Skorkort.class);
-        startActivity(open_skor);
-Fyrir: ekkert
-Eftir: Búið er að búa til nýtt Activity sem inniheldur skorkort
- */
-public class Skorkort extends Activity {
+
+public class SkorkortVollur extends Activity {
 
     //Fyrir navigation drawer
     private String[] nav_menu_values;
@@ -36,10 +30,11 @@ public class Skorkort extends Activity {
     Eftir: Búið er að núllstilla alla hluti sem sýna skal. Þar má nefna navigation drawer
            og tengslin milli navigation drawer og Action Bar
      */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.skorkort);
+        setContentView(R.layout.skorkort_vollur);
 
         // Núllstilla nav drawer
         nav_menu_values = getResources().getStringArray(R.array.nav_drawer);
@@ -75,12 +70,6 @@ public class Skorkort extends Activity {
         myDrawerLayout.setDrawerListener(myDrawerToggle);
     }
 
-    // Býr til nýtt activity þegar ýtt er á hnapp
-    public void SpilaNyjanVoll(View view) {
-        Intent spila_voll = new Intent(this, SpilaVoll.class);
-        startActivity(spila_voll);
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -102,9 +91,9 @@ public class Skorkort extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-/*
-Allt sem tengist Navigation Menu
-*/
+    /*
+    Allt sem tengist Navigation Menu
+    */
     /*
     Notkun: myListView.setOnItemClickListener(NavMenuItemClickListener())
     Fyrir: myListView verður að vera af taginu ListView

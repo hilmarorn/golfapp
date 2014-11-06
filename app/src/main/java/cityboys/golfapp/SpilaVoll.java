@@ -21,7 +21,7 @@ Notkun: Intent open_skor = new Intent(this, Skorkort.class);
 Fyrir: ekkert
 Eftir: Búið er að búa til nýtt Activity sem inniheldur skorkort
  */
-public class Skorkort extends Activity {
+public class SpilaVoll extends Activity {
 
     //Fyrir navigation drawer
     private String[] nav_menu_values;
@@ -39,7 +39,7 @@ public class Skorkort extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.skorkort);
+        setContentView(R.layout.spila_voll);
 
         // Núllstilla nav drawer
         nav_menu_values = getResources().getStringArray(R.array.nav_drawer);
@@ -76,9 +76,9 @@ public class Skorkort extends Activity {
     }
 
     // Býr til nýtt activity þegar ýtt er á hnapp
-    public void SpilaNyjanVoll(View view) {
-        Intent spila_voll = new Intent(this, SpilaVoll.class);
-        startActivity(spila_voll);
+    public void Saekjaskorkort(View view) {
+        Intent saekja_skorkort = new Intent(this, SkorkortVollur.class);
+        startActivity(saekja_skorkort);
     }
 
     @Override
@@ -102,9 +102,9 @@ public class Skorkort extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-/*
-Allt sem tengist Navigation Menu
-*/
+    /*
+    Allt sem tengist Navigation Menu
+    */
     /*
     Notkun: myListView.setOnItemClickListener(NavMenuItemClickListener())
     Fyrir: myListView verður að vera af taginu ListView

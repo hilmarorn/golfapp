@@ -1,0 +1,114 @@
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kylfingur"
+                android:id="@+id/kylfingur_label"
+                android:layout_marginTop="20dp"
+                android:textSize="20dp"
+                android:textColor="#2d7165"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sigmar Sigurðsson"
+                android:id="@+id/id_kylfingur"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Völlur"
+                android:id="@+id/vollur_label"
+                android:layout_marginTop="20dp"
+                android:textSize="20dp"
+                android:textColor="#2d7165" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/vollur_spinner"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teigar"
+                android:id="@+id/teigar_label"
+                android:layout_marginTop="20dp"
+                android:textSize="20dp"
+                android:textColor="#2d7165" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/teigar_spinner"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dagsetning"
+                android:id="@+id/dags_label"
+                android:layout_marginTop="20dp"
+                android:textSize="20dp"
+                android:textColor="#2d7165" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/dags_spinner"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fjöldi hola"
+                android:id="@+id/fjhola_label"
+                android:layout_marginTop="20dp"
+                android:textSize="20dp"
+                android:textColor="#2d7165" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/fjhola_spinner"
+                android:layout_gravity="center_horizontal" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sækja skorkort"
+                android:id="@+id/saekjaskorkort_button"
+                android:layout_gravity="center"
+                android:focusableInTouchMode="false"
+                android:layout_marginTop="20dp"
+                android:onClick="Saekjaskorkort" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- The navigation drawer -->
+    <ListView android:id="@+id/left_drawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:choiceMode="singleChoice"
+        android:divider="#2d7165"
+        android:dividerHeight="0.5dp"
+        android:background="#2b574e"/>
+
+</android.support.v4.widget.DrawerLayout>
