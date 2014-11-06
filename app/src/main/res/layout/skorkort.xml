@@ -4,19 +4,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <LinearLayout
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/skor_text"
-            android:textColor="#2d7165"
-            android:textStyle="bold"
-            android:text="Hér kemur skorkort" />
-    </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Engin skorkort til að sýna"
+                android:id="@+id/textView"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:textSize="20dp"
+                android:textColor="#2d7165"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Spila Völl"
+                android:id="@+id/spilavoll_button"
+                android:layout_gravity="center"
+                android:onClick="buttonOnClick"
+                android:focusableInTouchMode="false"
+                android:layout_marginTop="20dp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
     <!-- The navigation drawer -->
     <ListView android:id="@+id/left_drawer"

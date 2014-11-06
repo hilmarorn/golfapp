@@ -2,45 +2,41 @@ package cityboys.golfapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-import android.content.res.Configuration;
+import android.widget.TextView;
 
-/*
-Notkun: Intent open_skor = new Intent(this, Skorkort.class);
-        startActivity(open_skor);
-Fyrir: ekkert
-Eftir: Búið er að búa til nýtt Activity sem inniheldur skorkort
- */
-public class Skorkort extends Activity {
+
+public class skraTima extends Activity {
+
+    // Breytur fyrir upplýsingarnar sem teknar eru með í skjáinn
+    private String date;
+    private String course;
+    private String time;
 
     //Fyrir navigation drawer
     private String[] nav_menu_values;
     private DrawerLayout myDrawerLayout;
     private ListView myDrawerList;
-    // Heldur utan hvort navigation drawer sér opið eða lokað
-    private ActionBarDrawerToggle myDrawerToggle;
+    private ActionBarDrawerToggle myDrawerToggle; // Heldur utan hvort nav drawer sér opið/lokað
 
-    /*
-    Notkun: Kallað er á þetta fall þegar klasinn er búinn til
-    Fyrir: ekkert
-    Eftir: Búið er að núllstilla alla hluti sem sýna skal. Þar má nefna navigation drawer
-           og tengslin milli navigation drawer og Action Bar
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.skorkort);
+        setContentView(R.layout.rastima_leit);
 
+        /////////////////////////////
+        // Fyrir navigation drawer //
+        /////////////////////////////
         // Núllstilla nav drawer
         nav_menu_values = getResources().getStringArray(R.array.nav_drawer);
         myDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
@@ -73,23 +69,30 @@ public class Skorkort extends Activity {
         };
 
         myDrawerLayout.setDrawerListener(myDrawerToggle);
+
+        Intent previousActivity = getIntent();
+        date = previousActivity.getStringExtra("date");
+        course = previousActivity.getStringExtra("course");
+        time = previousActivity.getStringExtra("time");
+
+        TextView msg = (TextView)findViewById(R.id.rastimaLeit_title);
+        msg.setText("Ertu viss um að þú viljir bóka rástíma " + date + " á " + course +
+                " klukkan " + time + "?");
     }
-    /*
-    public void buttonOnClick(View v){
-        Button button = (Button) v;
-        startActivity(new Intent(getApplicationContext(), SpilaVoll.class));
-    }
-    */
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.profile, menu);
+        getMenuInflater().inflate(R.menu.skra_tima, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Ef ýtt er á myndtákn í Action Bar skilar þetta tru
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
         if (myDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
@@ -111,12 +114,12 @@ Allt sem tengist Navigation Menu
      */
     private class NavMenuItemClickListener implements ListView.OnItemClickListener {
         @Override
-        /*
-        Notkun: Kallað er á þetta þegar eintak er búið til af klasanum NavMenuClickListener,
-                þar sem position er staðsetning á element-inu sem ýtt var á
-        Fyrir: ekkert
-        Eftir: búið er að finna út á hvaða element var ýtt á
-         */
+            /*
+            Notkun: Kallað er á þetta þegar eintak er búið til af klasanum NavMenuClickListener,
+                    þar sem position er staðsetning á element-inu sem ýtt var á
+            Fyrir: ekkert
+            Eftir: búið er að finna út á hvaða element var ýtt á
+             */
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             selectItem(position);
         }
@@ -133,14 +136,17 @@ Allt sem tengist Navigation Menu
             case 0:
                 Intent open_profile = new Intent(this, profile.class);
                 startActivity(open_profile);
+                finish();
                 break;
             case 1:
                 Intent open_skorkort = new Intent(this, Skorkort.class);
                 startActivity(open_skorkort);
+                finish();
                 break;
             case 2:
                 Intent open_rastimar = new Intent(this, Rastimar.class);
                 startActivity(open_rastimar);
+                finish();
                 break;
         }
         // Ljóma element-ið sem ýtt var á

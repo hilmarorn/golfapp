@@ -1,7 +1,5 @@
 package cityboys.golfapp;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.Fragment;
@@ -29,7 +27,7 @@ Eftir: Búið er að búa til nýtt Activity sem inniheldur 2 síður fyrir nota
  */
 public class profile extends FragmentActivity {
 
-    // Fjöldi síða sem á að bjóða uppá
+    // Fjöldi notendasíða
     private final int NUM_PAGE = 2;
     // Pager widget, sér um swipe-ið á milli fragment-a
     private ViewPager myViewpager;
@@ -57,10 +55,12 @@ public class profile extends FragmentActivity {
 
         // Búa til Viewpager og PageAdapter. Því næst tengja þá saman
         myViewpager = (ViewPager)findViewById(R.id.pager);
-        myPagerAdapter = new ScreenSlide(getSupportFragmentManager());
+        myPagerAdapter = new ScreenSlide(getSupportFragmentManager(), "profile", NUM_PAGE);
         myViewpager.setAdapter(myPagerAdapter);
 
-        // Núllstilla navigation drawer
+        ///////////////////////
+        // Navigation Drawer //
+        ///////////////////////
         nav_menu_values = getResources().getStringArray(R.array.nav_drawer);
         myDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         myDrawerList = (ListView)findViewById(R.id.left_drawer);
@@ -88,8 +88,8 @@ public class profile extends FragmentActivity {
             public void onDrawerOpen(View drawerView) {
                 super.onDrawerOpened(drawerView);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
-            }
-        };
+            }   
+        };  
 
         myDrawerLayout.setDrawerListener(myDrawerToggle);
     }
@@ -104,53 +104,15 @@ public class profile extends FragmentActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Ef ýtt er á myndtákn í Action Bar skilar þetta true
-        /*if (myDrawerToggle.onOptionsItemSelected(item)) {
+        if (myDrawerToggle.onOptionsItemSelected(item)) {
             return true;
-        }*/
+        }
 
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    /*
-    Notkun: pagerAdapter = new ScreenSlide(myFragment)
-    Fyrir: myFragment verður að vera af taginu FragmentManager
-    Eftir: Búið er að búa til nýtt fragment og setja það inn í PagerAdapter sem heldur
-           utan um öll fragments sem búin hafa verið til og gerir okkur kleift að nýta
-           HorizontalScrollView á milli fragment-anna
-     */
-    private class ScreenSlide extends FragmentStatePagerAdapter {
-        /*
-        Notkun: Kallað er á fallið um leið og búið er til eintak af klasanum
-        Fyrir: myFragment verður að vera af taginu FragmentManager
-        Eftir: Búið er að bæta fragmentManager-num við PagerAdapter-inn
-         */
-        public ScreenSlide(FragmentManager myFragment) {
-            super(myFragment);
-        }
-
-        /*
-        Notkun y = myScreenSlide.getItem(x)
-        Fyrir: 0 <= x <= NUM_PAGES
-        Eftir: y er fragment með blaðsíðutal x
-         */
-        @Override
-        public Fragment getItem(int position) {
-            return SlideFragment.create(position);
-        }
-
-        /*
-        Notkun: x = myScreenSlide.getCount()
-        Fyrir: myScreenSlide er af taginu ScreenSlide
-        Eftir: x er blaðsíðutal myScreenSlide
-         */
-        @Override
-        public int getCount() {
-            return NUM_PAGE;
-        }
     }
 
 /*
@@ -193,7 +155,7 @@ Allt sem tengist Navigation Menu
                 finish();
                 break;
             case 2:
-                Intent open_rastimar = new Intent(this, RastimaSkraning.class);
+                Intent open_rastimar = new Intent(this, Rastimar.class);
                 startActivity(open_rastimar);
                 /*Intent open_test = new Intent(this, Test.class);
                 startActivity(open_test);*/

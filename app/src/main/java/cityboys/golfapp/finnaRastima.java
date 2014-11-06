@@ -1,44 +1,48 @@
 package cityboys.golfapp;
 
-import android.app.Activity;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
+import android.app.Activity;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
-import android.content.res.Configuration;
 import android.widget.TextView;
+import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.ExpandableListView.OnGroupClickListener;
 
-/*
-Notkun: Intent finnaRas = new Intent(this, finnaRastima.class);
-        startActivity(finnaRas);
-Fyrir: ekkert
-Eftir: Búið er að búa til nýtt Activity þar sem notandi getur fundið rastima
- */
 public class finnaRastima extends Activity {
+
+    private LinkedHashMap<String, HeaderInfo> myTimes = new LinkedHashMap<String, HeaderInfo>();
+    private ArrayList<HeaderInfo> timeList = new ArrayList<HeaderInfo>();
+
+    private MyListAdapter listAdapter;
+    private ExpandableListView myList;
+
+    // Til að taka hluti á milli skjáa
+    private String date;
+    private String course;
 
     //Fyrir navigation drawer
     private String[] nav_menu_values;
     private DrawerLayout myDrawerLayout;
     private ListView myDrawerList;
-    private ActionBarDrawerToggle myDrawerToggle; //Heldur utan hvort navigation drawer sér opið/lokað
+    private ActionBarDrawerToggle myDrawerToggle; // Heldur utan hvort nav drawer sér opið/lokað
 
-    /*
-    Notkun: Kallað er á þetta fall þegar klasinn er búinn til
-    Fyrir: ekkert
-    Eftir: Búið er að núllstilla alla hluti sem sýna skal. Þar má nefna navigation drawer
-           og tengslin milli navigation drawer og Action Bar
-     */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_next_time_screen);
+        setContentView(R.layout.rastima_yfirlit);
 
         /////////////////////////////
         // Fyrir navigation drawer //
@@ -76,27 +80,38 @@ public class finnaRastima extends Activity {
 
         myDrawerLayout.setDrawerListener(myDrawerToggle);
 
-        // Ná í upplýsingar frá RastimaSkraning klasanum sem kallaði á þennan klasa
-        Intent intent = getIntent();
+        // Ná í upplýsingar úr fyrri skjá
+        Intent previousActivity = getIntent();
+        date = previousActivity.getStringExtra("date");
+        course = previousActivity.getStringExtra("course");
 
-        TextView time_text = (TextView)findViewById(R.id.showTime);
-        TextView course_text = (TextView)findViewById(R.id.showCourse);
+        TextView header = (TextView)findViewById(R.id.textView1);
+        header.setText(date);
 
-        time_text.setText(intent.getStringExtra("date"));
-        course_text.setText(intent.getStringExtra("course"));
+        //Just add some data to start with
+        loadData();
 
-    }
+        //get reference to the ExpandableListView
+        myList = (ExpandableListView) findViewById(R.id.myList);
+        //create the adapter by passing your ArrayList data
+        listAdapter = new MyListAdapter(this, timeList);
+        //attach the adapter to the list
+        myList.setAdapter(listAdapter);
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.profile, menu);
-        return true;
+        //expand all Groups
+        //expandAll();
+
+        //listener for child row click
+        myList.setOnChildClickListener(myListItemClicked);
+        //listener for group heading click
+        myList.setOnGroupClickListener(myListGroupClicked);
+
+
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Ef ýtt er á myndtákn í Action Bar skilar þetta tru
+        // Ef ýtt er á myndtákn í Action Bar skilar þetta true
         if (myDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
@@ -106,6 +121,127 @@ public class finnaRastima extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    //method to expand all groups
+    private void expandAll() {
+        int count = listAdapter.getGroupCount();
+        for (int i = 0; i < count; i++){
+            myList.expandGroup(i);
+        }
+    }
+
+    //method to collapse all groups
+    private void collapseAll() {
+        int count = listAdapter.getGroupCount();
+        for (int i = 0; i < count; i++){
+            myList.collapseGroup(i);
+        }
+    }
+
+    //load some initial data into out list
+    private void loadData(){
+
+        addProduct("10:00","Guðmundur Jónsson");
+        addProduct("10:00","Karl Áki Gústafsson");
+        addProduct("10:00","");
+        addProduct("10:00","");
+
+        addProduct("11:00","Jón Jónson");
+        addProduct("11:00","Tryggvi Einarsson");
+        addProduct("11:00","Bjarki Ármannsson");
+        addProduct("11:00","");
+
+        addProduct("12:00","Gréta Magnúsdóttir");
+        addProduct("12:00","Margrét Ingvarsdóttir");
+        addProduct("12:00","Gerður Gunnarsdóttir");
+        addProduct("12:00","Hildur Valdimarsdóttir");
+
+        addProduct("13:00","");
+        addProduct("13:00","");
+        addProduct("13:00","");
+        addProduct("13:00","");
+
+    }
+
+    //our child listener
+    private OnChildClickListener myListItemClicked =  new OnChildClickListener() {
+
+        public boolean onChildClick(ExpandableListView parent, View v,
+                                    int groupPosition, int childPosition, long id) {
+
+            //get the group header
+            HeaderInfo headerInfo = timeList.get(groupPosition);
+            //get the child info
+            DetailInfo detailInfo =  headerInfo.getTimeList().get(childPosition);
+            //display it or do something with it
+            /*Toast.makeText(getBaseContext(), "Clicked on Detail " + headerInfo.getName()
+                    + "/" + detailInfo.getName(), Toast.LENGTH_LONG).show();*/
+            Intent skra_tima = new Intent(getBaseContext(), skraTima.class);
+            skra_tima.putExtra("date", date);
+            skra_tima.putExtra("course", course);
+            skra_tima.putExtra("time", headerInfo.getName());
+            startActivity(skra_tima);
+            return false;
+        }
+
+    };
+
+    //our group listener
+    private OnGroupClickListener myListGroupClicked =  new OnGroupClickListener() {
+
+        public boolean onGroupClick(ExpandableListView parent, View v,
+                                    int groupPosition, long id) {
+
+            //get the group header
+            HeaderInfo headerInfo = timeList.get(groupPosition);
+            //display it or do something with it
+            /*Toast.makeText(getBaseContext(), "Child on Header " + headerInfo.getName(),
+                    Toast.LENGTH_LONG).show();*/
+
+            return false;
+        }
+
+    };
+
+    //here we maintain our products in various departments
+    private int addProduct(String time, String player_name){
+
+        int groupPosition = 0;
+
+        //check the hash map if the group already exists
+        HeaderInfo headerInfo = myTimes.get(time);
+        //add the group if doesn't exists
+        if(headerInfo == null){
+            headerInfo = new HeaderInfo();
+            headerInfo.setName(time);
+            myTimes.put(time, headerInfo);
+            timeList.add(headerInfo);
+        }
+
+        //get the children for the group
+        ArrayList<DetailInfo> lst_players = headerInfo.getTimeList();
+        //size of the children list
+        int listSize = lst_players.size();
+        //add to the counter
+        listSize++;
+
+        //create a new child and add that to the group
+        DetailInfo detailInfo = new DetailInfo();
+        //detailInfo.setSequence(String.valueOf(listSize));
+        detailInfo.setName(player_name);
+        lst_players.add(detailInfo);
+        headerInfo.setTimeList(lst_players);
+
+        //find the group position inside the list
+        groupPosition = timeList.indexOf(headerInfo);
+        return groupPosition;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.test, menu);
+        return true;
     }
 
 /*
@@ -118,12 +254,12 @@ Allt sem tengist Navigation Menu
      */
     private class NavMenuItemClickListener implements ListView.OnItemClickListener {
         @Override
-        /*
-        Notkun: Kallað er á þetta þegar eintak er búið til af klasanum NavMenuClickListener,
-                þar sem position er staðsetning á element-inu sem ýtt var á
-        Fyrir: ekkert
-        Eftir: búið er að finna út á hvaða element var ýtt á
-         */
+            /*
+            Notkun: Kallað er á þetta þegar eintak er búið til af klasanum NavMenuClickListener,
+                    þar sem position er staðsetning á element-inu sem ýtt var á
+            Fyrir: ekkert
+            Eftir: búið er að finna út á hvaða element var ýtt á
+             */
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             selectItem(position);
         }
@@ -148,7 +284,7 @@ Allt sem tengist Navigation Menu
                 finish();
                 break;
             case 2:
-                Intent open_rastimar = new Intent(this, RastimaSkraning.class);
+                Intent open_rastimar = new Intent(this, Rastimar.class);
                 startActivity(open_rastimar);
                 finish();
                 break;

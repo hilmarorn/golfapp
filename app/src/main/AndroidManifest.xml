@@ -24,19 +24,19 @@
         </activity>
         <activity
             android:name=".Skorkort"
-            android:label="Skorkort" >
+            android:label="@string/title_skorkort" >
         </activity>
         <activity
-            android:name=".RastimaSkraning"
-            android:label="Rástímaskráning" >
+            android:name=".Rastimar"
+            android:label="@string/title_rastimar" >
         </activity>
         <activity
             android:name=".Test"
             android:label="@string/title_activity_test" >
         </activity>
         <activity
-            android:name=".finnaRastima"
-            android:label="@string/title_activity_next_time_screen" >
+            android:name=".LausirTimar"
+            android:label="@string/title_activity_lausir_timar" >
         </activity>
     </application>
 

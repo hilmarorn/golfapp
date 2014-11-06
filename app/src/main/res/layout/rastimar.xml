@@ -1,0 +1,47 @@
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/skor_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rástímar"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="#2d7165"
+            android:layout_centerHorizontal="true"
+            android:paddingBottom="10dp"/>
+
+        <Spinner
+            android:id="@+id/spinner_dates"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/skor_title"
+            android:textColor="#2d7165"
+            android:layout_marginRight="5dp"/>
+
+        <ListView
+            android:id="@+id/myList"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/spinner_dates"/>
+
+    </RelativeLayout>
+
+    <!-- The navigation drawer -->
+    <ListView android:id="@+id/left_drawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:choiceMode="singleChoice"
+        android:divider="#2d7165"
+        android:dividerHeight="0.5dp"
+        android:background="#2b574e"/>
+
+</android.support.v4.widget.DrawerLayout>

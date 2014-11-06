@@ -13,18 +13,27 @@
     <string-array name="nav_drawer">
         <item>Heim</item>
         <item>Skorkort</item>
-        <item>Rástímaskráning</item>
-        <item>Skrá út</item>
+        <item>Rástímar</item>
         <item>Hjálp</item>
+        <item>Skrá út</item>
     </string-array>
-
     <string-array name="string_courses">
         <item>Golfklúbbur Reykjavíkur</item>
-        <item>Golfklubbur Akureyrar</item>
+        <item>Golfklúbbur Akureyrar</item>
+        <item>Golfklúbbur Borgarness</item>
+        <item>Golfklúbburinn Glanni</item>
+        <item>Golfklúbbur Keilir</item>
+        <item>Golfklúbburinn Leynir</item>
+        <item>Golfklúbburinn Úthlíð</item>
     </string-array>
 
+    <!-- Titles -->
     <string name="title_activity_test">Test</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="title_skorkort">Skorkort</string>
+    <string name="title_rastimar">Rástímar</string>
     <string name="title_activity_next_time_screen">nextTimeScreen</string>
+    <string name="title_activity_skra_tima">skraTima</string>
+    <string name="title_activity_lausir_timar">LausirTimar</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

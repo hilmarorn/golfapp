@@ -2,26 +2,23 @@ package cityboys.golfapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-import android.content.res.Configuration;
+import android.widget.TextView;
 
-/*
-Notkun: Intent open_skor = new Intent(this, Skorkort.class);
-        startActivity(open_skor);
-Fyrir: ekkert
-Eftir: Búið er að búa til nýtt Activity sem inniheldur skorkort
- */
-public class Skorkort extends Activity {
+import org.w3c.dom.Text;
+
+
+public class LausirTimar extends Activity {
 
     //Fyrir navigation drawer
     private String[] nav_menu_values;
@@ -30,16 +27,13 @@ public class Skorkort extends Activity {
     // Heldur utan hvort navigation drawer sér opið eða lokað
     private ActionBarDrawerToggle myDrawerToggle;
 
-    /*
-    Notkun: Kallað er á þetta fall þegar klasinn er búinn til
-    Fyrir: ekkert
-    Eftir: Búið er að núllstilla alla hluti sem sýna skal. Þar má nefna navigation drawer
-           og tengslin milli navigation drawer og Action Bar
-     */
+    // Frá pastActivity
+    private String date, course, startTime, endTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.skorkort);
+        setContentView(R.layout.lausir_timar);
 
         // Núllstilla nav drawer
         nav_menu_values = getResources().getStringArray(R.array.nav_drawer);
@@ -73,27 +67,32 @@ public class Skorkort extends Activity {
         };
 
         myDrawerLayout.setDrawerListener(myDrawerToggle);
+
+        Intent pastActivity = getIntent();
+
+        date = pastActivity.getStringExtra("Date");
+        course = pastActivity.getStringExtra("Course");
+        startTime = pastActivity.getStringExtra("StartTime");
+        endTime = pastActivity.getStringExtra("EndTime");
+
+        TextView onlyView = (TextView) findViewById(R.id.onlyView);
+        onlyView.setText("Engir tímar fundust " + date + " á " + course + " milli " + startTime +
+                            " og " + endTime);
     }
-    /*
-    public void buttonOnClick(View v){
-        Button button = (Button) v;
-        startActivity(new Intent(getApplicationContext(), SpilaVoll.class));
-    }
-    */
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.profile, menu);
+        getMenuInflater().inflate(R.menu.lausir_timar, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Ef ýtt er á myndtákn í Action Bar skilar þetta tru
-        if (myDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
@@ -104,7 +103,7 @@ public class Skorkort extends Activity {
 /*
 Allt sem tengist Navigation Menu
 */
-    /*
+/*
     Notkun: myListView.setOnItemClickListener(NavMenuItemClickListener())
     Fyrir: myListView verður að vera af taginu ListView
     Eftir: búið er að tengja onClickListener við myListView
