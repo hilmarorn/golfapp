@@ -20,7 +20,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
-
+/*
+Þarf að refactor-a, klasinn er því ekki í notkun sem stendur
+ */
 public class finnaRastima extends Activity {
 
     private LinkedHashMap<String, HeaderInfo> myTimes = new LinkedHashMap<String, HeaderInfo>();

@@ -4,7 +4,9 @@ package cityboys.golfapp;
  * Created by Busli on 29.10.2014.
  */
 import java.util.ArrayList;
-
+//Notkun: HeaderInfo headerInfo = new HeaderInfo();
+// Fyrir: ekkert
+// Eftir: Búið er að búa til efsta tré sem getur verið með fjögur börn (frá DetailedView)
 public class HeaderInfo {
 
     private String name;

@@ -44,8 +44,10 @@ public class SlideFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        // Hér er fundið úr hvaða skjá fragment-ið er
         String origin = getArguments().getString("origin");
 
+        // Hér er valið rétt layout eftir því hvaða fragment kallaði á klasann
         if(origin == "profile") {
             // Hér er fundið hvaða skjá á að birta eftir blaðsíðutali
             if (currentPageNumber == 0) {

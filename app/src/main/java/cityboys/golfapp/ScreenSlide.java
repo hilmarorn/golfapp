@@ -18,7 +18,7 @@ public class ScreenSlide extends FragmentStatePagerAdapter {
 
     private int NUM_PAGE;
     private String identifier;
-    //private String screenFromRastimi;
+
     /*
     Notkun: Kallað er á fallið um leið og búið er til eintak af klasanum
     Fyrir: myFragment verður að vera af taginu FragmentManager
@@ -28,7 +28,6 @@ public class ScreenSlide extends FragmentStatePagerAdapter {
         super(myFragment);
         NUM_PAGE = numPage;
         identifier = identify_activity;
-        //screenFromRastimi = screen_from_rastimi;
     }
 
     /*
@@ -52,6 +51,11 @@ public class ScreenSlide extends FragmentStatePagerAdapter {
     }
 
     @Override
+    /*
+    Notkun: title = myScreenSlide.getPageTitle(x)
+    Fyrir: x er löglegt blaðsíðutal
+    Eftir: title inniheldur nú réttan titil eftir blaðsíðu
+     */
     public CharSequence getPageTitle(int position) {
         switch(position) {
             case 0:

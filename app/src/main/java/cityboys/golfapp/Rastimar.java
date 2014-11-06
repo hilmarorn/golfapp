@@ -16,12 +16,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.content.res.Configuration;
 import android.widget.Spinner;
-import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.text.DateFormat;
@@ -37,10 +35,14 @@ Eftir: Búið er að búa til nýtt Activity sem inniheldur rástíma skráningu
  */
 public class Rastimar extends FragmentActivity {
 
+    // TO DO
     // Gera private final string identifier við tækifæri
+    // Sameina kannski makeListView og makeSpinners þar sem það er fyrir sama skjáinn
 
 
     private ActionBar actionBar;
+
+    // Strengja fylki fyrir spinner-a
     private String string_courses[] = new String[] {"Golfklúbbur Reykjavíkur", "Golfklúbbur Akureyrar",
             "Golfklúbburinn Leynir", "Golfklúbburinn á Selfossi"};
     private String string_times[] = new String[] {"08:00", "09:00", "10:00", "11:00", "12:00", "13:00"};
@@ -106,7 +108,7 @@ public class Rastimar extends FragmentActivity {
         // Breyta um lit á tabs
         actionBar.setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#2b574e")));
 
-        // Create a tab listener that is called when the user changes tabs.
+        // Tab listener
         ActionBar.TabListener tabListener = new ActionBar.TabListener() {
             public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
                 // show the given tab
@@ -122,7 +124,7 @@ public class Rastimar extends FragmentActivity {
             }
         };
 
-        // Add 3 tabs, specifying the tab's text and TabListener
+        // Búin til 3 tabs og festum listener við þá
         for (int i = 0; i < NUM_PAGE; i++) {
             actionBar.addTab(
                     actionBar.newTab()
@@ -178,6 +180,9 @@ public class Rastimar extends FragmentActivity {
         myDrawerLayout.setDrawerListener(myDrawerToggle);
     }
 
+    // Notkun: makeListView(view)
+    // Fyrir: view er view-ið sem kallað var úr
+    // Eftir: búið er að gera ListView með golfvöllum í rástíma fragment-inu
     public void makeListView(View view) {
         /*
         Til að lita ListView þarf ég að fá position á lista elementunum
@@ -188,6 +193,7 @@ public class Rastimar extends FragmentActivity {
             view.setBackgroundColor(Color.WHITE);
         }
          */
+        // ListView fundið
         course_list = (ListView)view.findViewById(R.id.myList);
 
         // Define a new Adapter
@@ -205,13 +211,18 @@ public class Rastimar extends FragmentActivity {
                 int itemPosition = position;
                 String itemValue = (String) course_list.getItemAtPosition(position);
 
+                // TO DO
                 // Köllum á skjáinn sem heldur utan um rástímayfirlitið
-
                 // Hér vantar að taka upplýsingarnar með
             }
         });
     }
 
+    /*
+    Notkun: makeSpinners(view)
+    Fyrir: view er view-ið sem kallað er úr
+    Eftir: búið er að gera spinner fyrir rastima fragment-ið
+     */
     public void makeSpinners(View view) {
         // Finna spinner
         spinner_dates = (Spinner) view.findViewById(R.id.spinner_dates);
@@ -235,23 +246,31 @@ public class Rastimar extends FragmentActivity {
         spinner_dates.setOnItemSelectedListener(new onSpinnerSelected());
     }
 
+    /*
+    Notkun: makeExpandableListView(view)
+    Fyrir: view er view-ið sem kallað var úr
+    Eftir: búið er að gera ExpandableListView fyrir rástímayfirlit fragment-ið
+     */
     public void makeExpandableListView(View view) {
         //Just add some data to start with
         loadData();
 
-        //get reference to the ExpandableListView
+        // Finna ExpandableListView-ið
         myList = (ExpandableListView) view.findViewById(R.id.myList);
-        //create the adapter by passing your ArrayList data
+        // Búa til adapter fyrir ExpandableListView-ið og setja inn gögnin
         listAdapter = new MyListAdapter(view.getContext(), timeList);
-        //attach the adapter to the list
         myList.setAdapter(listAdapter);
-        //listener for child row click
+        // Listener fyrir börnin
         myList.setOnChildClickListener(myListItemClicked);
-        //listener for group heading click
+        // listener fyrir master tréið
         myList.setOnGroupClickListener(myListGroupClicked);
     }
 
-    //load some initial data into out list
+    /*
+    Notkun: loadData()
+    Fyrir: ekkert
+    Eftir: búið er að setja inn gögn í master tréið og börn master trésins
+     */
     private void loadData(){
 
         addProduct("10:00","Guðmundur Jónsson");
@@ -276,16 +295,17 @@ public class Rastimar extends FragmentActivity {
 
     }
 
-    //our child listener
+    // Listener fyrir börnin
     private ExpandableListView.OnChildClickListener myListItemClicked =  new ExpandableListView.OnChildClickListener() {
 
         public boolean onChildClick(ExpandableListView parent, View v,
                                     int groupPosition, int childPosition, long id) {
 
-            //get the group header
+            // Fá nafn master trésins
             HeaderInfo headerInfo = timeList.get(groupPosition);
-            //get the child info
+            // Fá allar upplýsingar frá börnunum
             DetailInfo detailInfo =  headerInfo.getTimeList().get(childPosition);
+            // Kóðinn fyrir neðan er geymdur hér til að muna útfærsluatriði
             /*
             Intent skra_tima = new Intent(getBaseContext(), skraTima.class);
             skra_tima.putExtra("date", date);
@@ -298,31 +318,32 @@ public class Rastimar extends FragmentActivity {
 
     };
 
-    //our group listener
+    // Listener fyrir master tréin
     private ExpandableListView.OnGroupClickListener myListGroupClicked =  new ExpandableListView.OnGroupClickListener() {
 
         public boolean onGroupClick(ExpandableListView parent, View v,
                                     int groupPosition, long id) {
 
-            //get the group header
+            // Fá nafn master trésins
             HeaderInfo headerInfo = timeList.get(groupPosition);
-            //display it or do something with it
-            /*Toast.makeText(getBaseContext(), "Child on Header " + headerInfo.getName(),
-                    Toast.LENGTH_LONG).show();*/
 
             return false;
         }
 
     };
 
-    //here we maintain our products in various departments
+    /*
+    Notkun: addProduct()
+    Fyrir: ekkert
+    Eftir: búið er að setja allar upplýsingar inn í master tréin og börnin þeirra
+     */
     private int addProduct(String time, String player_name){
 
         int groupPosition = 0;
 
-        //check the hash map if the group already exists
+        // Gá í hash mappinu hvort master tréið sé til
         HeaderInfo headerInfo = myTimes.get(time);
-        //add the group if doesn't exists
+        // Bæta við ef ekki til
         if(headerInfo == null){
             headerInfo = new HeaderInfo();
             headerInfo.setName(time);
@@ -330,21 +351,21 @@ public class Rastimar extends FragmentActivity {
             timeList.add(headerInfo);
         }
 
-        //get the children for the group
+        // Finna rétt börn fyrir master tréið
         ArrayList<DetailInfo> lst_players = headerInfo.getTimeList();
         //size of the children list
         int listSize = lst_players.size();
         //add to the counter
         listSize++;
 
-        //create a new child and add that to the group
+        // Búa til nýtt barn ef ekki til
         DetailInfo detailInfo = new DetailInfo();
         //detailInfo.setSequence(String.valueOf(listSize));
         detailInfo.setName(player_name);
         lst_players.add(detailInfo);
         headerInfo.setTimeList(lst_players);
 
-        //find the group position inside the list
+        // Finna rétta staðsetningu hópsins
         groupPosition = timeList.indexOf(headerInfo);
         return groupPosition;
     }
@@ -354,12 +375,15 @@ public class Rastimar extends FragmentActivity {
     // Eftir: Búið er að setja dagsetningar inn í Spinner
     private void makeDates(String whatSpinner) {
 
+        // Finna dagsetninguna í dag og format-a hana rétt
         Calendar currentDate = new GregorianCalendar();
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
+        // Hér er fundið út hvaða fragment kallaði og rétt aðgerð framkvæmd
         if (whatSpinner.equals("rastimar")) {
             for (int i = 0; i < 10; i++) {
                 dates_adapter.add(dateFormat.format(currentDate.getTime()));
+                // Hér dagurinn hækkaður um einn
                 currentDate.add(Calendar.DAY_OF_MONTH, 1);
                 dates_adapter.notifyDataSetChanged();
             }
@@ -388,6 +412,7 @@ public class Rastimar extends FragmentActivity {
     private class onSpinnerSelected implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View view,
                                    int pos, long id) {
+            // Fundið út á hvaða spinner var smellt og rétt aðgerð framkvæmd
             switch(parent.getId()) {
                 case R.id.dates:
                     selectedRastimaDate = parent.getItemAtPosition(pos).toString();
@@ -446,6 +471,11 @@ public class Rastimar extends FragmentActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /*
+    Notkun: þegar ýtt er á takkann "Lausir tímar"
+    Fyrir: ekkert
+    Eftir: búið er að taka öll gögn frá spinner-unum og flytja yfir í næsta skjá
+     */
     public void findAvailableTime(View view) {
         Intent lausir_timar = new Intent(this, LausirTimar.class);
         lausir_timar.putExtra("Date", selectedRastimaDate);
@@ -455,6 +485,11 @@ public class Rastimar extends FragmentActivity {
         startActivity(lausir_timar);
     }
 
+    /*
+    Notkun: makeSpinnersForRastimaLeit(view)
+    Fyrir: ekkert
+    Eftir: búið er að búa til alla spinner-ana fyrir rástímaleit skjáinn
+     */
     public void makeSpinnersForRastimaLeit(View view) {
 
         // Finnna alla Spinner-ana
@@ -485,7 +520,7 @@ public class Rastimar extends FragmentActivity {
         start_time.setAdapter(startAdapter);
         end_time.setAdapter(endAdapter);
 
-        //Setja inn dagsetningar í Spinner
+        //Setja inn upplýsingar í spinner-ana
         makeDates("rastimaleit");
         addCourses("rastimaleit");
         addTime();
@@ -497,7 +532,13 @@ public class Rastimar extends FragmentActivity {
         end_time.setOnItemSelectedListener(new onSpinnerSelected());
     }
 
+    /*
+    Notkun: addCourses(whatSpinner)
+    Fyrir: whatSpinner er strengur
+    Eftir: búið er að finna út hver kallaði á fallið og fyllt er í þann sem kallaði
+     */
     public void addCourses(String whatSpinner) {
+        // Fundið hver er réttur og rétt aðgerð framkvæmd
         if(whatSpinner == "rastimaleit") {
             for (int i = 0; i < string_courses.length; i++) {
                 courseAdapter.add(string_courses[i]);
@@ -511,6 +552,11 @@ public class Rastimar extends FragmentActivity {
         }
     }
 
+    /*
+    Notkun: addTime()
+    Fyrir: ekkert
+    Eftir: búið er að fylla út rétta tímasetningu í spinner-ana sem kölluðu á fallið
+     */
     public void addTime() {
         for(int i = 0; i < string_times.length; i++) {
             startAdapter.add(string_times[i]);
@@ -520,21 +566,30 @@ public class Rastimar extends FragmentActivity {
         }
     }
 
+    /*
+    Notkun: makeSpinnersForYfirlit(view)
+    Fyrir: view er view-ið frá skjánum sem kallaði
+    Eftir: búið er að búa til spinner-a fyrir rástíma yfirlit
+     */
     public void makeSpinnersForYfirlit(View view) {
+        // Finna spinner-a
         dates_yfirlit = (Spinner)view.findViewById(R.id.spinner_date_yfirlit);
         courses_yfirlit = (Spinner)view.findViewById(R.id.spinner_course_yfirlit);
 
+        // Setja adapter á þá
         dateYfirlitAdapter = new ArrayAdapter<String>(view.getContext(),
                 android.R.layout.simple_spinner_item, android.R.id.text1);
         courseYfirlitAdapter = new ArrayAdapter<String>(view.getContext(),
                 android.R.layout.simple_spinner_item, android.R.id.text1);
 
+        // Sét fyrirfram skilgreint útlit á þá
         dateYfirlitAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         courseYfirlitAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         dates_yfirlit.setAdapter(dateYfirlitAdapter);
         courses_yfirlit.setAdapter(courseYfirlitAdapter);
 
+        // Fylla inní þá
         makeDates("yfirlit");
         addCourses("yfirlit");
     }

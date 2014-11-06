@@ -15,9 +15,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-
+// Notkun: Intent lausir_timar = new Intent(this, LausirTimar.class);
+//         startActivity(lausir_timar);
+// Fyrir: ekkert
+// Eftir: búið er að gera nýtt instance af klasanum
 public class LausirTimar extends Activity {
 
     //Fyrir navigation drawer
@@ -27,7 +28,7 @@ public class LausirTimar extends Activity {
     // Heldur utan hvort navigation drawer sér opið eða lokað
     private ActionBarDrawerToggle myDrawerToggle;
 
-    // Frá pastActivity
+    // Frá skjánum sem kallaði á klasann
     private String date, course, startTime, endTime;
 
     @Override
@@ -68,6 +69,7 @@ public class LausirTimar extends Activity {
 
         myDrawerLayout.setDrawerListener(myDrawerToggle);
 
+        // Ná í allar upplýsingarnar frá skjánum sem kallaði á klasann
         Intent pastActivity = getIntent();
 
         date = pastActivity.getStringExtra("Date");
@@ -75,6 +77,7 @@ public class LausirTimar extends Activity {
         startTime = pastActivity.getStringExtra("StartTime");
         endTime = pastActivity.getStringExtra("EndTime");
 
+        // Skrifa gögnin út til notanda
         TextView onlyView = (TextView) findViewById(R.id.onlyView);
         onlyView.setText("Engir tímar fundust " + date + " á " + course + " milli " + startTime +
                             " og " + endTime);

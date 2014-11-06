@@ -15,7 +15,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-
+/*
+Þarf að refactor-a, klasinn er því ekki í notkun sem stendur
+ */
 public class skraTima extends Activity {
 
     // Breytur fyrir upplýsingarnar sem teknar eru með í skjáinn
