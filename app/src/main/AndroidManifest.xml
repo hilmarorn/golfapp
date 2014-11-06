@@ -38,6 +38,15 @@
             android:name=".LausirTimar"
             android:label="@string/title_activity_lausir_timar" >
         </activity>
+        <!-- Þarf að laga label -->
+        <activity
+            android:name=".SkorkortVollur"
+            android:label="Völlur" >
+        </activity>
+        <activity
+            android:name=".SpilaVoll"
+            android:label="Spila völl" >
+        </activity>
     </application>
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
