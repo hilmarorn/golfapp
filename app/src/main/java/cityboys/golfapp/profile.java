@@ -2,10 +2,7 @@ package cityboys.golfapp;
 
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
@@ -155,7 +152,7 @@ Allt sem tengist Navigation Menu
                 finish();
                 break;
             case 2:
-                Intent open_rastimar = new Intent(this, Rastimar.class);
+                Intent open_rastimar = new Intent(this, Rastimar_master.class);
                 startActivity(open_rastimar);
                 /*Intent open_test = new Intent(this, Test.class);
                 startActivity(open_test);*/

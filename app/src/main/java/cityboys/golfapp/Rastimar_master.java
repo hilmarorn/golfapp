@@ -1,9 +1,14 @@
 package cityboys.golfapp;
 
-import android.app.Activity;
+import android.app.ActionBar;
+import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.view.Menu;
@@ -11,23 +16,38 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.content.res.Configuration;
+import android.widget.Spinner;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 /*
-Notkun: Intent open_skor = new Intent(this, Skorkort.class);
-        startActivity(open_skor);
+Notkun: Intent open_ras = new Intent(this, Rastimar_master.class);
+        startActivity(open_ras);
 Fyrir: ekkert
-Eftir: Búið er að búa til nýtt Activity sem inniheldur skorkort
+Eftir: Búið er að búa til nýtt Activity sem inniheldur rástíma skráningu
  */
-public class Skorkort extends Activity {
+public class Rastimar_master extends FragmentActivity {
+
+    // TODO
+    // Gera private final string identifier við tækifæri
+
+    private ActionBar actionBar;
+
+    // Strengja fylki fyrir spinner-a
+    private static String string_courses[];
+
+    private final int NUM_PAGE = 3;         // Fjöldi rástímasíða
+    private ViewPager myViewpager;          // Pager widget, sér um swipe-ið á milli fragment-a
+    private PagerAdapter myPagerAdapter;    // Pager adapter sem heldur utan um síðurnar fyrir viewpager
 
     //Fyrir navigation drawer
     private String[] nav_menu_values;
     private DrawerLayout myDrawerLayout;
     private ListView myDrawerList;
-    // Heldur utan hvort navigation drawer sér opið eða lokað
-    private ActionBarDrawerToggle myDrawerToggle;
+    private ActionBarDrawerToggle myDrawerToggle; // Heldur utan hvort nav drawer sér opið/lokað
 
     /*
     Notkun: Kallað er á þetta fall þegar klasinn er búinn til
@@ -38,8 +58,61 @@ public class Skorkort extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.skorkort);
+        setContentView(R.layout.rastima_master);
 
+        // Búa til Viewpager og PageAdapter. Því næst tengja þá saman
+        myViewpager = (ViewPager)findViewById(R.id.pager);
+        // Hér vantar að setja rétt drasl inn í fallið, þarf að hugsa þetta aðeins
+        myPagerAdapter = new ScreenSlide(getSupportFragmentManager(), "rastimi", NUM_PAGE);
+        myViewpager.setAdapter(myPagerAdapter);
+
+        /////////////////////////////
+        // Fyrir tabs í Action Bar //
+        /////////////////////////////
+        actionBar = getActionBar();
+        // Specify that tabs should be displayed in the action bar.
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        // Breyta um lit á tabs
+        actionBar.setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#2b574e")));
+
+        // Tab listener
+        ActionBar.TabListener tabListener = new ActionBar.TabListener() {
+            public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+                // show the given tab
+                myViewpager.setCurrentItem(tab.getPosition());
+            }
+
+            public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
+                // hide the given tab
+            }
+
+            public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+                // probably ignore this event
+            }
+        };
+
+        // Búin til 3 tabs og festum listener við þá
+        for (int i = 0; i < NUM_PAGE; i++) {
+            actionBar.addTab(
+                    actionBar.newTab()
+                            .setText(myPagerAdapter.getPageTitle(i))
+                            .setTabListener(tabListener));
+        }
+
+        // Fyrir touch á tabs
+        myViewpager.setOnPageChangeListener(
+                new ViewPager.SimpleOnPageChangeListener() {
+                    @Override
+                    public void onPageSelected(int position) {
+                        // When swiping between pages, select the
+                        // corresponding tab.
+                        getActionBar().setSelectedNavigationItem(position);
+                    }
+                });
+
+        /////////////////////////////
+        // Fyrir navigation drawer //
+        /////////////////////////////
         // Núllstilla nav drawer
         nav_menu_values = getResources().getStringArray(R.array.nav_drawer);
         myDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
@@ -52,10 +125,10 @@ public class Skorkort extends Activity {
         myDrawerList.setOnItemClickListener(new NavMenuItemClickListener());
 
         // Partur af því að gera myndtáknið ásmellanlegt, þannig að það opnar/lokar navigation drawer
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
         // Fela myndtákn í Action Bar
-        getActionBar().setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+        actionBar.setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
 
         // Fall sem hlustar eftir því hvort ýtt hafi verið á myndtákn í Action Bar
         myDrawerToggle = new ActionBarDrawerToggle(this, myDrawerLayout, R.drawable.ic_drawer,
@@ -72,12 +145,7 @@ public class Skorkort extends Activity {
         };
 
         myDrawerLayout.setDrawerListener(myDrawerToggle);
-    }
-
-    // Býr til nýtt activity þegar ýtt er á hnapp
-    public void SpilaNyjanVoll(View view) {
-        Intent spila_voll = new Intent(this, SpilaVoll.class);
-        startActivity(spila_voll);
+        string_courses = getResources().getStringArray(R.array.courses);
     }
 
     @Override
@@ -89,7 +157,7 @@ public class Skorkort extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Ef ýtt er á myndtákn í Action Bar skilar þetta tru
+        // Ef ýtt er á myndtákn í Action Bar skilar þetta true
         if (myDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
@@ -133,14 +201,17 @@ Allt sem tengist Navigation Menu
             case 0:
                 Intent open_profile = new Intent(this, profile.class);
                 startActivity(open_profile);
+                finish();
                 break;
             case 1:
                 Intent open_skorkort = new Intent(this, Skorkort.class);
                 startActivity(open_skorkort);
+                finish();
                 break;
             case 2:
                 Intent open_rastimar = new Intent(this, Rastimar_master.class);
                 startActivity(open_rastimar);
+                finish();
                 break;
         }
         // Ljóma element-ið sem ýtt var á

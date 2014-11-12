@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.content.res.Configuration;
 
@@ -140,7 +139,7 @@ public class SpilaVoll extends Activity {
                 startActivity(open_skorkort);
                 break;
             case 2:
-                Intent open_rastimar = new Intent(this, Rastimar.class);
+                Intent open_rastimar = new Intent(this, Rastimar_master.class);
                 startActivity(open_rastimar);
                 break;
         }

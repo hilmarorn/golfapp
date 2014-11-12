@@ -286,7 +286,7 @@ Allt sem tengist Navigation Menu
                 finish();
                 break;
             case 2:
-                Intent open_rastimar = new Intent(this, Rastimar.class);
+                Intent open_rastimar = new Intent(this, Rastimar_master.class);
                 startActivity(open_rastimar);
                 finish();
                 break;

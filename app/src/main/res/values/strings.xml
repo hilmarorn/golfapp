@@ -17,7 +17,7 @@
         <item>Hjálp</item>
         <item>Skrá út</item>
     </string-array>
-    <string-array name="string_courses">
+    <string-array name="courses">
         <item>Golfklúbbur Reykjavíkur</item>
         <item>Golfklúbbur Akureyrar</item>
         <item>Golfklúbbur Borgarness</item>
@@ -27,6 +27,8 @@
         <item>Golfklúbburinn Úthlíð</item>
     </string-array>
 
+    <string name="hello_world">Hello world!</string>
+
     <!-- Titles -->
     <string name="title_activity_test">Test</string>
     <string name="title_skorkort">Skorkort</string>
@@ -34,6 +36,7 @@
     <string name="title_activity_next_time_screen">nextTimeScreen</string>
     <string name="title_activity_skra_tima">skraTima</string>
     <string name="title_activity_lausir_timar">LausirTimar</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="title_skorkort_vollur">Völlur</string>
+    <string name="title_spila_voll">Spila völl</string>
 
 </resources>

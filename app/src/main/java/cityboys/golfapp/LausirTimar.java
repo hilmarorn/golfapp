@@ -141,7 +141,7 @@ Allt sem tengist Navigation Menu
                 startActivity(open_skorkort);
                 break;
             case 2:
-                Intent open_rastimar = new Intent(this, Rastimar.class);
+                Intent open_rastimar = new Intent(this, Rastimar_master.class);
                 startActivity(open_rastimar);
                 break;
         }

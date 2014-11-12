@@ -27,7 +27,7 @@
             android:label="@string/title_skorkort" >
         </activity>
         <activity
-            android:name=".Rastimar"
+            android:name=".Rastimar_master"
             android:label="@string/title_rastimar" >
         </activity>
         <activity
@@ -38,14 +38,13 @@
             android:name=".LausirTimar"
             android:label="@string/title_activity_lausir_timar" >
         </activity>
-        <!-- Þarf að laga label -->
         <activity
             android:name=".SkorkortVollur"
-            android:label="Völlur" >
+            android:label="@string/title_skorkort_vollur" >
         </activity>
         <activity
             android:name=".SpilaVoll"
-            android:label="Spila völl" >
+            android:label="@string/title_spila_voll" >
         </activity>
     </application>
 
