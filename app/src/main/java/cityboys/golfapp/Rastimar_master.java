@@ -16,12 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.content.res.Configuration;
-import android.widget.Spinner;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
 
 /*
 Notkun: Intent open_ras = new Intent(this, Rastimar_master.class);
@@ -31,15 +27,11 @@ Eftir: Búið er að búa til nýtt Activity sem inniheldur rástíma skráningu
  */
 public class Rastimar_master extends FragmentActivity {
 
-    // TODO
-    // Gera private final string identifier við tækifæri
+    protected ActionBar actionBar;
 
-    private ActionBar actionBar;
-
-    // Strengja fylki fyrir spinner-a
-    private static String string_courses[];
-
+    // Allt fyrir fragment-in
     private final int NUM_PAGE = 3;         // Fjöldi rástímasíða
+    private final String IDENTIFIER = "rastimi"; // Bera kennsl á Activity-ið
     private ViewPager myViewpager;          // Pager widget, sér um swipe-ið á milli fragment-a
     private PagerAdapter myPagerAdapter;    // Pager adapter sem heldur utan um síðurnar fyrir viewpager
 
@@ -62,15 +54,14 @@ public class Rastimar_master extends FragmentActivity {
 
         // Búa til Viewpager og PageAdapter. Því næst tengja þá saman
         myViewpager = (ViewPager)findViewById(R.id.pager);
-        // Hér vantar að setja rétt drasl inn í fallið, þarf að hugsa þetta aðeins
-        myPagerAdapter = new ScreenSlide(getSupportFragmentManager(), "rastimi", NUM_PAGE);
+        myPagerAdapter = new ScreenSlide(getSupportFragmentManager(), IDENTIFIER, NUM_PAGE);
         myViewpager.setAdapter(myPagerAdapter);
 
         /////////////////////////////
         // Fyrir tabs í Action Bar //
         /////////////////////////////
         actionBar = getActionBar();
-        // Specify that tabs should be displayed in the action bar.
+        // Sér um að birta tabs í ActionBar
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         // Breyta um lit á tabs
         actionBar.setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#2b574e")));
@@ -145,7 +136,6 @@ public class Rastimar_master extends FragmentActivity {
         };
 
         myDrawerLayout.setDrawerListener(myDrawerToggle);
-        string_courses = getResources().getStringArray(R.array.courses);
     }
 
     @Override
@@ -158,9 +148,7 @@ public class Rastimar_master extends FragmentActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Ef ýtt er á myndtákn í Action Bar skilar þetta true
-        if (myDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
+        if (myDrawerToggle.onOptionsItemSelected(item)) return true;
 
         int id = item.getItemId();
         if (id == R.id.action_settings) {
@@ -216,8 +204,8 @@ Allt sem tengist Navigation Menu
         }
         // Ljóma element-ið sem ýtt var á
         myDrawerList.setItemChecked(position, true);
-
         myDrawerLayout.closeDrawer(myDrawerList);
+        myDrawerList.setItemChecked(position, false);
     }
 
     @Override

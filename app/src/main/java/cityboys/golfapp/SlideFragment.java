@@ -2,7 +2,6 @@ package cityboys.golfapp;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.text.style.RasterizerSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,11 +36,6 @@ public class SlideFragment extends Fragment {
 
     @Override
 	public void onCreate(Bundle savedInstanceState) {
-        /*
-        TODO
-        Kíkja hvort hægt sé að nota þennan smið fyrir allt. Nota Bundle-inn savedInstanceState
-        til þess að gera það sem gert er í create fallinu (hugmynd).
-         */
         super.onCreate(savedInstanceState);
         currentPageNumber = getArguments().getInt("page");
         identifier = getArguments().getString("origin");
@@ -52,31 +46,30 @@ public class SlideFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Hér er valið rétt layout eftir því hvaða fragment kallaði á klasann
-        if(identifier == "profile") {
+        if(identifier.equals("profile")) {
             // Hér er fundið hvaða skjá á að birta eftir blaðsíðutali
             if (currentPageNumber == 0) {
                 mainView = inflater.inflate(R.layout.profile_screen1, container, false);
             } else {
                 mainView = inflater.inflate(R.layout.profile_screen2, container, false);
             }
-        } else if(identifier == "rastimi") {
+        } else if(identifier.equals("rastimi")) {
             // Hér er fundið hvaða skjá á að birta eftir blaðsíðutali
             switch(currentPageNumber) {
                 case 0:
                     mainView = inflater.inflate(R.layout.rastimar, container, false);
-                    Rastimar.makeRastimarScreen(mainView);
+                    Rastimar.initScreen(mainView);
                     break;
                 case 1:
                     mainView = inflater.inflate(R.layout.rastima_leit, container, false);
-                    RastimaLeit.RastimaLeit(mainView);
+                    RastimaLeit.init(mainView);
                     break;
                 case 2:
                     mainView = inflater.inflate(R.layout.rastima_yfirlit, container, false);
-                    RastimaYfirlit.RastimaYfirlit(mainView);
+                    RastimaYfirlit.initScreen(mainView);
                     break;
             }
         }
-
         return mainView;
     }
 }

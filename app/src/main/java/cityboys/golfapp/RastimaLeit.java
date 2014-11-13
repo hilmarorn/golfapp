@@ -7,7 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
-/**
+/*
  * Created by Busli on 11.11.2014.
  */
 public class RastimaLeit {
@@ -17,17 +17,22 @@ public class RastimaLeit {
     private static String selectedRastimaDate, selectedCourse, selectedStartTime, selectedEndTime;
     private static String string_times[] = new String[] {"08:00", "09:00", "10:00", "11:00", "12:00", "13:00"};
 
-    public static void RastimaLeit(View view) {
-        makeSpinnersForRastimaLeit(view);
+    /*
+    Notkun: Rastimar.init()
+    Fyrir: view er view-ið sem verið er að vinna með
+    Eftir: Búið er að gera Rastímar fragment-ið
+     */
+    public static void init(View view) {
+        initScreen(view);
         makeButtonListener(view);
     }
 
     /*
-    Notkun: makeSpinnersForRastimaLeit(view)
-    Fyrir: ekkert
-    Eftir: búið er að búa til alla spinner-ana fyrir rástímaleit skjáinn
+    Notkun: initScreen(view)
+    Fyrir: view er view-ið sem verið er að vinna með
+    Eftir: búið er að setja gögn inní öll element á skjánum
      */
-    public static void makeSpinnersForRastimaLeit(View view) {
+    public static void initScreen(View view) {
 
         // Finnna alla Spinner-ana
         dates_leit = (Spinner) view.findViewById(R.id.dates);
@@ -58,8 +63,8 @@ public class RastimaLeit {
         end_time.setAdapter(endAdapter);
 
         //Setja inn upplýsingar í spinner-ana
-        makeDates.makeDates(dateAdapter);
-        addCourses.addCourses(courseAdapter, view);
+        makeDates.loadDates(dateAdapter);
+        addCourses.add(courseAdapter, view);
         addTime();
 
         // onClickListeners fyrir Spinner-ana
@@ -69,9 +74,11 @@ public class RastimaLeit {
         end_time.setOnItemSelectedListener(new onSpinnerSelected());
     }
 
-    // Notkun: new onSpinnerSelected();
-    // Fyrir: ekkert
-    // Eftir: Búið er að finna út á hvaða element var smellt á í Spinner
+    /*
+    Notkun: new onSpinnerSelected();
+    Fyrir: ekkert
+    Eftir: Búið er að finna út á hvaða element var smellt á í Spinner
+     */
     private static class onSpinnerSelected implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View view,
                                    int pos, long id) {
@@ -91,12 +98,16 @@ public class RastimaLeit {
                     break;
             }
         }
-
         public void onNothingSelected(AdapterView<?> parent) {
             // Another interface callback
         }
     }
 
+    /*
+    Notkun: makeButtonListener(view)
+    Fyrir: ekkert
+    Eftir: búið er að finna takkann og festa onClickListener á hann
+     */
     private static void makeButtonListener(View view) {
         Button button = (Button) view.findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -113,9 +124,9 @@ public class RastimaLeit {
     Eftir: búið er að fylla út rétta tímasetningu í spinner-ana sem kölluðu á fallið
     */
     public static void addTime() {
-        for(int i = 0; i < string_times.length; i++) {
-            startAdapter.add(string_times[i]);
-            endAdapter.add(string_times[i]);
+        for(String time : string_times) {
+            startAdapter.add(time);
+            endAdapter.add(time);
             startAdapter.notifyDataSetChanged();
             endAdapter.notifyDataSetChanged();
         }

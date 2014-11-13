@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-/**
+/*
  * Created by Busli on 3.11.2014.
  */
 /*
@@ -16,6 +16,7 @@ Eftir: Búið er að búa til nýtt fragment og setja það inn í PagerAdapter 
  */
 public class ScreenSlide extends FragmentStatePagerAdapter {
 
+    // Breytur sem klasinn vinnur með
     private int NUM_PAGE;
     private String identifier;
 

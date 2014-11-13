@@ -6,7 +6,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-/**
+/*
  * Created by Busli on 11.11.2014.
  */
 public class Rastimar {
@@ -17,7 +17,12 @@ public class Rastimar {
     private static ListView course_list;                // View-ið fyrir golfvellina
     private static String string_courses[];             // Fylki sem inniheldur golfvellina
 
-    public static void makeRastimarScreen(View view) {
+    /*
+    Notkun: Rastimar.initScreen(view)
+    Fyrir: view er view-ið sem verið er að vinna með
+    Eftir: Búið er að gera Rastimar fragment-ið
+     */
+    public static void initScreen(View view) {
         string_courses = view.getContext().getResources().getStringArray(R.array.courses);
         makeSpinners(view);
         makeListView(view);
@@ -32,8 +37,8 @@ public class Rastimar {
         // Finna Spinner
         spinner_dates = (Spinner) view.findViewById(R.id.spinner_dates);
 
+        //TODO: Hér þarf líklegast að nota CursorAdapter þar sem við erum með dataquery
         // ArrayAdapter fyrir spinner
-        // Hér þarf líklegast að nota CursorAdapter þar sem við erum með dataquery
         dates_adapter = new ArrayAdapter<String>(view.getContext(),
                 android.R.layout.simple_spinner_item, android.R.id.text1);
 
@@ -44,20 +49,20 @@ public class Rastimar {
         spinner_dates.setAdapter(dates_adapter);
 
         //Setja inn dagsetningar í Spinner
-        makeDates.makeDates(dates_adapter);
+        makeDates.loadDates(dates_adapter);
 
         // onClickListeners fyrir Spinner
         spinner_dates.setOnItemSelectedListener(new onSpinnerSelected());
     }
 
-    // Notkun: makeListView(view)
-    // Fyrir: view er view-ið sem kallað var úr
-    // Eftir: búið er að gera ListView með golfvöllum í rástíma fragment-inu
+    /*
+    Notkun: makeListView(view)
+    Fyrir: view er view-ið sem kallað var úr
+    Eftir: búið er að gera ListView með golfvöllum í rástíma fragment-inu
+    */
     public static void makeListView(View view) {
-        /*
-        TODO
-        Gera þetta clickable, taka að sem ýtt var á og lita listann
-         */
+
+        // TODO: Gera þetta clickable, taka að sem ýtt var á og lita listann
 
         /*
         Til að lita ListView þarf ég að fá position á lista elementunum
@@ -68,14 +73,19 @@ public class Rastimar {
             view.setBackgroundColor(Color.WHITE);
         }
          */
+
         // ListView fundið
         course_list = (ListView)view.findViewById(R.id.myList);
 
-        // Define a new Adapter
-        // First parameter - Context
-        // Second parameter - Layout for the row
-        // Third parameter - ID of the TextView to which the data is written
-        // Forth - the Array of data
+        // Glósur um hvernig þetta virkar
+        /*
+        Define a new Adapter
+        First parameter - Context
+        Second parameter - Layout for the row
+        Third parameter - ID of the TextView to which the data is written
+        Forth - the Array of data
+        */
+        // Adapter fyrir ListView og hann festur við
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(view.getContext(),
                 android.R.layout.simple_list_item_1, android.R.id.text1, string_courses);
         course_list.setAdapter(adapter);
@@ -83,19 +93,21 @@ public class Rastimar {
         course_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                int itemPosition = position;
-                String itemValue = (String) course_list.getItemAtPosition(position);
+                //int itemPosition = position;
+                //String itemValue = (String) course_list.getItemAtPosition(position);
 
-                // TO DO
+                // TODO
                 // Köllum á skjáinn sem heldur utan um rástímayfirlitið
                 // Hér vantar að taka upplýsingarnar með
             }
         });
     }
 
-    // Notkun: new onSpinnerSelected();
-    // Fyrir: ekkert
-    // Eftir: Búið er að vinna úr því þegar þrýst var á element í Spinner
+    /*
+    Notkun: new onSpinnerSelected();
+    Fyrir: ekkert
+    Eftir: Búið er að vinna úr því þegar þrýst var á element í Spinner
+    */
     private static class onSpinnerSelected implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View view,
                                    int pos, long id) {

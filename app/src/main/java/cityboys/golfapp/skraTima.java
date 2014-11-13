@@ -16,7 +16,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 /*
-Þarf að refactor-a, klasinn er því ekki í notkun sem stendur
+Klasinn er ekki í notkun eins og er.
+Verður tekinn í notkun þegar það þarf staðfestingar skjá fyrir Rástíma
  */
 public class skraTima extends Activity {
 

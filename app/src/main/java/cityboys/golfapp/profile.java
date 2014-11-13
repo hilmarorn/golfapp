@@ -24,19 +24,15 @@ Eftir: Búið er að búa til nýtt Activity sem inniheldur 2 síður fyrir nota
  */
 public class profile extends FragmentActivity {
 
-    // Fjöldi notendasíða
-    private final int NUM_PAGE = 2;
-    // Pager widget, sér um swipe-ið á milli fragment-a
-    private ViewPager myViewpager;
-    // Pager adapter sem heldur utan um síðurnar fyrir viewpager
-    private PagerAdapter myPagerAdapter;
+    private final int NUM_PAGE = 2;         // Fjöldi notendasíða
+    private ViewPager myViewpager;          // Pager widget, sér um swipe-ið á milli fragment-a
+    private PagerAdapter myPagerAdapter;    // Pager adapter sem heldur utan um síðurnar fyrir viewpager
 
     //Fyrir navigation drawer
     private String[] nav_menu_values;
     private DrawerLayout myDrawerLayout;
     private ListView myDrawerList;
-    // Heldur utan hvort navigation drawer sér opið eða lokað
-    private ActionBarDrawerToggle myDrawerToggle;
+    private ActionBarDrawerToggle myDrawerToggle; // Heldur utan hvort navigation drawer sér opið eða lokað
 
     /*
     Notkun: Kallað er á þetta fall þegar klasinn er búinn til
@@ -101,9 +97,7 @@ public class profile extends FragmentActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Ef ýtt er á myndtákn í Action Bar skilar þetta true
-        if (myDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
+        if (myDrawerToggle.onOptionsItemSelected(item)) return true;
 
         int id = item.getItemId();
         if (id == R.id.action_settings) {
@@ -144,25 +138,20 @@ Allt sem tengist Navigation Menu
             case 0:
                 Intent open_profile = new Intent(this, profile.class);
                 startActivity(open_profile);
-                finish();
                 break;
             case 1:
                 Intent open_skorkort = new Intent(this, Skorkort.class);
                 startActivity(open_skorkort);
-                finish();
                 break;
             case 2:
                 Intent open_rastimar = new Intent(this, Rastimar_master.class);
                 startActivity(open_rastimar);
-                /*Intent open_test = new Intent(this, Test.class);
-                startActivity(open_test);*/
-                finish();
                 break;
         }
         // Ljóma element-ið sem ýtt var á
         myDrawerList.setItemChecked(position, true);
-
         myDrawerLayout.closeDrawer(myDrawerList);
+        myDrawerList.setItemChecked(position, false);
     }
 
     @Override

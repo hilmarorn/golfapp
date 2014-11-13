@@ -6,16 +6,18 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-/**
+/*
  * Created by Busli on 11.11.2014.
  */
-// Lýsing: Klasinn tekur inn ArrayAdapter<String> sem bundinn er við Spinner element og
-//      setur inn réttar dagsetningar í Spinner-inn
+/*
+Lýsing: Klasinn tekur inn ArrayAdapter<String> sem bundinn er við Spinner element og
+      setur inn réttar dagsetningar í Spinner-inn
+*/
 public class makeDates {
-    // Notkun: makeDates.makeDates();
+    // Notkun: makeDates.loadDates();
     // Fyrir: currentAdapter verður að vera af taginu ArrayAdapter<String>
     // Eftir: Búið er að setja dagsetningar inn í Spinner
-    public static void makeDates(ArrayAdapter<String> currentAdapter) {
+    public static void loadDates(ArrayAdapter<String> currentAdapter) {
 
         /*
         TODO:

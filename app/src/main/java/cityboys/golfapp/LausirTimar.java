@@ -18,15 +18,14 @@ import android.widget.TextView;
 // Notkun: Intent lausir_timar = new Intent(this, LausirTimar.class);
 //         startActivity(lausir_timar);
 // Fyrir: ekkert
-// Eftir: búið er að gera nýtt instance af klasanum
+// Eftir: búið er að ræsa LausirTimar Activity-ið
 public class LausirTimar extends Activity {
 
     //Fyrir navigation drawer
     private String[] nav_menu_values;
     private DrawerLayout myDrawerLayout;
     private ListView myDrawerList;
-    // Heldur utan hvort navigation drawer sér opið eða lokað
-    private ActionBarDrawerToggle myDrawerToggle;
+    private ActionBarDrawerToggle myDrawerToggle;   // Heldur utan hvort navigation drawer sér opið eða lokað
 
     // Frá skjánum sem kallaði á klasann
     private String date, course, startTime, endTime;
@@ -36,7 +35,7 @@ public class LausirTimar extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lausir_timar);
 
-        // Núllstilla nav drawer
+        // Núllstilla Navigation drawer
         nav_menu_values = getResources().getStringArray(R.array.nav_drawer);
         myDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         myDrawerList = (ListView)findViewById(R.id.left_drawer);
@@ -93,9 +92,9 @@ public class LausirTimar extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        // Ef ýtt er á myndtákn í Action Bar skilar þetta true
+        if (myDrawerToggle.onOptionsItemSelected(item)) return true;
+
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
@@ -107,18 +106,18 @@ public class LausirTimar extends Activity {
 Allt sem tengist Navigation Menu
 */
 /*
-    Notkun: myListView.setOnItemClickListener(NavMenuItemClickListener())
+    Notkun: myListView.setOnItemClickListener(new NavMenuItemClickListener())
     Fyrir: myListView verður að vera af taginu ListView
     Eftir: búið er að tengja onClickListener við myListView
      */
     private class NavMenuItemClickListener implements ListView.OnItemClickListener {
-        @Override
         /*
         Notkun: Kallað er á þetta þegar eintak er búið til af klasanum NavMenuClickListener,
                 þar sem position er staðsetning á element-inu sem ýtt var á
         Fyrir: ekkert
         Eftir: búið er að finna út á hvaða element var ýtt á
          */
+        @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             selectItem(position);
         }
@@ -135,20 +134,23 @@ Allt sem tengist Navigation Menu
             case 0:
                 Intent open_profile = new Intent(this, profile.class);
                 startActivity(open_profile);
+                finish();
                 break;
             case 1:
                 Intent open_skorkort = new Intent(this, Skorkort.class);
                 startActivity(open_skorkort);
+                finish();
                 break;
             case 2:
                 Intent open_rastimar = new Intent(this, Rastimar_master.class);
                 startActivity(open_rastimar);
+                finish();
                 break;
         }
         // Ljóma element-ið sem ýtt var á
         myDrawerList.setItemChecked(position, true);
-
         myDrawerLayout.closeDrawer(myDrawerList);
+        myDrawerList.setItemChecked(position, false);
     }
 
     @Override

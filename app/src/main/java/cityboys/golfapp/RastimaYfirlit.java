@@ -4,28 +4,33 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
 import android.widget.Spinner;
-
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-/**
+/*
  * Created by Busli on 12.11.2014.
  */
 public class RastimaYfirlit {
 
-    // Fyrir Rástímayfirlit
+    // Listarnir fyrir master tréið og börnin
     private static LinkedHashMap<String, HeaderInfo> myTimes = new LinkedHashMap<String, HeaderInfo>();
     private static ArrayList<HeaderInfo> timeList = new ArrayList<HeaderInfo>();
+    // Adapter-ar fyrir tréin og börning og Spinner-ana
     private static MyListAdapter listAdapter;
+    private static ArrayAdapter<String> dateYfirlitAdapter, courseYfirlitAdapter;
+    // Listinn og Spinner-arnir
     private static ExpandableListView myList;
     private static Spinner dates_yfirlit, courses_yfirlit;
-    private static ArrayAdapter<String> dateYfirlitAdapter, courseYfirlitAdapter;
-    private static String string_courses[];
 
-    public static void RastimaYfirlit(View view) {
-        string_courses = view.getResources().getStringArray(R.array.courses);
+    /*
+    Notkun: RastimaYfirlit.initScreen(view)
+    Fyrir: view er view-ið sem er verið að vinna með
+    Eftir: búið er að búa til RastimaYfirlit fragment-ið
+     */
+    public static void initScreen(View view) {
+        // Skjárinn búinn til
         makeExpandableListView(view);
-        makeSpinnersForYfirlit(view);
+        makeSpinners(view);
     }
 
     /*
@@ -34,8 +39,8 @@ public class RastimaYfirlit {
     Eftir: búið er að gera ExpandableListView fyrir rástímayfirlit fragment-ið
     */
     public static void makeExpandableListView(View view) {
-        //Just add some data to start with
-        loadData.loadData();
+        // Setjum gögn í ExpandableListView-ið
+        loadData.load();
 
         // Finna ExpandableListView-ið
         myList = (ExpandableListView) view.findViewById(R.id.myList);
@@ -53,7 +58,7 @@ public class RastimaYfirlit {
     Fyrir: view er view-ið frá skjánum sem kallaði
     Eftir: búið er að búa til spinner-a fyrir rástíma yfirlit
      */
-    public static void makeSpinnersForYfirlit(View view) {
+    public static void makeSpinners(View view) {
         // Finna spinner-a
         dates_yfirlit = (Spinner)view.findViewById(R.id.spinner_date_yfirlit);
         courses_yfirlit = (Spinner)view.findViewById(R.id.spinner_course_yfirlit);
@@ -72,8 +77,8 @@ public class RastimaYfirlit {
         courses_yfirlit.setAdapter(courseYfirlitAdapter);
 
         // Fylla inní þá
-        makeDates.makeDates(dateYfirlitAdapter);
-        addCourses.addCourses(courseYfirlitAdapter, view);
+        makeDates.loadDates(dateYfirlitAdapter);
+        addCourses.add(courseYfirlitAdapter, view);
     }
 
 
@@ -99,9 +104,9 @@ public class RastimaYfirlit {
         // Finna rétt börn fyrir master tréið
         ArrayList<DetailInfo> lst_players = headerInfo.getTimeList();
         //size of the children list
-        int listSize = lst_players.size();
+        //int listSize = lst_players.size();
         //add to the counter
-        listSize++;
+        //listSize++;
 
         // Búa til nýtt barn ef ekki til
         DetailInfo detailInfo = new DetailInfo();
@@ -143,12 +148,30 @@ public class RastimaYfirlit {
 
         public boolean onGroupClick(ExpandableListView parent, View v,
                                     int groupPosition, long id) {
-
             // Fá nafn master trésins
-            HeaderInfo headerInfo = timeList.get(groupPosition);
-
+            //HeaderInfo headerInfo = timeList.get(groupPosition);
             return false;
         }
 
     };
+
+    /*
+    Glósað hér fyrir mögulegt notagildi
+
+        //method to expand all groups
+    private void expandAll() {
+        int count = listAdapter.getGroupCount();
+        for (int i = 0; i < count; i++){
+            myList.expandGroup(i);
+        }
+    }
+
+    //method to collapse all groups
+    private void collapseAll() {
+        int count = listAdapter.getGroupCount();
+        for (int i = 0; i < count; i++){
+            myList.collapseGroup(i);
+        }
+    }
+     */
 }

@@ -90,9 +90,7 @@ public class Skorkort extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Ef ýtt er á myndtákn í Action Bar skilar þetta tru
-        if (myDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
+        if (myDrawerToggle.onOptionsItemSelected(item)) return true;
 
         int id = item.getItemId();
         if (id == R.id.action_settings) {
@@ -133,20 +131,23 @@ Allt sem tengist Navigation Menu
             case 0:
                 Intent open_profile = new Intent(this, profile.class);
                 startActivity(open_profile);
+                finish();
                 break;
             case 1:
                 Intent open_skorkort = new Intent(this, Skorkort.class);
                 startActivity(open_skorkort);
+                finish();
                 break;
             case 2:
                 Intent open_rastimar = new Intent(this, Rastimar_master.class);
                 startActivity(open_rastimar);
+                finish();
                 break;
         }
         // Ljóma element-ið sem ýtt var á
         myDrawerList.setItemChecked(position, true);
-
         myDrawerLayout.closeDrawer(myDrawerList);
+        myDrawerList.setItemChecked(position, false);
     }
 
     @Override

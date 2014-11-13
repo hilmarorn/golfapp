@@ -1,6 +1,6 @@
 package cityboys.golfapp;
 
-/**
+/*
  * Created by Busli on 29.10.2014.
  */
 import java.util.ArrayList;
@@ -12,10 +12,14 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
-// Notkun: MyListAdapter myAdapter = new MyListAdapter(context, myList);
-// Fyrir: context er skjárinn sem er verið vinna í og myList er listinn sem á að tengja
-//        adapter við
-// Eftir: búið er að tengja þennan adapter við myList
+// TODO: Kíkja betur á þennan klasa
+
+/*
+    Notkun: MyListAdapter myAdapter = new MyListAdapter(context, myList);
+    Fyrir: context er skjárinn sem er verið vinna í og myList er listinn sem á að tengja
+            adapter við
+    Eftir: búið er að tengja þennan adapter við myList
+*/
 public class MyListAdapter extends BaseExpandableListAdapter {
 
     // Þær breytur sem klasinn vinnur með
