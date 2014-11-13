@@ -5,7 +5,6 @@
     android:layout_height="match_parent" >
 
     <RelativeLayout
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -17,11 +16,11 @@
             android:id="@+id/rastimaLeit_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:textStyle="bold"
             android:textColor="#2d7165"
             android:layout_centerHorizontal="true"
-            android:text="Rástímaleit"
+            android:text="@string/header_rastimaleit"
             android:paddingBottom="10dp"/>
 
         <Spinner
@@ -63,7 +62,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lausir tímar"
+            android:text="@string/button_lausirtimar"
             android:id="@+id/button"
             android:layout_below="@+id/spinner_end_time"
             android:layout_centerHorizontal="true"

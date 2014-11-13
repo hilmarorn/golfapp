@@ -197,9 +197,7 @@ Allt sem tengist Navigation Menu
                 finish();
                 break;
             case 2:
-                Intent open_rastimar = new Intent(this, Rastimar_master.class);
-                startActivity(open_rastimar);
-                finish();
+                // Gerum ekkert, erum í þessum skjá
                 break;
         }
         // Ljóma element-ið sem ýtt var á

@@ -29,11 +29,18 @@
 
     <string name="hello_world">Hello world!</string>
 
-    <!-- Titles -->
+    <!-- Headers -->
+    <string name="header_rastimaleit">Rástímaleit</string>
+    <string name="header_rastimayfirlit">Rástímayfirlit</string>
+    <string name="header_rastimar">Rástímar</string>
+
+    <!-- Buttons -->
+    <string name="button_lausirtimar">Lausir Tímar</string>
+
+    <!-- Activity titles -->
     <string name="title_activity_test">Test</string>
     <string name="title_skorkort">Skorkort</string>
     <string name="title_rastimar">Rástímar</string>
-    <string name="title_activity_next_time_screen">nextTimeScreen</string>
     <string name="title_activity_skra_tima">skraTima</string>
     <string name="title_activity_lausir_timar">LausirTimar</string>
     <string name="title_skorkort_vollur">Völlur</string>

@@ -134,9 +134,7 @@ Allt sem tengist Navigation Menu
                 finish();
                 break;
             case 1:
-                Intent open_skorkort = new Intent(this, Skorkort.class);
-                startActivity(open_skorkort);
-                finish();
+                // Gerum ekkert, erum í þessum skjá
                 break;
             case 2:
                 Intent open_rastimar = new Intent(this, Rastimar_master.class);

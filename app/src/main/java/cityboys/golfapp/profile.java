@@ -136,8 +136,7 @@ Allt sem tengist Navigation Menu
         // Hér er fundið hvað var ýtt á
         switch(position) {
             case 0:
-                Intent open_profile = new Intent(this, profile.class);
-                startActivity(open_profile);
+                // Gerum ekkert, erum í þessum skjá
                 break;
             case 1:
                 Intent open_skorkort = new Intent(this, Skorkort.class);

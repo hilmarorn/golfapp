@@ -26,9 +26,11 @@ public class MyListAdapter extends BaseExpandableListAdapter {
     private Context context;
     private ArrayList<HeaderInfo> timeList;
 
-    // Notkun: Smiður sem kallað er sjálfvirkt á þegar búið er til nýtt instance af klasanum
-    // Fyrir: sjá "Fyrir" lýsingu fyrir klasann í heild
-    // Eftir: búið er að núllstilla þær breytur sem klasinn er að vinna með
+    /*
+    Notkun: Smiður sem kallað er sjálfvirkt á þegar búið er til nýtt instance af klasanum
+    Fyrir: sjá "Fyrir" lýsingu fyrir klasann í heild
+    Eftir: búið er að núllstilla þær breytur sem klasinn er að vinna með
+    */
     public MyListAdapter(Context context, ArrayList<HeaderInfo> timeList) {
         this.context = context;
         this.timeList = timeList;
