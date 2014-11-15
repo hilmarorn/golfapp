@@ -13,18 +13,17 @@
         android:layout_height="fill_parent">
         <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-
+            android:layout_height="wrap_content">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/relative">
+                android:id="@+id/relative_master1">
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:id="@+id/textView2"
+                    android:id="@+id/ps2_header_forgjafarspjald"
                     android:textColor="#ffffff"
                     android:textStyle="bold"
                     android:paddingTop="10dp"
@@ -35,7 +34,7 @@
                     android:background="#2d7165"
                     android:layout_marginBottom="10dp"/>
 
-                <View android:id="@+id/strut"
+                <View android:id="@+id/divider1"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_centerHorizontal="true"/>
@@ -44,18 +43,18 @@
                     android:orientation="horizontal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@id/strut"
+                    android:layout_alignLeft="@id/divider1"
                     android:layout_alignParentRight="true"
                     android:weightSum="1"
-                    android:id="@+id/info"
-                    android:layout_below="@+id/textView2">
+                    android:id="@+id/punktar_og_forgjof"
+                    android:layout_below="@+id/ps2_header_forgjafarspjald">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Punktar"
-                        android:id="@+id/textView102"
+                        android:id="@+id/ps2_punktar"
                         android:textStyle="bold"
                         android:textColor="#2d7165"
                         android:layout_marginLeft="30dp"/>
@@ -63,15 +62,14 @@
                     <View
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
-                        />
+                        android:layout_weight="1" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Forgjöf"
-                        android:id="@+id/textView123"
+                        android:id="@+id/ps2_forgjof"
                         android:textColor="#2d7165"
                         android:textStyle="bold"
                         android:layout_marginRight="10dp"/>
@@ -81,54 +79,47 @@
                     android:orientation="horizontal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_alignRight="@id/strut"
+                    android:layout_alignRight="@id/divider1"
                     android:layout_alignParentLeft="true"
                     android:weightSum="1"
-                    android:id="@+id/linearLayout51"
-                    android:layout_below="@+id/textView2">
+                    android:id="@+id/linear_dagsetning"
+                    android:layout_below="@+id/ps2_header_forgjafarspjald">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Dagsetning"
-                        android:id="@+id/textView124"
+                        android:id="@+id/ps2_dagsetning"
                         android:textColor="#2d7165"
                         android:textStyle="bold"
                         android:layout_marginLeft="10dp"/>
                 </LinearLayout>
 
-
-
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/linearLayout16"
                     android:paddingLeft="8dp"
                     android:paddingRight="8dp"
-                    android:layout_below="@+id/linearLayout51">
+                    android:layout_below="@+id/linear_dagsetning">
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
                         android:background="#ff2d7165"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentEnd="true"
-                        android:layout_below="@+id/linearLayout51"
-                        android:id="@+id/horizontalline6"
-                        />
+                        android:layout_below="@+id/linear_dagsetning"
+                        android:id="@+id/horizontalline1" />
                 </LinearLayout>
-
-
-
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/linearLayout51"
+                    android:layout_below="@+id/linear_dagsetning"
                     android:layout_marginTop="10dp"
-                    android:id="@+id/rel2">
-                    <View android:id="@+id/strut3"
+                    android:id="@+id/relative_line1">
+                    <View android:id="@+id/view_whitespace1"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_centerHorizontal="true"/>
@@ -137,66 +128,62 @@
                         android:orientation="horizontal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@id/strut3"
+                        android:layout_alignLeft="@id/view_whitespace1"
                         android:layout_alignParentRight="true"
                         android:weightSum="1"
-                        android:id="@+id/info2"
-
-                        >
+                        android:id="@+id/linear_right_line1" >
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="30"
-                            android:id="@+id/textView112"
+                            android:id="@+id/ps2_punktar_line1"
                             android:textColor="#2d7165"
                             android:layout_marginLeft="30dp"/>
 
                         <View
                             android:layout_width="0dp"
                             android:layout_height="0dp"
-                            android:layout_weight="1"
-                            />
+                            android:layout_weight="1" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="17.8"
-                            android:id="@+id/textView121"
+                            android:id="@+id/ps2_forgjof_line1"
                             android:textColor="#2d7165"
-
                             android:layout_marginRight="10dp"/>
+
                     </LinearLayout>
 
                     <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignRight="@id/strut3"
+                        android:layout_alignRight="@id/view_whitespace1"
                         android:layout_alignParentLeft="true"
                         android:weightSum="1"
-                        android:id="@+id/linearLayout52">
+                        android:id="@+id/linear_left_line1">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="6.9.2014"
-                            android:id="@+id/textView156"
+                            android:id="@+id/ps2_dagsetning_line1"
                             android:textColor="#2d7165"
                             android:layout_marginLeft="10dp"/>
                     </LinearLayout>
                 </RelativeLayout>
 
-
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/rel2"
-                    android:id="@+id/rel3">
-                    <View android:id="@+id/strut4"
+                    android:layout_below="@+id/relative_line1"
+                    android:id="@+id/relative_line2">
+                    <View android:id="@+id/view_whitespace2"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_centerHorizontal="true"/>
@@ -205,66 +192,62 @@
                         android:orientation="horizontal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@id/strut4"
+                        android:layout_alignLeft="@id/view_whitespace2"
                         android:layout_alignParentRight="true"
                         android:weightSum="1"
-                        android:id="@+id/info2"
-
-                        >
+                        android:id="@+id/linear_right_line2" >
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="25"
-                            android:id="@+id/textView112"
+                            android:id="@+id/ps2_punktar_line2"
                             android:textColor="#2d7165"
                             android:layout_marginLeft="30dp"/>
 
                         <View
                             android:layout_width="0dp"
                             android:layout_height="0dp"
-                            android:layout_weight="1"
-                            />
+                            android:layout_weight="1" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="17.7"
-                            android:id="@+id/textView121"
+                            android:id="@+id/ps2_forgjof_line2"
                             android:textColor="#2d7165"
-
                             android:layout_marginRight="10dp"/>
+
                     </LinearLayout>
 
                     <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignRight="@id/strut4"
+                        android:layout_alignRight="@id/view_whitespace2"
                         android:layout_alignParentLeft="true"
                         android:weightSum="1"
-                        android:id="@+id/linearLayout52">
+                        android:id="@+id/linear_left_line2">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="13.8.2014"
-                            android:id="@+id/textView156"
+                            android:id="@+id/ps2_dagsetning_line2"
                             android:textColor="#2d7165"
                             android:layout_marginLeft="10dp"/>
                     </LinearLayout>
                 </RelativeLayout>
 
-
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/rel3"
-                    android:id="@+id/rel4">
-                    <View android:id="@+id/strut5"
+                    android:layout_below="@+id/relative_line2"
+                    android:id="@+id/relative_line3">
+                    <View android:id="@+id/view_whitespace3"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_centerHorizontal="true"/>
@@ -273,36 +256,32 @@
                         android:orientation="horizontal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@id/strut5"
+                        android:layout_alignLeft="@id/view_whitespace3"
                         android:layout_alignParentRight="true"
                         android:weightSum="1"
-                        android:id="@+id/info2"
-
-                        >
+                        android:id="@+id/linear_right_line3" >
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="26"
-                            android:id="@+id/textView112"
+                            android:id="@+id/ps2_punktar_line3"
                             android:textColor="#2d7165"
                             android:layout_marginLeft="30dp"/>
 
                         <View
                             android:layout_width="0dp"
                             android:layout_height="0dp"
-                            android:layout_weight="1"
-                            />
+                            android:layout_weight="1" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="17.7"
-                            android:id="@+id/textView121"
+                            android:id="@+id/ps2_forgjof_line3"
                             android:textColor="#2d7165"
-
                             android:layout_marginRight="10dp"/>
                     </LinearLayout>
 
@@ -310,17 +289,17 @@
                         android:orientation="horizontal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignRight="@id/strut5"
+                        android:layout_alignRight="@id/view_whitespace3"
                         android:layout_alignParentLeft="true"
                         android:weightSum="1"
-                        android:id="@+id/linearLayout52">
+                        android:id="@+id/linear_left_line3">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="12.8.2014"
-                            android:id="@+id/textView156"
+                            android:id="@+id/ps2_dagsetning_line3"
                             android:textColor="#2d7165"
                             android:layout_marginLeft="10dp"/>
                     </LinearLayout>
@@ -329,9 +308,9 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/rel4"
-                    android:id="@+id/rel5">
-                    <View android:id="@+id/strut6"
+                    android:layout_below="@+id/relative_line3"
+                    android:id="@+id/relative_line4">
+                    <View android:id="@+id/view_whitespace4"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_centerHorizontal="true"/>
@@ -340,36 +319,32 @@
                         android:orientation="horizontal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@id/strut6"
+                        android:layout_alignLeft="@id/view_whitespace4"
                         android:layout_alignParentRight="true"
                         android:weightSum="1"
-                        android:id="@+id/info2"
-
-                        >
+                        android:id="@+id/linear_right_line4" >
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="26"
-                            android:id="@+id/textView112"
+                            android:id="@+id/ps2_punktar_line4"
                             android:textColor="#2d7165"
                             android:layout_marginLeft="30dp"/>
 
                         <View
                             android:layout_width="0dp"
                             android:layout_height="0dp"
-                            android:layout_weight="1"
-                            />
+                            android:layout_weight="1" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="17.6"
-                            android:id="@+id/textView121"
+                            android:id="@+id/ps2_forgjof_line4"
                             android:textColor="#2d7165"
-
                             android:layout_marginRight="10dp"/>
                     </LinearLayout>
 
@@ -377,17 +352,17 @@
                         android:orientation="horizontal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignRight="@id/strut6"
+                        android:layout_alignRight="@id/view_whitespace4"
                         android:layout_alignParentLeft="true"
                         android:weightSum="1"
-                        android:id="@+id/linearLayout52">
+                        android:id="@+id/linear_left_line4">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="9.8.2014"
-                            android:id="@+id/textView156"
+                            android:id="@+id/ps2_dagsetning_line4"
                             android:textColor="#2d7165"
                             android:layout_marginLeft="10dp"/>
                     </LinearLayout>
@@ -396,9 +371,9 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/rel5"
-                    android:id="@+id/rel6">
-                    <View android:id="@+id/strut7"
+                    android:layout_below="@+id/relative_line4"
+                    android:id="@+id/relative_line5">
+                    <View android:id="@+id/view_whitespace5"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_centerHorizontal="true"/>
@@ -407,36 +382,32 @@
                         android:orientation="horizontal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@id/strut7"
+                        android:layout_alignLeft="@id/view_whitespace5"
                         android:layout_alignParentRight="true"
                         android:weightSum="1"
-                        android:id="@+id/info2"
-
-                        >
+                        android:id="@+id/linear_right_line5" >
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="28"
-                            android:id="@+id/textView112"
+                            android:id="@+id/ps2_punktar_line5"
                             android:textColor="#2d7165"
                             android:layout_marginLeft="30dp"/>
 
                         <View
                             android:layout_width="0dp"
                             android:layout_height="0dp"
-                            android:layout_weight="1"
-                            />
+                            android:layout_weight="1" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="17.5"
-                            android:id="@+id/textView121"
+                            android:id="@+id/ps2_forgjof_line5"
                             android:textColor="#2d7165"
-
                             android:layout_marginRight="10dp"/>
                     </LinearLayout>
 
@@ -444,38 +415,34 @@
                         android:orientation="horizontal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignRight="@id/strut7"
+                        android:layout_alignRight="@id/view_whitespace5"
                         android:layout_alignParentLeft="true"
                         android:weightSum="1"
-                        android:id="@+id/linearLayout52">
+                        android:id="@+id/linear_left_line5">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="5.8.2014"
-                            android:id="@+id/textView156"
+                            android:id="@+id/ps2_dagsetning_line5"
                             android:textColor="#2d7165"
                             android:layout_marginLeft="10dp"/>
                     </LinearLayout>
                 </RelativeLayout>
             </RelativeLayout>
 
-
-
-
-
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/relative2"
-                android:layout_below="@+id/relative"
+                android:id="@+id/relative_master2"
+                android:layout_below="@+id/relative_master1"
                 android:layout_marginTop="50dp">
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:id="@+id/textView2"
+                    android:id="@+id/ps2_header_tolfraedi"
                     android:textColor="#ffffff"
                     android:textStyle="bold"
                     android:paddingTop="10dp"
@@ -486,7 +453,7 @@
                     android:background="#2d7165"
                     android:layout_marginBottom="10dp"/>
 
-                <View android:id="@+id/strut"
+                <View android:id="@+id/divider2"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_centerHorizontal="true"/>
@@ -495,11 +462,11 @@
                     android:orientation="horizontal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@id/strut"
+                    android:layout_alignLeft="@id/divider2"
                     android:layout_alignParentRight="true"
                     android:weightSum="1"
-                    android:id="@+id/info"
-                    android:layout_below="@+id/textView2">
+                    android:id="@+id/fjoldi_og_alls"
+                    android:layout_below="@+id/ps2_header_tolfraedi">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -514,15 +481,14 @@
                     <View
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
-                        />
+                        android:layout_weight="1" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Alls"
-                        android:id="@+id/textView123"
+                        android:id="@+id/ps2_alls"
                         android:textColor="#2d7165"
                         android:textStyle="bold"
                         android:layout_marginRight="10dp"/>
@@ -532,11 +498,11 @@
                     android:orientation="horizontal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_alignRight="@id/strut"
+                    android:layout_alignRight="@id/divider2"
                     android:layout_alignParentLeft="true"
                     android:weightSum="1"
-                    android:id="@+id/linearLayout51"
-                    android:layout_below="@+id/textView2">
+                    android:id="@+id/linear_blank"
+                    android:layout_below="@+id/ps2_header_tolfraedi">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -549,37 +515,30 @@
                         android:layout_marginLeft="10dp"/>
                 </LinearLayout>
 
-
-
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/linearLayout16"
                     android:paddingLeft="8dp"
                     android:paddingRight="8dp"
-                    android:layout_below="@+id/linearLayout51">
+                    android:layout_below="@+id/linear_blank">
                     <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
                         android:background="#ff2d7165"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentEnd="true"
-                        android:layout_below="@+id/linearLayout51"
-                        android:id="@+id/horizontalline6"
-                        />
+                        android:layout_below="@+id/linear_blank"
+                        android:id="@+id/horizontalline2" />
                 </LinearLayout>
-
-
-
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/linearLayout51"
+                    android:layout_below="@+id/linear_blank"
                     android:layout_marginTop="10dp"
-                    android:id="@+id/rel2">
-                    <View android:id="@+id/strut3"
+                    android:id="@+id/relative_line1_below">
+                    <View android:id="@+id/view_whitespace1_below"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_centerHorizontal="true"/>
@@ -588,36 +547,32 @@
                         android:orientation="horizontal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@id/strut3"
+                        android:layout_alignLeft="@id/view_whitespace1_below"
                         android:layout_alignParentRight="true"
                         android:weightSum="1"
-                        android:id="@+id/info2"
-
-                        >
+                        android:id="@+id/linear_right_line1_below" >
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="0"
-                            android:id="@+id/textView112"
+                            android:id="@+id/ps2_fjoldi_line1"
                             android:textColor="#2d7165"
                             android:layout_marginLeft="30dp"/>
 
                         <View
                             android:layout_width="0dp"
                             android:layout_height="0dp"
-                            android:layout_weight="1"
-                            />
+                            android:layout_weight="1" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="0%"
-                            android:id="@+id/textView121"
+                            android:id="@+id/ps2_alls_line1"
                             android:textColor="#2d7165"
-
                             android:layout_marginRight="10dp"/>
                     </LinearLayout>
 
@@ -625,29 +580,28 @@
                         android:orientation="horizontal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignRight="@id/strut3"
+                        android:layout_alignRight="@id/view_whitespace1_below"
                         android:layout_alignParentLeft="true"
                         android:weightSum="1"
-                        android:id="@+id/linearLayout52">
+                        android:id="@+id/linear_left_line1_below">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Ernir"
-                            android:id="@+id/textView156"
+                            android:id="@+id/ps2_ernir"
                             android:textColor="#2d7165"
                             android:layout_marginLeft="10dp"/>
                     </LinearLayout>
                 </RelativeLayout>
 
-
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/rel2"
-                    android:id="@+id/rel3">
-                    <View android:id="@+id/strut4"
+                    android:layout_below="@+id/relative_line1_below"
+                    android:id="@+id/relative_line2_below">
+                    <View android:id="@+id/view_whitespace2_below"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_centerHorizontal="true"/>
@@ -656,66 +610,61 @@
                         android:orientation="horizontal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@id/strut4"
+                        android:layout_alignLeft="@id/view_whitespace2_below"
                         android:layout_alignParentRight="true"
                         android:weightSum="1"
-                        android:id="@+id/info2"
-
-                        >
+                        android:id="@+id/linear_right_line2_below" >
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="31"
-                            android:id="@+id/textView112"
+                            android:id="@+id/ps2_fjoldi_line2"
                             android:textColor="#2d7165"
                             android:layout_marginLeft="30dp"/>
 
                         <View
                             android:layout_width="0dp"
                             android:layout_height="0dp"
-                            android:layout_weight="1"
-                            />
+                            android:layout_weight="1" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="1%"
-                            android:id="@+id/textView121"
+                            android:id="@+id/ps2_alls_line2"
                             android:textColor="#2d7165"
-
-                            android:layout_marginRight="10dp"/>
+                            android:layout_marginRight="10dp" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignRight="@id/strut4"
+                        android:layout_alignRight="@id/view_whitespace2_below"
                         android:layout_alignParentLeft="true"
                         android:weightSum="1"
-                        android:id="@+id/linearLayout52">
+                        android:id="@+id/linear_left_line2_below">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Fuglar"
-                            android:id="@+id/textView156"
+                            android:id="@+id/ps2_fuglar"
                             android:textColor="#2d7165"
                             android:layout_marginLeft="10dp"/>
                     </LinearLayout>
                 </RelativeLayout>
 
-
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/rel3"
-                    android:id="@+id/rel4">
-                    <View android:id="@+id/strut5"
+                    android:layout_below="@+id/relative_line2_below"
+                    android:id="@+id/relative_line3_below">
+                    <View android:id="@+id/view_whitespace3_below"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_centerHorizontal="true"/>
@@ -724,54 +673,50 @@
                         android:orientation="horizontal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@id/strut5"
+                        android:layout_alignLeft="@id/view_whitespace3_below"
                         android:layout_alignParentRight="true"
                         android:weightSum="1"
-                        android:id="@+id/info2"
-
-                        >
+                        android:id="@+id/linear_right_line3_below" >
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="461"
-                            android:id="@+id/textView112"
+                            android:id="@+id/ps2_fjoldi_line3"
                             android:textColor="#2d7165"
                             android:layout_marginLeft="30dp"/>
 
                         <View
                             android:layout_width="0dp"
                             android:layout_height="0dp"
-                            android:layout_weight="1"
-                            />
+                            android:layout_weight="1" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="18%"
-                            android:id="@+id/textView121"
+                            android:id="@+id/ps2_alls_line3"
                             android:textColor="#2d7165"
-
-                            android:layout_marginRight="10dp"/>
+                            android:layout_marginRight="10dp" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignRight="@id/strut5"
+                        android:layout_alignRight="@id/view_whitespace3_below"
                         android:layout_alignParentLeft="true"
                         android:weightSum="1"
-                        android:id="@+id/linearLayout52">
+                        android:id="@+id/linear_left_line3_below">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Pör"
-                            android:id="@+id/textView156"
+                            android:id="@+id/ps2_por"
                             android:textColor="#2d7165"
                             android:layout_marginLeft="10dp"/>
                     </LinearLayout>
@@ -780,9 +725,9 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/rel4"
-                    android:id="@+id/rel5">
-                    <View android:id="@+id/strut6"
+                    android:layout_below="@+id/relative_line3_below"
+                    android:id="@+id/relative_line4_below">
+                    <View android:id="@+id/view_whitespace4_below"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_centerHorizontal="true"/>
@@ -791,36 +736,32 @@
                         android:orientation="horizontal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@id/strut6"
+                        android:layout_alignLeft="@id/view_whitespace4_below"
                         android:layout_alignParentRight="true"
                         android:weightSum="1"
-                        android:id="@+id/info2"
-
-                        >
+                        android:id="@+id/linear_right_line4_below" >
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="1030"
-                            android:id="@+id/textView112"
+                            android:id="@+id/ps2_fjoldi_line4"
                             android:textColor="#2d7165"
                             android:layout_marginLeft="30dp"/>
 
                         <View
                             android:layout_width="0dp"
                             android:layout_height="0dp"
-                            android:layout_weight="1"
-                            />
+                            android:layout_weight="1" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="40%"
-                            android:id="@+id/textView121"
+                            android:id="@+id/ps2_alls_line4"
                             android:textColor="#2d7165"
-
                             android:layout_marginRight="10dp"/>
                     </LinearLayout>
 
@@ -828,17 +769,17 @@
                         android:orientation="horizontal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignRight="@id/strut6"
+                        android:layout_alignRight="@id/view_whitespace4_below"
                         android:layout_alignParentLeft="true"
                         android:weightSum="1"
-                        android:id="@+id/linearLayout52">
+                        android:id="@+id/linear_left_line4_below" >
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Skollar"
-                            android:id="@+id/textView156"
+                            android:id="@+id/ps2_skollar"
                             android:textColor="#2d7165"
                             android:layout_marginLeft="10dp"/>
                     </LinearLayout>
@@ -847,9 +788,9 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/rel5"
-                    android:id="@+id/rel6">
-                    <View android:id="@+id/strut7"
+                    android:layout_below="@+id/relative_line4_below"
+                    android:id="@+id/relative_line5_below">
+                    <View android:id="@+id/view_whitespace5_below"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_centerHorizontal="true"/>
@@ -858,36 +799,32 @@
                         android:orientation="horizontal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignLeft="@id/strut7"
+                        android:layout_alignLeft="@id/view_whitespace5_below"
                         android:layout_alignParentRight="true"
                         android:weightSum="1"
-                        android:id="@+id/info2"
-
-                        >
+                        android:id="@+id/linear_right_line5_below" >
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="1034"
-                            android:id="@+id/textView112"
+                            android:id="@+id/ps2_fjoldi_line5"
                             android:textColor="#2d7165"
                             android:layout_marginLeft="30dp"/>
 
                         <View
                             android:layout_width="0dp"
                             android:layout_height="0dp"
-                            android:layout_weight="1"
-                            />
+                            android:layout_weight="1" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="40%"
-                            android:id="@+id/textView121"
+                            android:id="@+id/ps2_alls_line5"
                             android:textColor="#2d7165"
-
                             android:layout_marginRight="10dp"/>
                     </LinearLayout>
 
@@ -895,24 +832,22 @@
                         android:orientation="horizontal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignRight="@id/strut7"
+                        android:layout_alignRight="@id/view_whitespace5_below"
                         android:layout_alignParentLeft="true"
                         android:weightSum="1"
-                        android:id="@+id/linearLayout52">
+                        android:id="@+id/linear_left_line5_below">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Skrambar"
-                            android:id="@+id/textView156"
+                            android:id="@+id/ps2_skrambar"
                             android:textColor="#2d7165"
                             android:layout_marginLeft="10dp"/>
                     </LinearLayout>
                 </RelativeLayout>
             </RelativeLayout>
-
         </RelativeLayout>
     </ScrollView>
-
 </RelativeLayout>
