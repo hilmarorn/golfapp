@@ -2,18 +2,1317 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
-    <RelativeLayout
+    <!-- android.support.v4.widget.DrawerLayout -->
+
+    <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:layout_margin="20dp">
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        <TextView
-            android:text="@string/hello_world"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
 
-    </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/relative">
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/sv_vollur_label"
+                    android:textColor="#2d7165"
+                    android:textStyle="bold"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
+                    android:text="Grafarholtsvöllur"
+                    android:alpha="0.7"
+                    android:layout_marginBottom="10dp"/>
+
+                <View android:id="@+id/strut"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_centerHorizontal="true"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/strut"
+                    android:layout_alignParentRight="true"
+                    android:weightSum="1"
+                    android:id="@+id/sv_infobar_right"
+                    android:layout_below="@+id/sv_vollur_label">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Par"
+                        android:id="@+id/sv_par_label"
+                        android:textStyle="bold"
+                        android:textColor="#2d7165"
+                        android:layout_marginLeft="0dp"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Högg"
+                        android:id="@+id/sv_hogg_label"
+                        android:textColor="#2d7165"
+                        android:textStyle="bold"
+                        android:layout_marginRight="10dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@id/strut"
+                    android:layout_alignParentLeft="true"
+                    android:weightSum="1"
+                    android:id="@+id/sv_infobar_left"
+                    android:layout_below="@+id/sv_vollur_label">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Hola"
+                        android:id="@+id/sv_hola_label"
+                        android:textColor="#2d7165"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="10dp"/>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sv_splitter"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:layout_below="@+id/sv_infobar_left">
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="#ff2d7165"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@+id/sv_infobar_left"
+                        android:id="@+id/horizontalline6"
+                        />
+                </LinearLayout>
+
+
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sv_infobar_left"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/sv_line_1">
+                    <View android:id="@+id/strut1"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut1"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_rightside_1"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="4"
+                            android:id="@+id/sv_par1"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="0dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <Spinner
+                            android:id="@+id/sv_hoggspinner_1"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="50dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut1"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_leftside_1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="1"
+                            android:id="@+id/sv_hola1"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sv_line_1"
+                    android:id="@+id/sv_line_2">
+                    <View android:id="@+id/strut2"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut2"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_rightside_2"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="3"
+                            android:id="@+id/sv_par2"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="0dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <Spinner
+                            android:id="@+id/sv_hoggspinner_2"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="50dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut2"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_leftside_2">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="2"
+                            android:id="@+id/sv_hola2"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sv_line_2"
+                    android:id="@+id/sv_line_3">
+                    <View android:id="@+id/strut3"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut3"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_rightside_3"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="4"
+                            android:id="@+id/sv_par3"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="0dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <Spinner
+                            android:id="@+id/sv_hoggspinner_3"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="50dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut3"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_leftside_3">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="3"
+                            android:id="@+id/sv_hola3"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sv_line_3"
+                    android:id="@+id/sv_line_4">
+                    <View android:id="@+id/strut4"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut4"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_rightside_4"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="5"
+                            android:id="@+id/sv_par4"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="0dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <Spinner
+                            android:id="@+id/sv_hoggspinner_4"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="50dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut4"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_leftside_4">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="4"
+                            android:id="@+id/sv_hola4"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sv_line_4"
+                    android:id="@+id/sv_line_5">
+
+                    <View android:id="@+id/strut5"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut5"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_rightside_5"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="4"
+                            android:id="@+id/sv_par5"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="0dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <Spinner
+                            android:id="@+id/sv_hoggspinner_5"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="50dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut5"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_leftside_5">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="5"
+                            android:id="@+id/sv_hola5"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sv_line_5"
+                    android:id="@+id/sv_line_6">
+
+                    <View android:id="@+id/strut6"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut6"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_rightside_6"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="3"
+                            android:id="@+id/sv_par6"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="0dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <Spinner
+                            android:id="@+id/sv_hoggspinner_6"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="50dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut6"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_leftside_6">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="6"
+                            android:id="@+id/sv_hola6"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sv_line_6"
+                    android:id="@+id/sv_line_7">
+
+                    <View android:id="@+id/strut7"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut7"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_rightside_7"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="4"
+                            android:id="@+id/sv_par7"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="0dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <Spinner
+                            android:id="@+id/sv_hoggspinner_7"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="50dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut7"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_leftside_7">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="7"
+                            android:id="@+id/sv_hola7"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sv_line_7"
+                    android:id="@+id/sv_line_8">
+
+                    <View android:id="@+id/strut8"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut8"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_rightside_8"
+
+                        android:focusableInTouchMode="false">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="4"
+                            android:id="@+id/sv_par8"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="0dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <Spinner
+                            android:id="@+id/sv_hoggspinner_8"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="50dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut8"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_leftside_8">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="8"
+                            android:id="@+id/sv_hola8"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sv_line_8"
+                    android:id="@+id/sv_line_9">
+
+                    <View android:id="@+id/strut9"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut9"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_rightside_9"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="4"
+                            android:id="@+id/sv_par9"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="0dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <Spinner
+                            android:id="@+id/sv_hoggspinner_9"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="50dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut9"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_leftside_9">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="9"
+                            android:id="@+id/sv_hola9"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sv_line_9"
+                    android:id="@+id/sv_line_10">
+
+                    <View android:id="@+id/strut10"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut10"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_rightside_10"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="4"
+                            android:id="@+id/sv_par10"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="0dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <Spinner
+                            android:id="@+id/sv_hoggspinner_10"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="50dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut10"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_leftside_10">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="10"
+                            android:id="@+id/sv_hola10"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sv_line_10"
+                    android:id="@+id/sv_line_11">
+
+                    <View android:id="@+id/strut11"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut11"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_rightside_11"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="3"
+                            android:id="@+id/sv_par11"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="0dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <Spinner
+                            android:id="@+id/sv_hoggspinner_11"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="50dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut11"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_leftside_11">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="11"
+                            android:id="@+id/sv_hola11"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sv_line_11"
+                    android:id="@+id/sv_line_12">
+
+                    <View android:id="@+id/strut12"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut12"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_rigthside_12"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="5"
+                            android:id="@+id/sv_par12"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="0dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <Spinner
+                            android:id="@+id/sv_hoggspinner_12"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="50dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut12"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_leftside_12">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="12"
+                            android:id="@+id/sv_hola12"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sv_line_12"
+                    android:id="@+id/sv_line_13">
+
+                    <View android:id="@+id/strut13"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut13"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_rightside_13"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="4"
+                            android:id="@+id/sv_par13"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="0dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <Spinner
+                            android:id="@+id/sv_hoggspinner_13"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="50dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut13"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_leftside_13">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="13"
+                            android:id="@+id/sv_hola13"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sv_line_13"
+                    android:id="@+id/sv_line_14">
+
+                    <View android:id="@+id/strut14"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut14"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_rightside_14"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="4"
+                            android:id="@+id/sv_par14"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="0dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <Spinner
+                            android:id="@+id/sv_hoggspinner_14"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="50dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut14"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_leftside_14">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="14"
+                            android:id="@+id/sv_hola14"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sv_line_14"
+                    android:id="@+id/sv_line_15">
+
+                    <View android:id="@+id/strut15"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut15"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_rightside_15"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="5"
+                            android:id="@+id/sv_par15"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="0dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <Spinner
+                            android:id="@+id/sv_hoggspinner_15"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="50dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut15"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_leftside_15">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="15"
+                            android:id="@+id/sv_hola15"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sv_line_15"
+                    android:id="@+id/sv_line_16">
+
+                    <View android:id="@+id/strut16"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut16"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_rightside_16"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="4"
+                            android:id="@+id/sv_par16"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="0dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <Spinner
+                            android:id="@+id/sv_hoggspinner_16"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="50dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut16"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_leftside_16"
+                        android:focusableInTouchMode="false">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="16"
+                            android:id="@+id/sv_hola16"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sv_line_16"
+                    android:id="@+id/sv_line_17">
+
+                    <View android:id="@+id/strut17"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut17"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_rightside_17"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="3"
+                            android:id="@+id/sv_par17"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="0dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <Spinner
+                            android:id="@+id/sv_hoggspinner_17"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="50dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut17"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_leftside_17">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="17"
+                            android:id="@+id/sv_hola17"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sv_line_17"
+                    android:id="@+id/sv_line_18">
+
+                    <View android:id="@+id/strut18"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/strut18"
+                        android:layout_alignParentRight="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_rightside_18"
+
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="4"
+                            android:id="@+id/sv_par18"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="0dp"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            />
+
+                        <Spinner
+                            android:id="@+id/sv_hoggspinner_18"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="50dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/strut18"
+                        android:layout_alignParentLeft="true"
+                        android:weightSum="1"
+                        android:id="@+id/sv_leftside_18">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="18"
+                            android:id="@+id/sv_hola18"
+                            android:textColor="#2d7165"
+                            android:layout_marginLeft="10dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
 
     <!-- The navigation drawer -->
     <ListView android:id="@+id/left_drawer"
@@ -25,4 +1324,5 @@
         android:dividerHeight="0.5dp"
         android:background="#2b574e"/>
 
+<!-- android.support.v4.widget.DrawerLayout -->
 </android.support.v4.widget.DrawerLayout>

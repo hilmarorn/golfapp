@@ -27,7 +27,7 @@
                 android:layout_alignLeft="@id/strut"
                 android:layout_alignParentRight="true"
                 android:weightSum="1"
-                android:id="@+id/info">
+                android:id="@+id/sv_infobar_right">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -93,7 +93,7 @@
                 android:background="#ff2d7165"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_below="@+id/info"
+                android:layout_below="@+id/sv_infobar_right"
                 android:id="@+id/horizontalline"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"/>

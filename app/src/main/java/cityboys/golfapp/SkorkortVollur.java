@@ -80,7 +80,9 @@ public class SkorkortVollur extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Ef ýtt er á myndtákn í Action Bar skilar þetta tru
-        if (myDrawerToggle.onOptionsItemSelected(item)) return true;
+        if (myDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
 
         int id = item.getItemId();
         if (id == R.id.action_settings) {
@@ -89,9 +91,9 @@ public class SkorkortVollur extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-/*
-Allt sem tengist Navigation Menu
-*/
+    /*
+    Allt sem tengist Navigation Menu
+    */
     /*
     Notkun: myListView.setOnItemClickListener(NavMenuItemClickListener())
     Fyrir: myListView verður að vera af taginu ListView
@@ -127,14 +129,14 @@ Allt sem tengist Navigation Menu
                 startActivity(open_skorkort);
                 break;
             case 2:
-                Intent open_rastimar = new Intent(this, Rastimar_master.class);
+                Intent open_rastimar = new Intent(this, Rastimar.class);
                 startActivity(open_rastimar);
                 break;
         }
         // Ljóma element-ið sem ýtt var á
         myDrawerList.setItemChecked(position, true);
+
         myDrawerLayout.closeDrawer(myDrawerList);
-        myDrawerList.setItemChecked(position, false);
     }
 
     @Override
