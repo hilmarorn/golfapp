@@ -12,12 +12,21 @@ public class addCourses {
     Fyrir: currentAdapter er af taginu ArrayAdapter<String> og view er view-ið sem kallað er úr
     Eftir: búið er að bæta golfvöllunum við currentAdapter
     */
-    public static void add(ArrayAdapter<String> currentAdapter, View view) {
-        // Finna listann með golfvellina
-        String[] string_courses = view.getResources().getStringArray(R.array.courses);
+    public static void add(ArrayAdapter<String> currentAdapter, View view, String identifier) {
+        // Finna golfvelli ef beðið er um það
+        if(identifier.equals("courses")) {
+            String[] string_courses = view.getResources().getStringArray(R.array.courses);
+            for(String course : string_courses){
+                currentAdapter.add(course);
+                currentAdapter.notifyDataSetChanged();
+            }
+        }
+
+        // Finna listann með Golfklúbbunum
+        String[] string_clubs = view.getResources().getStringArray(R.array.clubs);
         // Golfvöllum bætt við
-        for(String course : string_courses) {
-            currentAdapter.add(course);
+        for(String club : string_clubs) {
+            currentAdapter.add(club);
             currentAdapter.notifyDataSetChanged();
         }
     }

@@ -24,5 +24,8 @@ public class DetailInfo {
     public void setName(String name) {
         this.name = name;
     }
-
+    public boolean isFull() {
+        if(name.equals(" ")) return false;
+        return true;
+    }
 }

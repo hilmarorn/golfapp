@@ -4,6 +4,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
@@ -17,17 +20,25 @@ public class RastimaYfirlit {
     private static ArrayList<HeaderInfo> timeList = new ArrayList<HeaderInfo>();
     // Adapter-ar fyrir tréin og börning og Spinner-ana
     private static MyListAdapter listAdapter;
-    private static ArrayAdapter<String> dateYfirlitAdapter, courseYfirlitAdapter;
+    public static ArrayAdapter<String> dateYfirlitAdapter, courseYfirlitAdapter;
     // Listinn og Spinner-arnir
     private static ExpandableListView myList;
-    private static Spinner dates_yfirlit, courses_yfirlit;
+    public static Spinner dates_yfirlit, courses_yfirlit;
 
+    // TODO: Kannski þarf að fá þessa breytu frá GSÍ
+    public static final int MAX_PLAYERS = 4;
+
+    // TODO: Finna betri lausn
+    private static View myView;
+
+    private static int index;
     /*
     Notkun: RastimaYfirlit.initScreen(view)
     Fyrir: view er view-ið sem er verið að vinna með
     Eftir: búið er að búa til RastimaYfirlit fragment-ið
      */
     public static void initScreen(View view) {
+        myView = view;
         // Skjárinn búinn til
         makeExpandableListView(view);
         makeSpinners(view);
@@ -78,46 +89,92 @@ public class RastimaYfirlit {
 
         // Fylla inní þá
         makeDates.loadDates(dateYfirlitAdapter);
-        addCourses.add(courseYfirlitAdapter, view);
+        addCourses.add(courseYfirlitAdapter, view, "");
+
+        /*
+        Hér þarf ég að setja réttan klúbb sem hefur verið valinn.
+        Annaðhvort er það klúbburinn sem notandi er skráður í
+        eða klúbburinn sem valinn var í Rástímar skjánum
+         */
+        int selectedClubPosition = courseYfirlitAdapter.getPosition(Rastimar_master.selectedClub);
+        courses_yfirlit.setSelection(selectedClubPosition);
+        courseYfirlitAdapter.notifyDataSetChanged();
+        Rastimar.firstTimeInScreen = false;
     }
 
+    public static void makeTimeList(String timeToAdd) {
+        // Gá í hash mappinu hvort master tréið sé til
+        HeaderInfo currentInputTime = myTimes.get(timeToAdd);
+        // Bæta við ef ekki til
+        if(currentInputTime == null){
+            currentInputTime = new HeaderInfo();
+            currentInputTime.setName(timeToAdd);
+            myTimes.put(timeToAdd, currentInputTime);
+            timeList.add(currentInputTime);
+        }
+    }
 
     /*
-    Notkun: addProduct()
+    Notkun: addPlayers()
     Fyrir: ekkert
     Eftir: búið er að setja allar upplýsingar inn í master tréin og börnin þeirra
      */
-    public static int addProduct(String time, String player_name){
+    public static int addPlayers(String timeToAdd, String player_name){
 
         int groupPosition = 0;
 
-        // Gá í hash mappinu hvort master tréið sé til
-        HeaderInfo headerInfo = myTimes.get(time);
-        // Bæta við ef ekki til
-        if(headerInfo == null){
-            headerInfo = new HeaderInfo();
-            headerInfo.setName(time);
-            myTimes.put(time, headerInfo);
-            timeList.add(headerInfo);
-        }
+        // Ná í rétta tímann sem á að setja leikmanninn á
+        HeaderInfo currentInputTime = myTimes.get(timeToAdd);
 
-        // Finna rétt börn fyrir master tréið
-        ArrayList<DetailInfo> lst_players = headerInfo.getTimeList();
-        //size of the children list
-        //int listSize = lst_players.size();
-        //add to the counter
-        //listSize++;
+        // TODO: Þarf að gera tjékk til að tjékka hvort það sé leikmaður skráður
+        if(currentInputTime != null) {
+            // Finna undirlistann fyrir tímann sem settur var inn
+            ArrayList<DetailInfo> lst_players = currentInputTime.getTimeList();
 
-        // Búa til nýtt barn ef ekki til
-        DetailInfo detailInfo = new DetailInfo();
-        //detailInfo.setSequence(String.valueOf(listSize));
-        detailInfo.setName(player_name);
-        lst_players.add(detailInfo);
-        headerInfo.setTimeList(lst_players);
+            // Tjékkar hvort fullt sé í rástímann
+            // TODO: Þarf virkilega að laga þetta, but hey it werkz!
+            if(!checkIfFull(lst_players) && !lst_players.isEmpty()) {
+                // Búa til nýtt barn ef ekki til
+                if(lst_players.size() < MAX_PLAYERS){
+                    DetailInfo playerInfo = new DetailInfo();
+                    playerInfo.setName(player_name);
+                    lst_players.add(playerInfo);
+                    currentInputTime.setTimeList(lst_players);
+                } else if(!lst_players.get(index).isFull()){
+                    DetailInfo tempPlayer = lst_players.get(index);
+                    tempPlayer.setName(player_name);
+                    lst_players.set(index, tempPlayer);
+                    currentInputTime.setTimeList(lst_players);
+                }
+            } else if(lst_players.isEmpty()) {
+                DetailInfo playerInfo = new DetailInfo();
+                //detailInfo.setSequence(String.valueOf(listSize));
+                playerInfo.setName(player_name);
+                lst_players.add(playerInfo);
+                currentInputTime.setTimeList(lst_players);
+            }
 
-        // Finna rétta staðsetningu hópsins
-        groupPosition = timeList.indexOf(headerInfo);
+            // Finna rétta staðsetningu hópsins
+            groupPosition = timeList.indexOf(currentInputTime);
+            return groupPosition;
+                    } /*catch (Exception e) {
+            // TODO: Hvað er betra að gera ef eitthvað klikkar?
+            Toast toast = Toast.makeText(myView.getContext().getApplicationContext(), e.getMessage(),
+                    Toast.LENGTH_SHORT);
+            toast.show();
+        }*/
+
         return groupPosition;
+    }
+
+    private static boolean checkIfFull(ArrayList<DetailInfo> currentList) {
+        for(int i = 0; i < currentList.size(); i++) {
+            if(!currentList.get(i).isFull()) {
+                index = i;
+                return false;
+            }
+        }
+        return true;
     }
 
     // Listener fyrir börnin
@@ -154,24 +211,4 @@ public class RastimaYfirlit {
         }
 
     };
-
-    /*
-    Glósað hér fyrir mögulegt notagildi
-
-        //method to expand all groups
-    private void expandAll() {
-        int count = listAdapter.getGroupCount();
-        for (int i = 0; i < count; i++){
-            myList.expandGroup(i);
-        }
-    }
-
-    //method to collapse all groups
-    private void collapseAll() {
-        int count = listAdapter.getGroupCount();
-        for (int i = 0; i < count; i++){
-            myList.collapseGroup(i);
-        }
-    }
-     */
 }

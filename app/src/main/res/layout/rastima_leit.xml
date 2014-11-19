@@ -30,7 +30,8 @@
             android:layout_below="@+id/rastimaLeit_title"
             android:textColor="#2d7165"
             android:layout_marginRight="5dp"
-            android:layout_alignParentLeft="true"/>
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="10dp"/>
 
         <Spinner
             android:id="@+id/spinner_start_time"
@@ -39,7 +40,8 @@
             android:layout_below="@+id/rastimaLeit_title"
             android:textColor="#2d7165"
             android:layout_marginRight="5dp"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"/>
 
         <Spinner
             android:id="@+id/courses"
@@ -48,7 +50,8 @@
             android:layout_below="@+id/dates"
             android:textColor="#2d7165"
             android:layout_marginRight="5dp"
-            android:layout_alignParentLeft="true"/>
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="10dp"/>
 
         <Spinner
             android:id="@+id/spinner_end_time"
@@ -57,16 +60,45 @@
             android:layout_below="@+id/spinner_start_time"
             android:textColor="#2d7165"
             android:layout_marginRight="5dp"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"/>
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/courses"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/relative_fjoldi">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rl_fjoldi"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:textSize="20sp"
+                android:text="Fjöldi"
+                android:layout_marginBottom="10dp" />
+
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/rl_fjoldiFraNotanda"
+                android:layout_toRightOf="@+id/rl_fjoldi"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:inputType="number"
+                android:hint="1"/>
+        </RelativeLayout>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_lausirtimar"
-            android:id="@+id/button"
-            android:layout_below="@+id/spinner_end_time"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp" />
+            android:id="@+id/button_lausir_timar"
+            android:layout_below="@+id/relative_fjoldi"
+            android:layout_centerHorizontal="true" />
 
     </RelativeLayout>
 

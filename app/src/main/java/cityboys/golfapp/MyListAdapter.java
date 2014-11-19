@@ -56,14 +56,15 @@ public class MyListAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    // Notkun: view = getChildView(int groupPosition, int childPosition, boolean isLastChild,
-    //                                      View view, ViewGroup parent)
-    // Fyrir: groupPosition er staðsetning master trésins (HeaderInfo)
-    //        childPosition er staðsetning barnsins innan master trésins
-    //        isLastChild segir til um hvort þetta sé síðasta barn eður ei
-    //        view er view-ið sem kallað var úr
-    //        parent er master tréið
-    // Eftir: búið er að skila réttu view-i fyrir barnið
+    /*
+    Notkun: view = getChildView(int groupPosition, int childPosition, boolean isLastChild,
+                                          View view, ViewGroup parent)
+    Fyrir: groupPosition er staðsetning master trésins (HeaderInfo)
+           childPosition er staðsetning barnsins innan master trésins
+           isLastChild segir til um hvort þetta sé síðasta barn eður ei
+           view er view-ið sem kallað var úr parent er master tréið
+    Eftir: búið er að skila réttu view-i fyrir barnið
+    */
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild,
                              View view, ViewGroup parent) {
 
@@ -79,11 +80,11 @@ public class MyListAdapter extends BaseExpandableListAdapter {
         childItem.setText(detailInfo.getName().trim());
 
         // Annað hvert barn er litað grátt
-        if(childPosition%2 == 0) {
+        /*if(childPosition%2 == 0) {
             view.setBackgroundColor(Color.GRAY);
         } else {
             view.setBackgroundColor(Color.WHITE);
-        }
+        }*/
 
         return view;
     }

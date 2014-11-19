@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.content.res.Configuration;
+import android.widget.TextView;
 
 /*
 Notkun: Intent open_profile = new Intent(this, profile.class);
@@ -24,6 +25,7 @@ Eftir: Búið er að búa til nýtt Activity sem inniheldur 2 síður fyrir nota
  */
 public class profile extends FragmentActivity {
 
+    // Allt fyrir fragment-in
     private final int NUM_PAGE = 2;         // Fjöldi notendasíða
     private ViewPager myViewpager;          // Pager widget, sér um swipe-ið á milli fragment-a
     private PagerAdapter myPagerAdapter;    // Pager adapter sem heldur utan um síðurnar fyrir viewpager

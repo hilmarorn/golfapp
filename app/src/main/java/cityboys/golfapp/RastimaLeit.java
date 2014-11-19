@@ -64,7 +64,7 @@ public class RastimaLeit {
 
         //Setja inn upplýsingar í spinner-ana
         makeDates.loadDates(dateAdapter);
-        addCourses.add(courseAdapter, view);
+        addCourses.add(courseAdapter, view, "courses");
         addTime();
 
         // onClickListeners fyrir Spinner-ana
@@ -109,8 +109,8 @@ public class RastimaLeit {
     Eftir: búið er að finna takkann og festa onClickListener á hann
      */
     private static void makeButtonListener(View view) {
-        Button button = (Button) view.findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button lausir_timar = (Button) view.findViewById(R.id.button_lausir_timar);
+        lausir_timar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 findAvailableTime(view);

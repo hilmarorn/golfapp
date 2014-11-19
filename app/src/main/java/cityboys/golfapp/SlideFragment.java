@@ -50,8 +50,10 @@ public class SlideFragment extends Fragment {
             // Hér er fundið hvaða skjá á að birta eftir blaðsíðutali
             if (currentPageNumber == 0) {
                 mainView = inflater.inflate(R.layout.profile_screen1, container, false);
+                profile_screen1.initScreen(mainView);
             } else {
                 mainView = inflater.inflate(R.layout.profile_screen2, container, false);
+                profile_screen2.initScreen(mainView);
             }
         } else if(identifier.equals("rastimi")) {
             // Hér er fundið hvaða skjá á að birta eftir blaðsíðutali

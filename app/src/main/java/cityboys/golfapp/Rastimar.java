@@ -4,18 +4,17 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Spinner;
 
 /*
  * Created by Busli on 11.11.2014.
  */
 public class Rastimar {
 
-    private static Spinner spinner_dates;               // Spinner fyrir dagsetningar
-    private static String selectedDate;                 // Valin dagsetning
-    private static ArrayAdapter<String> dates_adapter;  // Adapter fyrir listann í Spinner
-    private static ListView course_list;                // View-ið fyrir golfvellina
-    private static String string_courses[];             // Fylki sem inniheldur golfvellina
+    private static ListView club_list;    // View-ið fyrir golfvellina
+    private static String string_clubs[]; // Fylki sem inniheldur golfvellina
+    // Segir til hvort búið sé að gera skjáinn í RástímaYfirlit
+    public static boolean firstTimeInScreen;
+    private static ArrayAdapter<String> clubAdapter;
 
     /*
     Notkun: Rastimar.initScreen(view)
@@ -23,36 +22,9 @@ public class Rastimar {
     Eftir: Búið er að gera Rastimar fragment-ið
      */
     public static void initScreen(View view) {
-        string_courses = view.getContext().getResources().getStringArray(R.array.courses);
-        makeSpinners(view);
+        string_clubs = view.getContext().getResources().getStringArray(R.array.clubs);
+        firstTimeInScreen = true;
         makeListView(view);
-    }
-
-    /*
-    Notkun: makeSpinners(view)
-    Fyrir: view er view-ið sem kallað er úr
-    Eftir: búið er að gera spinner fyrir rastima fragment-ið
-    */
-    public static void makeSpinners(View view) {
-        // Finna Spinner
-        spinner_dates = (Spinner) view.findViewById(R.id.spinner_dates);
-
-        //TODO: Hér þarf líklegast að nota CursorAdapter þar sem við erum með dataquery
-        // ArrayAdapter fyrir spinner
-        dates_adapter = new ArrayAdapter<String>(view.getContext(),
-                android.R.layout.simple_spinner_item, android.R.id.text1);
-
-        // Setjum default layout á Spinner-ana
-        dates_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // Festa adapter við spinner
-        spinner_dates.setAdapter(dates_adapter);
-
-        //Setja inn dagsetningar í Spinner
-        makeDates.loadDates(dates_adapter);
-
-        // onClickListeners fyrir Spinner
-        spinner_dates.setOnItemSelectedListener(new onSpinnerSelected());
     }
 
     /*
@@ -60,22 +32,9 @@ public class Rastimar {
     Fyrir: view er view-ið sem kallað var úr
     Eftir: búið er að gera ListView með golfvöllum í rástíma fragment-inu
     */
-    public static void makeListView(View view) {
-
-        // TODO: Gera þetta clickable, taka að sem ýtt var á og lita listann
-
-        /*
-        Til að lita ListView þarf ég að fá position á lista elementunum
-
-        if(childPosition%2 == 0) {
-            view.setBackgroundColor(Color.GRAY);
-        } else {
-            view.setBackgroundColor(Color.WHITE);
-        }
-         */
-
+    private static void makeListView(View view) {
         // ListView fundið
-        course_list = (ListView)view.findViewById(R.id.myList);
+        club_list = (ListView)view.findViewById(R.id.myList);
 
         // Glósur um hvernig þetta virkar
         /*
@@ -86,36 +45,29 @@ public class Rastimar {
         Forth - the Array of data
         */
         // Adapter fyrir ListView og hann festur við
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(view.getContext(),
-                android.R.layout.simple_list_item_1, android.R.id.text1, string_courses);
-        course_list.setAdapter(adapter);
+        clubAdapter = new ArrayAdapter<String>(view.getContext(),
+                android.R.layout.simple_list_item_1, android.R.id.text1, string_clubs);
+        club_list.setAdapter(clubAdapter);
 
-        course_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                //int itemPosition = position;
-                //String itemValue = (String) course_list.getItemAtPosition(position);
+        club_list.setOnItemClickListener(myClickListener);
+    }
 
-                // TODO
-                // Köllum á skjáinn sem heldur utan um rástímayfirlitið
-                // Hér vantar að taka upplýsingarnar með
+    private static AdapterView.OnItemClickListener myClickListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+            Rastimar_master.selectedClub = (String) adapterView.getItemAtPosition(position);
+
+            // if-setningin er til þess að framkvæma ekki þessa aðgerð þegar ekki er búið að búa
+            // til fragmentið sem kalla skal á
+            if(!firstTimeInScreen) {
+                // TODO: Þetta er ekki að virka, þarf að finna útúr því
+                // Endurtekning á því sem gert er í makeSpinners í RastimaYfirlit
+                int selectedClubPosition = RastimaYfirlit.courseYfirlitAdapter.getPosition(Rastimar_master.selectedClub);
+                RastimaYfirlit.courses_yfirlit.setSelection(selectedClubPosition);
+                RastimaYfirlit.courseYfirlitAdapter.notifyDataSetChanged();
             }
-        });
-    }
-
-    /*
-    Notkun: new onSpinnerSelected();
-    Fyrir: ekkert
-    Eftir: Búið er að vinna úr því þegar þrýst var á element í Spinner
-    */
-    private static class onSpinnerSelected implements AdapterView.OnItemSelectedListener {
-        public void onItemSelected(AdapterView<?> parent, View view,
-                                   int pos, long id) {
-            selectedDate = parent.getItemAtPosition(pos).toString();
+            Rastimar_master.actionBar.setSelectedNavigationItem(Rastimar_master.NUM_PAGE - 1);
         }
-
-        public void onNothingSelected(AdapterView<?> parent) {
-            // Another interface callback
-        }
-    }
+    };
 }

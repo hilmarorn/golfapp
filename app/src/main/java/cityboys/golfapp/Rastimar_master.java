@@ -27,10 +27,12 @@ Eftir: Búið er að búa til nýtt Activity sem inniheldur rástíma skráningu
  */
 public class Rastimar_master extends FragmentActivity {
 
-    protected ActionBar actionBar;
+    protected static ActionBar actionBar;
+    // Þetta ætti að vera deafault klúbburinn hjá innskráðum notanda
+    protected static String selectedClub;
 
     // Allt fyrir fragment-in
-    private final int NUM_PAGE = 3;         // Fjöldi rástímasíða
+    protected final static int NUM_PAGE = 3;         // Fjöldi rástímasíða
     private final String IDENTIFIER = "rastimi"; // Bera kennsl á Activity-ið
     private ViewPager myViewpager;          // Pager widget, sér um swipe-ið á milli fragment-a
     private PagerAdapter myPagerAdapter;    // Pager adapter sem heldur utan um síðurnar fyrir viewpager
@@ -51,6 +53,8 @@ public class Rastimar_master extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rastima_master);
+
+        selectedClub = profile_screen1.club;
 
         // Búa til Viewpager og PageAdapter. Því næst tengja þá saman
         myViewpager = (ViewPager)findViewById(R.id.pager);
@@ -97,7 +101,7 @@ public class Rastimar_master extends FragmentActivity {
                     public void onPageSelected(int position) {
                         // When swiping between pages, select the
                         // corresponding tab.
-                        getActionBar().setSelectedNavigationItem(position);
+                        actionBar.setSelectedNavigationItem(position);
                     }
                 });
 
@@ -203,6 +207,7 @@ Allt sem tengist Navigation Menu
         // Ljóma element-ið sem ýtt var á
         myDrawerList.setItemChecked(position, true);
         myDrawerLayout.closeDrawer(myDrawerList);
+        // Taka ljómann af element-inu
         myDrawerList.setItemChecked(position, false);
     }
 
