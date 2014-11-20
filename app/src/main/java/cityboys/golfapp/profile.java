@@ -48,10 +48,14 @@ public class profile extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        /* set the name of the user*/
+        this.setTitle(User.getFullName());
+
         // Búa til Viewpager og PageAdapter. Því næst tengja þá saman
         myViewpager = (ViewPager)findViewById(R.id.pager);
         myPagerAdapter = new ScreenSlide(getSupportFragmentManager(), "profile", NUM_PAGE);
         myViewpager.setAdapter(myPagerAdapter);
+
 
         ///////////////////////
         // Navigation Drawer //
@@ -147,6 +151,11 @@ Allt sem tengist Navigation Menu
             case 2:
                 Intent open_rastimar = new Intent(this, Rastimar_master.class);
                 startActivity(open_rastimar);
+                break;
+            case 4:
+                //TODO: We need to kill the profile also
+                Intent open_login = new Intent(this, LoginActivity.class);
+                startActivity(open_login);
                 break;
         }
         // Ljóma element-ið sem ýtt var á

@@ -27,6 +27,13 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,9 +50,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
      */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
+    /*private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world"
-    };
+    };*/
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -129,11 +136,11 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             mEmailView.setError(getString(R.string.error_field_required));
             focusView = mEmailView;
             cancel = true;
-        } else if (!isEmailValid(email)) {
+        } /*else if (!isEmailValid(email)) {
             mEmailView.setError(getString(R.string.error_invalid_email));
             focusView = mEmailView;
             cancel = true;
-        }
+        }*/
 
         if (cancel) {
             // There was an error; don't attempt login and focus the first
@@ -150,8 +157,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             /*  Áminning: Þarf að bæta við ef vitlaust notendanafn/lykilorð kemur
                 úr dæminu að ofan
              */
-            Intent open_profile = new Intent(this, profile.class);
-            startActivity(open_profile);
+            //Intent open_profile = new Intent(this, profile.class);
+            //startActivity(open_profile);
         }
     }
     private boolean isEmailValid(String email) {
@@ -261,11 +268,11 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
      */
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
-        private final String mEmail;
+        private final String mUsername;
         private final String mPassword;
 
-        UserLoginTask(String email, String password) {
-            mEmail = email;
+        UserLoginTask(String username, String password) {
+            mUsername = username;
             mPassword = password;
         }
 
@@ -275,20 +282,56 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
             try {
                 // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
+                //Thread.sleep(2000);
+
+                //Change to golf.is server when connecting to GSI db
+                //String link="http://10.0.2.2:8888/fetchData.php";
+
+                //String link="http://10.0.2.2:8888/getProfileData.php";
+                String link="https://notendur.hi.is/~hoh40/Hugbunadarverkfraedi1//getProfileData.php";
+                //String link="http://katla.rhi.hi.is/heima/hoh40/.public_html/Hugbunadarverkfraedi1/getProfileData.php";
+
+                String data  = URLEncoder.encode("username", "UTF-8")
+                        + "=" + URLEncoder.encode(mUsername, "UTF-8");
+                data += "&" + URLEncoder.encode("password", "UTF-8")
+                        + "=" + URLEncoder.encode(mPassword, "UTF-8");
+                URL url = new URL(link);
+                URLConnection conn = url.openConnection();
+                conn.setDoOutput(true);
+                OutputStreamWriter wr = new OutputStreamWriter
+                        (conn.getOutputStream());
+                wr.write( data );
+                wr.flush();
+                BufferedReader reader = new BufferedReader
+                        (new InputStreamReader(conn.getInputStream()));
+                StringBuilder sb = new StringBuilder();
+                String line = null;
+
+                // Read Server Response
+                while((line = reader.readLine()) != null)
+                {
+                    //System.out.println(line);
+                    sb.append(line);
+                    //sb.append(line+"\n");
+                    break;
+                }
+                User.initUser(sb.toString());
+            } catch (Exception e) {
+                System.out.println("Exception: " + e.getMessage());
                 return false;
             }
 
-            for (String credential : DUMMY_CREDENTIALS) {
+            /*for (String credential : DUMMY_CREDENTIALS) {
                 String[] pieces = credential.split(":");
                 if (pieces[0].equals(mEmail)) {
                     // Account exists, return true if the password matches.
                     return pieces[1].equals(mPassword);
                 }
-            }
+            }*/
 
             // TODO: register the new account here.
+            Intent open_profile = new Intent(getApplicationContext(), profile.class);
+            startActivity(open_profile);
             return true;
         }
 
