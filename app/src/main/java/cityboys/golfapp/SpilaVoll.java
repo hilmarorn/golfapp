@@ -140,6 +140,12 @@ public class SpilaVoll extends Activity {
                 Intent open_rastimar = new Intent(this, Rastimar_master.class);
                 startActivity(open_rastimar);
                 break;
+            case 4:
+                Intent open_login = new Intent(this, LoginActivity.class);
+                startActivity(open_login);
+                User.clearUserData();
+                finish();
+                break;
         }
         // Ljóma element-ið sem ýtt var á
         myDrawerList.setItemChecked(position, true);

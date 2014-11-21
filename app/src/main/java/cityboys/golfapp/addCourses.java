@@ -20,14 +20,14 @@ public class addCourses {
                 currentAdapter.add(course);
                 currentAdapter.notifyDataSetChanged();
             }
-        }
-
-        // Finna listann með Golfklúbbunum
-        String[] string_clubs = view.getResources().getStringArray(R.array.clubs);
-        // Golfvöllum bætt við
-        for(String club : string_clubs) {
-            currentAdapter.add(club);
-            currentAdapter.notifyDataSetChanged();
+        } else if(identifier.equals("")) {
+            // Finna listann með Golfklúbbunum
+            String[] string_clubs = view.getResources().getStringArray(R.array.clubs);
+            // Golfvöllum bætt við
+            for(String club : string_clubs) {
+                currentAdapter.add(club);
+                currentAdapter.notifyDataSetChanged();
+            }
         }
     }
 }

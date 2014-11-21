@@ -80,9 +80,7 @@ public class SkorkortVollur extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Ef ýtt er á myndtákn í Action Bar skilar þetta tru
-        if (myDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
+        if (myDrawerToggle.onOptionsItemSelected(item)) return true;
 
         int id = item.getItemId();
         if (id == R.id.action_settings) {
@@ -131,6 +129,12 @@ public class SkorkortVollur extends Activity {
             case 2:
                 Intent open_rastimar = new Intent(this, Rastimar.class);
                 startActivity(open_rastimar);
+                break;
+            case 4:
+                Intent open_login = new Intent(this, LoginActivity.class);
+                startActivity(open_login);
+                User.clearUserData();
+                finish();
                 break;
         }
         // Ljóma element-ið sem ýtt var á

@@ -288,7 +288,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 //String link="http://10.0.2.2:8888/fetchData.php";
 
                 //String link="http://10.0.2.2:8888/getProfileData.php";
-                String link="https://notendur.hi.is/~hoh40/Hugbunadarverkfraedi1//getProfileData.php";
+                String link="https://notendur.hi.is/~hoh40/Hugbunadarverkfraedi1/getProfileData.php";
                 //String link="http://katla.rhi.hi.is/heima/hoh40/.public_html/Hugbunadarverkfraedi1/getProfileData.php";
 
                 String data  = URLEncoder.encode("username", "UTF-8")
@@ -316,6 +316,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                     break;
                 }
                 User.initUser(sb.toString());
+                Intent open_profile = new Intent(getApplicationContext(), profile.class);
+                startActivity(open_profile);
+                return true;
             } catch (Exception e) {
                 System.out.println("Exception: " + e.getMessage());
                 return false;
@@ -330,9 +333,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             }*/
 
             // TODO: register the new account here.
-            Intent open_profile = new Intent(getApplicationContext(), profile.class);
+            /*Intent open_profile = new Intent(getApplicationContext(), profile.class);
             startActivity(open_profile);
-            return true;
+            return true;*/
         }
 
         @Override

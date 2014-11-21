@@ -154,8 +154,8 @@ Allt sem tengist Navigation Menu
         }
         // Ljóma element-ið sem ýtt var á
         myDrawerList.setItemChecked(position, true);
-
         myDrawerLayout.closeDrawer(myDrawerList);
+        myDrawerList.setItemChecked(position, false);
     }
 
     @Override

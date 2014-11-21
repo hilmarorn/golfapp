@@ -141,6 +141,12 @@ Allt sem tengist Navigation Menu
                 startActivity(open_rastimar);
                 finish();
                 break;
+            case 4:
+                Intent open_login = new Intent(this, LoginActivity.class);
+                startActivity(open_login);
+                User.clearUserData();
+                finish();
+                break;
         }
         // Ljóma element-ið sem ýtt var á
         myDrawerList.setItemChecked(position, true);

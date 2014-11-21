@@ -1,10 +1,12 @@
 package cityboys.golfapp;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 /*
@@ -14,8 +16,10 @@ public class RastimaLeit {
 
     private static Spinner dates_leit, course_leit, start_time, end_time;
     private static ArrayAdapter<String> dateAdapter, courseAdapter, startAdapter, endAdapter;
-    private static String selectedRastimaDate, selectedCourse, selectedStartTime, selectedEndTime;
+    private static String selectedRastimaDate, selectedCourse, selectedStartTime,
+                            fjoldiTiladSkra, selectedEndTime;
     private static String string_times[] = new String[] {"08:00", "09:00", "10:00", "11:00", "12:00", "13:00"};
+    private static EditText fjoldiFraNotanda;
 
     /*
     Notkun: Rastimar.init()
@@ -23,6 +27,7 @@ public class RastimaLeit {
     Eftir: Búið er að gera Rastímar fragment-ið
      */
     public static void init(View view) {
+        fjoldiFraNotanda = (EditText) view.findViewById(R.id.rl_fjoldiFraNotanda);
         initScreen(view);
         makeButtonListener(view);
     }
@@ -124,6 +129,7 @@ public class RastimaLeit {
     Eftir: búið er að fylla út rétta tímasetningu í spinner-ana sem kölluðu á fallið
     */
     public static void addTime() {
+        // TODO: Gera þetta dynamicly og frá núverandi tíma
         for(String time : string_times) {
             startAdapter.add(time);
             endAdapter.add(time);
@@ -143,6 +149,14 @@ public class RastimaLeit {
         lausir_timar.putExtra("Course", selectedCourse);
         lausir_timar.putExtra("StartTime", selectedStartTime);
         lausir_timar.putExtra("EndTime", selectedEndTime);
+
+        try{
+            fjoldiTiladSkra = fjoldiFraNotanda.getText().toString();
+            if(fjoldiTiladSkra.equals("")) fjoldiTiladSkra = "1";
+        } catch (Exception e) {
+            fjoldiTiladSkra = "1";
+        }
+        lausir_timar.putExtra("Fjoldi", fjoldiTiladSkra);
         view.getContext().startActivity(lausir_timar);
     }
 }

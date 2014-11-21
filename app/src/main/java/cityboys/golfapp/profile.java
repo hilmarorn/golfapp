@@ -153,9 +153,10 @@ Allt sem tengist Navigation Menu
                 startActivity(open_rastimar);
                 break;
             case 4:
-                //TODO: We need to kill the profile also
                 Intent open_login = new Intent(this, LoginActivity.class);
                 startActivity(open_login);
+                User.clearUserData();
+                finish();
                 break;
         }
         // Ljóma element-ið sem ýtt var á

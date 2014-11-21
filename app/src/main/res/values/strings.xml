@@ -64,6 +64,56 @@
         <item>GR - Korpúlfsstaður 9 holur</item>
         <item>GSE - Setbergsvöllur</item>
         <item>NK - Nesvöllur</item>
+        <item>GB - Hamarsvöllur</item>
+        <item>GGB - Glannavöllur</item>
+        <item>GHF - Húsafellsvöllur</item>
+        <item>GJÓ - Fróðárvöllur</item>
+        <item>GL - Garðavöllur</item>
+        <item>GMS - Víkurvöllur</item>
+        <item>GSR - Reykholtsdalsvöllur</item>
+        <item>GST - Garðavöllur undir Jökli</item>
+        <item>GVG - Bárarvöllur</item>
+        <item>GBB - Litlueyrarvöllur</item>
+        <item>GBO - Syðridalsvöllur</item>
+        <item>GGL - Meðaldalsvöllur</item>
+        <item>GHÓ - Skeljavíkurvöllur</item>
+        <item>GÍ - Tungudalsvöllur</item>
+        <item>GP - Vesturbotnsvöllur</item>
+        <item>GKS - Hólsvöllur</item>
+        <item>GÓS - Vatnahverfisvöllur</item>
+        <item>GSK - Háagerðisvöllur</item>
+        <item>GSS - Hlíðarendavöllur</item>
+        <item>GA - Jaðarsvöllur</item>
+        <item>GH - Katlavöllur</item>
+        <item>GHD - Arnarholtsvöllur</item>
+        <item>GHV - Hvammsvöllur</item>
+        <item>GKM - Krossdalsvöllur</item>
+        <item>GLF - Lundsvöllur</item>
+        <item>GOG - Ásbyrgisvöllur</item>
+        <item>GÓ - Skeggjabrekkuvöllur</item>
+        <item>GVF - Skálavöllur</item>
+        <item>GBE - Byggðarholtsvöllur</item>
+        <item>GFH - Ekkjufellsvöllur</item>
+        <item>GHH - Silfurnesvöllur</item>
+        <item>GKD - Djúpavogsvöllur</item>
+        <item>GKF - Kollur</item>
+        <item>GN - Grænanesvöllur</item>
+        <item>GSF - Hagavöllur</item>
+        <item>GÁS - Ásatúnsvöllur</item>
+        <item>GD - Dalbúi</item>
+        <item>GEY - Haukadalsvöllur</item>
+        <item>GF - Selsvöllur</item>
+        <item>GHG - Gufudalsvöllur</item>
+        <item>GHR - Strandarvöllur</item>
+        <item>GKB - Kiðjabergsvöllur</item>
+        <item>GKV - Víkurvöllur í Mýrdal</item>
+        <item>GLK - Efri Vík</item>
+        <item>GOS - Svarfhólsvöllur</item>
+        <item>GÚ - Úthlíðarvöllur</item>
+        <item>GV - Vestmannaeyjavöllur</item>
+        <item>GÞ - Þorlákshafnarvöllur</item>
+        <item>GÞH - Þverárvöllur</item>
+        <item>GÖ - Öndverðarnesvöllur</item>
     </string-array>
 
     <string name="hello_world">Hello world!</string>
@@ -74,7 +124,7 @@
     <!-- Headers -->
     <string name="header_rastimaleit">Rástímaleit</string>
     <string name="header_rastimayfirlit">Rástímayfirlit</string>
-    <string name="header_rastimar">Rástímar</string>
+    <string name="header_rastimar">Veldu golfklúbb</string>
 
     <!-- Buttons -->
     <string name="button_lausirtimar">Lausir Tímar</string>

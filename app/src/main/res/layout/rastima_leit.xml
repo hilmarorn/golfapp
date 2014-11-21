@@ -1,115 +1,98 @@
-<android.support.v4.widget.DrawerLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" >
+
+    <TextView
+        android:id="@+id/rastimaLeit_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#2d7165"
+        android:layout_centerHorizontal="true"
+        android:text="@string/header_rastimaleit"
+        android:paddingBottom="10dp"/>
+
+    <Spinner
+        android:id="@+id/dates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rastimaLeit_title"
+        android:textColor="#2d7165"
+        android:layout_marginRight="5dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="10dp"/>
+
+    <Spinner
+        android:id="@+id/spinner_start_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rastimaLeit_title"
+        android:textColor="#2d7165"
+        android:layout_marginRight="5dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"/>
+
+    <Spinner
+        android:id="@+id/courses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dates"
+        android:textColor="#2d7165"
+        android:layout_marginRight="5dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="10dp"/>
+
+    <Spinner
+        android:id="@+id/spinner_end_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner_start_time"
+        android:textColor="#2d7165"
+        android:layout_marginRight="5dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"/>
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin" >
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/courses"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/relative_fjoldi">
 
         <TextView
-            android:id="@+id/rastimaLeit_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:textColor="#2d7165"
+            android:id="@+id/rl_fjoldi"
+            android:layout_marginTop="10dp"
             android:layout_centerHorizontal="true"
-            android:text="@string/header_rastimaleit"
-            android:paddingBottom="10dp"/>
+            android:textSize="20sp"
+            android:text="Fjöldi"
+            android:layout_marginBottom="10dp" />
 
-        <Spinner
-            android:id="@+id/dates"
-            android:layout_width="wrap_content"
+        <EditText
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/rastimaLeit_title"
-            android:textColor="#2d7165"
-            android:layout_marginRight="5dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginBottom="10dp"/>
-
-        <Spinner
-            android:id="@+id/spinner_start_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/rastimaLeit_title"
-            android:textColor="#2d7165"
-            android:layout_marginRight="5dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="10dp"/>
-
-        <Spinner
-            android:id="@+id/courses"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/dates"
-            android:textColor="#2d7165"
-            android:layout_marginRight="5dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginBottom="10dp"/>
-
-        <Spinner
-            android:id="@+id/spinner_end_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/spinner_start_time"
-            android:textColor="#2d7165"
-            android:layout_marginRight="5dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="10dp"/>
-
-        <RelativeLayout
-            android:orientation="vertical"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/courses"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/relative_fjoldi">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/rl_fjoldi"
-                android:layout_marginTop="10dp"
-                android:layout_centerHorizontal="true"
-                android:textSize="20sp"
-                android:text="Fjöldi"
-                android:layout_marginBottom="10dp" />
-
-            <EditText
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/rl_fjoldiFraNotanda"
-                android:layout_toRightOf="@+id/rl_fjoldi"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="10dp"
-                android:inputType="number"
-                android:hint="1"/>
-        </RelativeLayout>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/button_lausirtimar"
-            android:id="@+id/button_lausir_timar"
-            android:layout_below="@+id/relative_fjoldi"
-            android:layout_centerHorizontal="true" />
-
+            android:id="@+id/rl_fjoldiFraNotanda"
+            android:layout_toRightOf="@+id/rl_fjoldi"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:inputType="number"
+            android:hint="1"/>
     </RelativeLayout>
 
-    <!-- The navigation drawer -->
-    <ListView android:id="@+id/left_drawer"
-        android:layout_width="240dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:choiceMode="singleChoice"
-        android:divider="#2d7165"
-        android:dividerHeight="0.5dp"
-        android:background="#2b574e" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_lausirtimar"
+        android:id="@+id/button_lausir_timar"
+        android:layout_below="@+id/relative_fjoldi"
+        android:layout_centerHorizontal="true" />
 
-</android.support.v4.widget.DrawerLayout>
+</RelativeLayout>

@@ -1,6 +1,8 @@
 package cityboys.golfapp;
 
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
 import android.widget.Spinner;
@@ -32,6 +34,7 @@ public class RastimaYfirlit {
     private static View myView;
 
     private static int index;
+
     /*
     Notkun: RastimaYfirlit.initScreen(view)
     Fyrir: view er view-ið sem er verið að vinna með
@@ -39,6 +42,7 @@ public class RastimaYfirlit {
      */
     public static void initScreen(View view) {
         myView = view;
+
         // Skjárinn búinn til
         makeExpandableListView(view);
         makeSpinners(view);
@@ -89,17 +93,36 @@ public class RastimaYfirlit {
 
         // Fylla inní þá
         makeDates.loadDates(dateYfirlitAdapter);
+        // TODO: Breyta tóma strengnum í "courses" þegar ListView click komið
         addCourses.add(courseYfirlitAdapter, view, "");
+        courses_yfirlit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+                changeValueInSpinner();
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
         /*
         Hér þarf ég að setja réttan klúbb sem hefur verið valinn.
         Annaðhvort er það klúbburinn sem notandi er skráður í
         eða klúbburinn sem valinn var í Rástímar skjánum
          */
+        // TODO: Tjékka hvort þetta sé óþarfi
+        changeValueInSpinner();
+    }
+
+    public static void changeValueInSpinner() {
         int selectedClubPosition = courseYfirlitAdapter.getPosition(Rastimar_master.selectedClub);
-        courses_yfirlit.setSelection(selectedClubPosition);
+        // TODO: Allar breytur eru réttar, samt vill spinnerinn ekki breytast
+        courses_yfirlit.setSelection(selectedClubPosition, true);
         courseYfirlitAdapter.notifyDataSetChanged();
-        Rastimar.firstTimeInScreen = false;
+        //Rastimar.firstTimeInScreen = false;
     }
 
     public static void makeTimeList(String timeToAdd) {
@@ -141,6 +164,7 @@ public class RastimaYfirlit {
                     lst_players.add(playerInfo);
                     currentInputTime.setTimeList(lst_players);
                 } else if(!lst_players.get(index).isFull()){
+                    // TODO: Hér þarf að gera tjékkið hvort það sé fullt
                     DetailInfo tempPlayer = lst_players.get(index);
                     tempPlayer.setName(player_name);
                     lst_players.set(index, tempPlayer);

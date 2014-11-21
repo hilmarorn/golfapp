@@ -157,4 +157,28 @@ public class User {
         return double_bogey_percentage;
     }
 
+    public static void clearUserData() {
+        //clear user variables
+        //user_id = null;
+        user_name = null;
+        full_name = null;
+        handicap = null;
+        club_name = null;
+        handicap_club = null;
+        handicap_country = null;
+        times_played_year = null;
+        last_played = null;
+        best_played_year = null;
+        avg_point_count = null;
+        total_eagles = null;
+        total_birdies = null;
+        total_par = null;
+        total_bogey = null;
+        total_double_bogey = null;
+        eagles_percentage = null;
+        birdies_percentage = null;
+        par_percentage = null;
+        bogey_percentage = null;
+        double_bogey_percentage = null;
+    }
 }

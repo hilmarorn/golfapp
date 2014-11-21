@@ -54,7 +54,7 @@ public class Rastimar_master extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rastima_master);
 
-        selectedClub = profile_screen1.club;
+        selectedClub = User.getGolfClub();
 
         // Búa til Viewpager og PageAdapter. Því næst tengja þá saman
         myViewpager = (ViewPager)findViewById(R.id.pager);
@@ -202,6 +202,12 @@ Allt sem tengist Navigation Menu
                 break;
             case 2:
                 // Gerum ekkert, erum í þessum skjá
+                break;
+            case 4:
+                Intent open_login = new Intent(this, LoginActivity.class);
+                startActivity(open_login);
+                User.clearUserData();
+                finish();
                 break;
         }
         // Ljóma element-ið sem ýtt var á

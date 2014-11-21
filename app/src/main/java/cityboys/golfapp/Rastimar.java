@@ -1,5 +1,6 @@
 package cityboys.golfapp;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -34,7 +35,7 @@ public class Rastimar {
     */
     private static void makeListView(View view) {
         // ListView fundið
-        club_list = (ListView)view.findViewById(R.id.myList);
+        club_list = (ListView)view.findViewById(R.id.r_club_list);
 
         // Glósur um hvernig þetta virkar
         /*
@@ -55,18 +56,7 @@ public class Rastimar {
     private static AdapterView.OnItemClickListener myClickListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-
             Rastimar_master.selectedClub = (String) adapterView.getItemAtPosition(position);
-
-            // if-setningin er til þess að framkvæma ekki þessa aðgerð þegar ekki er búið að búa
-            // til fragmentið sem kalla skal á
-            if(!firstTimeInScreen) {
-                // TODO: Þetta er ekki að virka, þarf að finna útúr því
-                // Endurtekning á því sem gert er í makeSpinners í RastimaYfirlit
-                int selectedClubPosition = RastimaYfirlit.courseYfirlitAdapter.getPosition(Rastimar_master.selectedClub);
-                RastimaYfirlit.courses_yfirlit.setSelection(selectedClubPosition);
-                RastimaYfirlit.courseYfirlitAdapter.notifyDataSetChanged();
-            }
             Rastimar_master.actionBar.setSelectedNavigationItem(Rastimar_master.NUM_PAGE - 1);
         }
     };
