@@ -1,9 +1,12 @@
 package cityboys.golfapp;
 
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 /*
@@ -14,6 +17,9 @@ Lýsing: Klasinn tekur inn ArrayAdapter<String> sem bundinn er við Spinner elem
       setur inn réttar dagsetningar í Spinner-inn
 */
 public class makeDates {
+
+    //private static String[] times;
+
     // Notkun: makeDates.loadDates();
     // Fyrir: currentAdapter verður að vera af taginu ArrayAdapter<String>
     // Eftir: Búið er að setja dagsetningar inn í Spinner
@@ -36,5 +42,42 @@ public class makeDates {
             currentDate.add(Calendar.DAY_OF_MONTH, 1);
             currentAdapter.notifyDataSetChanged();
         }
+    }
+
+    public static ArrayList<String> getCurrentTime() {
+        // Finna núverandi tíma og setja hann á rétt form
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        Date currentTime = new Date();
+        String formatedTime = dateFormat.format(currentTime);
+
+        int lastNumberInTime = Integer.parseInt(formatedTime.substring(formatedTime.length() - 1));
+
+        // TODO: vantar líka tjékka þegar startHour > numHourse
+        int startHour = Integer.parseInt(formatedTime.substring(0,2));
+        if(startHour < 7) startHour = 7;
+
+        int numHours = 22;
+
+        int startMin = Integer.parseInt(formatedTime.substring(3,4));
+        if(lastNumberInTime > 0) startMin++;
+
+        int numMins = 50;
+        String stringToSend;
+
+        // ArrayList fyrir tímana
+        ArrayList<String> times = new ArrayList<String>();
+
+        // TODO: Held að þetta sé frekar memory intensive, þarf líklegast að breyta
+        for(int i = startHour; i < numHours; i++) {
+            for(int j = startMin*10; j <= numMins; j += 10) {
+                // TODO: Þetta er skíta redding, þarf að finna betra
+                // er nauðsynlegt að sleppa if-else eða sleppur þetta?
+                if(j == 0) { stringToSend = String.valueOf(i) + ":00"; }
+                else { stringToSend = String.valueOf(i) + ":" + String.valueOf(j); }
+                times.add(stringToSend);
+            }
+            startMin = 0;
+        }
+        return times;
     }
 }

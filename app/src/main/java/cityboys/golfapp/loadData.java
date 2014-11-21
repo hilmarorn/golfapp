@@ -1,4 +1,14 @@
 package cityboys.golfapp;
+import android.util.Log;
+import android.widget.ArrayAdapter;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import static cityboys.golfapp.RastimaYfirlit.*;
 
 /*
@@ -16,29 +26,11 @@ public class loadData {
     }
 
     private static void loadHeader() {
+        // Láta þetta skila strengja fylki svo hægt sé að for echa-a þetta shit
+        ArrayList<String> lst_times = makeDates.getCurrentTime();
 
-        // TODO: Gera þetta frá núverandi tíma þannig að listinn verði ekki svona langur
-
-        int startHour = 7;
-        int numHours = 22;
-        int startMin = 0;
-        int numMins = 50;
-        String stringToSend;
-
-        // TODO: Held að þetta sé frekar memory intensive, þarf líklegast að breyta
-        for(int i = startHour; i < numHours; i++) {
-            for(int j = startMin; j <= numMins; j += 10) {
-                // TODO: Þetta er skíta redding, þarf að finna betra
-                if(j == 0){
-                    stringToSend = String.valueOf(i) + ":00";
-                } else {
-                    stringToSend = String.valueOf(i) + ":" + String.valueOf(j);
-                }
-                makeTimeList(stringToSend);
-                for(int k = 0; k < MAX_PLAYERS; k++){
-                    addPlayers(stringToSend, " ");
-                }
-            }
+        for(String time : lst_times) {
+            makeTimeList(time);
         }
     }
 
@@ -47,6 +39,7 @@ public class loadData {
         Hér fyrir neðan er núna verið að kalla á fall í RastimaYfirlit sem sér um að setja
         þessi gögn inn í ExpandableListView í þeim skjá
          */
+        // User.getName()
         addPlayers("10:00", "Guðmundur Jónsson");
         addPlayers("10:00", "Karl Áki Gústafsson");
         addPlayers("11:00", "Jón Jónson");

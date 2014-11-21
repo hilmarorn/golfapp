@@ -28,7 +28,7 @@ public class LausirTimar extends Activity {
     private ActionBarDrawerToggle myDrawerToggle;   // Heldur utan hvort navigation drawer sér opið eða lokað
 
     // Frá skjánum sem kallaði á klasann
-    private String date, course, startTime, endTime;
+    private String date, course, startTime, endTime, fjoldi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,11 +75,12 @@ public class LausirTimar extends Activity {
         course = pastActivity.getStringExtra("Course");
         startTime = pastActivity.getStringExtra("StartTime");
         endTime = pastActivity.getStringExtra("EndTime");
+        fjoldi = pastActivity.getStringExtra("Fjoldi");
 
         // Skrifa gögnin út til notanda
         TextView onlyView = (TextView) findViewById(R.id.onlyView);
         onlyView.setText("Engir tímar fundust " + date + " á " + course + " milli " + startTime +
-                            " og " + endTime);
+                " og " + endTime + " fyrir " + fjoldi + " einstakling/a");
     }
 
 

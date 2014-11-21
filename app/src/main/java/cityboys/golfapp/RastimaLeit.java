@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import java.util.ArrayList;
+
 /*
  * Created by Busli on 11.11.2014.
  */
@@ -130,7 +132,10 @@ public class RastimaLeit {
     */
     public static void addTime() {
         // TODO: Gera þetta dynamicly og frá núverandi tíma
-        for(String time : string_times) {
+
+        ArrayList<String> formatedTime = makeDates.getCurrentTime();
+
+        for(String time : formatedTime) {
             startAdapter.add(time);
             endAdapter.add(time);
             startAdapter.notifyDataSetChanged();

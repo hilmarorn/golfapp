@@ -1,5 +1,6 @@
 package cityboys.golfapp;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -30,8 +31,7 @@ public class RastimaYfirlit {
     // TODO: Kannski þarf að fá þessa breytu frá GSÍ
     public static final int MAX_PLAYERS = 4;
 
-    // TODO: Finna betri lausn
-    private static View myView;
+    private static Context myContext; // Fyrir Toast
 
     private static int index;
 
@@ -41,7 +41,7 @@ public class RastimaYfirlit {
     Eftir: búið er að búa til RastimaYfirlit fragment-ið
      */
     public static void initScreen(View view) {
-        myView = view;
+        myContext = view.getContext();
 
         // Skjárinn búinn til
         makeExpandableListView(view);
@@ -106,23 +106,13 @@ public class RastimaYfirlit {
             public void onNothingSelected(AdapterView<?> parentView) {
                 // your code here
             }
-
         });
-        /*
-        Hér þarf ég að setja réttan klúbb sem hefur verið valinn.
-        Annaðhvort er það klúbburinn sem notandi er skráður í
-        eða klúbburinn sem valinn var í Rástímar skjánum
-         */
-        // TODO: Tjékka hvort þetta sé óþarfi
-        changeValueInSpinner();
     }
 
     public static void changeValueInSpinner() {
         int selectedClubPosition = courseYfirlitAdapter.getPosition(Rastimar_master.selectedClub);
-        // TODO: Allar breytur eru réttar, samt vill spinnerinn ekki breytast
         courses_yfirlit.setSelection(selectedClubPosition, true);
         courseYfirlitAdapter.notifyDataSetChanged();
-        //Rastimar.firstTimeInScreen = false;
     }
 
     public static void makeTimeList(String timeToAdd) {
@@ -134,6 +124,13 @@ public class RastimaYfirlit {
             currentInputTime.setName(timeToAdd);
             myTimes.put(timeToAdd, currentInputTime);
             timeList.add(currentInputTime);
+            ArrayList<DetailInfo> slotsForPlayers = currentInputTime.getTimeList();
+            for(int i = 0; i < MAX_PLAYERS; i++) {
+                DetailInfo emptyPlayer = new DetailInfo();
+                emptyPlayer.setName("");
+                slotsForPlayers.add(emptyPlayer);
+            }
+            currentInputTime.setTimeList(slotsForPlayers);
         }
     }
 
@@ -149,45 +146,34 @@ public class RastimaYfirlit {
         // Ná í rétta tímann sem á að setja leikmanninn á
         HeaderInfo currentInputTime = myTimes.get(timeToAdd);
 
-        // TODO: Þarf að gera tjékk til að tjékka hvort það sé leikmaður skráður
         if(currentInputTime != null) {
             // Finna undirlistann fyrir tímann sem settur var inn
             ArrayList<DetailInfo> lst_players = currentInputTime.getTimeList();
 
             // Tjékkar hvort fullt sé í rástímann
-            // TODO: Þarf virkilega að laga þetta, but hey it werkz!
-            if(!checkIfFull(lst_players) && !lst_players.isEmpty()) {
-                // Búa til nýtt barn ef ekki til
-                if(lst_players.size() < MAX_PLAYERS){
-                    DetailInfo playerInfo = new DetailInfo();
-                    playerInfo.setName(player_name);
-                    lst_players.add(playerInfo);
-                    currentInputTime.setTimeList(lst_players);
-                } else if(!lst_players.get(index).isFull()){
-                    // TODO: Hér þarf að gera tjékkið hvort það sé fullt
+            if(!checkIfFull(lst_players)) {
+                // && !lst_players.get(index).alreadyRegistered(User.getUserId())
+                // Hinn parameter-inn í if setningunni er örugglega endurtekningun frá því
+                // sem gert er í checkIfFull
+                if(!lst_players.get(index).isFull()){
                     DetailInfo tempPlayer = lst_players.get(index);
                     tempPlayer.setName(player_name);
+                    //tempPlayer.setUserId(User.getUserId());
                     lst_players.set(index, tempPlayer);
                     currentInputTime.setTimeList(lst_players);
+                } else {
+                    Toast toast = Toast.makeText(myContext, "Þú ert þegar skráður", Toast.LENGTH_SHORT);
+                    toast.show();
                 }
-            } else if(lst_players.isEmpty()) {
-                DetailInfo playerInfo = new DetailInfo();
-                //detailInfo.setSequence(String.valueOf(listSize));
-                playerInfo.setName(player_name);
-                lst_players.add(playerInfo);
-                currentInputTime.setTimeList(lst_players);
+            } else {
+                Toast toast = Toast.makeText(myContext, "Fullt er á þessum tíma", Toast.LENGTH_SHORT);
+                toast.show();
             }
 
             // Finna rétta staðsetningu hópsins
             groupPosition = timeList.indexOf(currentInputTime);
             return groupPosition;
-                    } /*catch (Exception e) {
-            // TODO: Hvað er betra að gera ef eitthvað klikkar?
-            Toast toast = Toast.makeText(myView.getContext().getApplicationContext(), e.getMessage(),
-                    Toast.LENGTH_SHORT);
-            toast.show();
-        }*/
-
+        }
         return groupPosition;
     }
 

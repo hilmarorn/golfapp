@@ -10,6 +10,7 @@ public class DetailInfo {
 
     private String sequence = "";
     private String name = "";
+    private String userId = "";
 
     // Kannski hægt að nýta þetta fall
     public String getSequence() {
@@ -25,7 +26,14 @@ public class DetailInfo {
         this.name = name;
     }
     public boolean isFull() {
-        if(name.equals(" ")) return false;
+        if(name.equals("")) return false;
         return true;
+    }
+    public void setUserId(String id) {
+        userId = id;
+    }
+    public boolean alreadyRegistered(String id) {
+        if(userId == id) return true;
+        return false;
     }
 }
