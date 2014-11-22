@@ -21,11 +21,13 @@ public class User {
     private static String last_played;
     private static String best_played_year;
     private static String avg_point_count;
-    private static String total_eagles;
-    private static String total_birdies;
-    private static String total_par;
-    private static String total_bogey;
-    private static String total_double_bogey;
+
+    private static int total_eagles;
+    private static int total_birdies;
+    private static int total_par;
+    private static int total_bogey;
+    private static int total_double_bogey;
+
     private static String eagles_percentage;
     private static String birdies_percentage;
     private static String par_percentage;
@@ -43,7 +45,7 @@ public class User {
                 Jasonobject = Jarray.getJSONObject(i);
 
                 //assign variables to the user
-                //user_id = Jasonobject.getString("user_id");
+                user_id = Jasonobject.getString("user_id");
                 user_name = Jasonobject.getString("user_name");
                 full_name = Jasonobject.getString("full_name");
                 handicap = Jasonobject.getString("handicap");
@@ -54,16 +56,19 @@ public class User {
                 last_played = Jasonobject.getString("last_played");
                 best_played_year = Jasonobject.getString("best_played_year");
                 avg_point_count = Jasonobject.getString("avg_point_count");
-                total_eagles = Jasonobject.getString("total_eagles");
-                total_birdies = Jasonobject.getString("total_birdies");
-                total_par = Jasonobject.getString("total_par");
-                total_bogey = Jasonobject.getString("total_bogey");
-                total_double_bogey = Jasonobject.getString("total_double_bogey");
-                eagles_percentage = Jasonobject.getString("eagles_percentage");
-                birdies_percentage = Jasonobject.getString("birdies_percentage");
-                par_percentage = Jasonobject.getString("par_percentage");
-                bogey_percentage = Jasonobject.getString("bogey_percentage");
-                double_bogey_percentage = Jasonobject.getString("double_bogey_percentage");
+
+                total_eagles = Integer.parseInt(Jasonobject.getString("total_eagles"));
+                total_birdies = Integer.parseInt(Jasonobject.getString("total_birdies"));
+                total_par = Integer.parseInt(Jasonobject.getString("total_par"));
+                total_bogey = Integer.parseInt(Jasonobject.getString("total_bogey"));
+                total_double_bogey = Integer.parseInt(Jasonobject.getString("total_double_bogey"));
+                int sumTotal = total_eagles+total_birdies+total_par+total_bogey+total_double_bogey;
+
+                eagles_percentage = String.valueOf(100*total_eagles/sumTotal)+"%";
+                birdies_percentage = String.valueOf(100*total_birdies/sumTotal)+"%";
+                par_percentage = String.valueOf(100*total_par/sumTotal)+"%";
+                bogey_percentage = String.valueOf(100*total_bogey/sumTotal)+"%";
+                double_bogey_percentage = String.valueOf(100*total_double_bogey/sumTotal)+"%";
 
             }
         }
@@ -118,23 +123,23 @@ public class User {
     }
 
     public static String getTotalEagles() {
-        return total_eagles;
+        return String.valueOf(total_eagles);
     }
 
     public static String getTotalBirdies() {
-        return total_birdies;
+        return String.valueOf(total_birdies);
     }
 
     public static String getTotalPar() {
-        return total_par;
+        return String.valueOf(total_par);
     }
 
     public static String getTotalBogey() {
-        return total_bogey;
+        return String.valueOf(total_bogey);
     }
 
     public static String getTotalDoubleBogey() {
-        return total_double_bogey;
+        return String.valueOf(total_double_bogey);
     }
 
     public static String getEaglesPercentage() {
@@ -159,7 +164,7 @@ public class User {
 
     public static void clearUserData() {
         //clear user variables
-        //user_id = null;
+        user_id = null;
         user_name = null;
         full_name = null;
         handicap = null;
@@ -170,11 +175,11 @@ public class User {
         last_played = null;
         best_played_year = null;
         avg_point_count = null;
-        total_eagles = null;
-        total_birdies = null;
-        total_par = null;
-        total_bogey = null;
-        total_double_bogey = null;
+        total_eagles = 0;
+        total_birdies = 0;
+        total_par = 0;
+        total_bogey = 0;
+        total_double_bogey = 0;
         eagles_percentage = null;
         birdies_percentage = null;
         par_percentage = null;

@@ -150,15 +150,26 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            // Hér er verið að búa til "þráð" til að skrá notanda inn
-            mAuthTask = new UserLoginTask(email, password);
+
+            /*Establish database connection to get courses*/
+            String courseLink="https://notendur.hi.is/~hoh40/Hugbunadarverkfraedi1/getCourses.php";
+            DatabaseConnection mCourseTask = new DatabaseConnection(null, null, courseLink, 'c');
+            mCourseTask.execute();
+
+            /*Establish database connection to get clubs*/
+            String clubLink="https://notendur.hi.is/~hoh40/Hugbunadarverkfraedi1/getClubs.php";
+            DatabaseConnection mClubTask = new DatabaseConnection(null, null, clubLink, 'g');
+            mClubTask.execute();
+
+            /*Establish database connection to get user information*/
+            String link="https://notendur.hi.is/~hoh40/Hugbunadarverkfraedi1/getProfileData.php";
+            mAuthTask = new UserLoginTask(email, password, link);
             mAuthTask.execute((Void) null);
+
             // Keyra upp notendaskjá ef þetta heppnast.
             /*  Áminning: Þarf að bæta við ef vitlaust notendanafn/lykilorð kemur
                 úr dæminu að ofan
              */
-            //Intent open_profile = new Intent(this, profile.class);
-            //startActivity(open_profile);
         }
     }
     private boolean isEmailValid(String email) {
@@ -270,10 +281,12 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
         private final String mUsername;
         private final String mPassword;
+        private final String mLink;
 
-        UserLoginTask(String username, String password) {
+        UserLoginTask(String username, String password, String link) {
             mUsername = username;
             mPassword = password;
+            mLink = link;
         }
 
         @Override
@@ -284,23 +297,19 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 // Simulate network access.
                 //Thread.sleep(2000);
 
-                //Change to golf.is server when connecting to GSI db
-                //String link="http://10.0.2.2:8888/fetchData.php";
+                String data = URLEncoder.encode("username", "UTF-8")
+                            + "=" + URLEncoder.encode(mUsername, "UTF-8");
+                    data += "&" + URLEncoder.encode("password", "UTF-8")
+                            + "=" + URLEncoder.encode(mPassword, "UTF-8");
 
-                //String link="http://10.0.2.2:8888/getProfileData.php";
-                String link="https://notendur.hi.is/~hoh40/Hugbunadarverkfraedi1/getProfileData.php";
-                //String link="http://katla.rhi.hi.is/heima/hoh40/.public_html/Hugbunadarverkfraedi1/getProfileData.php";
-
-                String data  = URLEncoder.encode("username", "UTF-8")
-                        + "=" + URLEncoder.encode(mUsername, "UTF-8");
-                data += "&" + URLEncoder.encode("password", "UTF-8")
-                        + "=" + URLEncoder.encode(mPassword, "UTF-8");
-                URL url = new URL(link);
+                URL url = new URL(mLink);
                 URLConnection conn = url.openConnection();
                 conn.setDoOutput(true);
                 OutputStreamWriter wr = new OutputStreamWriter
                         (conn.getOutputStream());
-                wr.write( data );
+
+                wr.write(data);
+
                 wr.flush();
                 BufferedReader reader = new BufferedReader
                         (new InputStreamReader(conn.getInputStream()));
@@ -311,10 +320,11 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 while((line = reader.readLine()) != null)
                 {
                     //System.out.println(line);
-                    sb.append(line);
-                    //sb.append(line+"\n");
+                    //sb.append(line);
+                    sb.append(line+"\n");
                     break;
                 }
+
                 User.initUser(sb.toString());
                 Intent open_profile = new Intent(getApplicationContext(), profile.class);
                 startActivity(open_profile);
@@ -323,19 +333,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 System.out.println("Exception: " + e.getMessage());
                 return false;
             }
-
-            /*for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
-            }*/
-
-            // TODO: register the new account here.
-            /*Intent open_profile = new Intent(getApplicationContext(), profile.class);
-            startActivity(open_profile);
-            return true;*/
         }
 
         @Override
