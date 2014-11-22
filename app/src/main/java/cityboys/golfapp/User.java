@@ -21,6 +21,7 @@ public class User {
     private static String last_played;
     private static String best_played_year;
     private static String avg_point_count;
+    private static String profile_picture;
 
     private static int total_eagles;
     private static int total_birdies;
@@ -56,6 +57,7 @@ public class User {
                 last_played = Jasonobject.getString("last_played");
                 best_played_year = Jasonobject.getString("best_played_year");
                 avg_point_count = Jasonobject.getString("avg_point_count");
+                profile_picture = Jasonobject.getString("profile_picture");
 
                 total_eagles = Integer.parseInt(Jasonobject.getString("total_eagles"));
                 total_birdies = Integer.parseInt(Jasonobject.getString("total_birdies"));
@@ -122,6 +124,10 @@ public class User {
         return avg_point_count;
     }
 
+    public static String getProfilePicture() {
+        return profile_picture;
+    }
+
     public static String getTotalEagles() {
         return String.valueOf(total_eagles);
     }
@@ -175,6 +181,7 @@ public class User {
         last_played = null;
         best_played_year = null;
         avg_point_count = null;
+        profile_picture = null;
         total_eagles = 0;
         total_birdies = 0;
         total_par = 0;
