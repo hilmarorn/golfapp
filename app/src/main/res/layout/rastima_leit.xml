@@ -27,7 +27,8 @@
         android:layout_below="@+id/rastimaLeit_title"
         android:textSize="20sp"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:textColor="#2d7165"/>
 
     <Spinner
         android:id="@+id/spinner_start_time"
@@ -47,7 +48,9 @@
         android:text="Frá:"
         android:layout_below="@+id/rastimaLeit_title"
         android:textSize="20sp"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="#2d7165"/>
 
     <Spinner
         android:id="@+id/spinner_end_time"
@@ -59,11 +62,21 @@
         android:layout_alignParentRight="true"
         android:layout_marginBottom="10dp"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textview_courses"
+        android:layout_below="@+id/textview_start_time"
+        android:textColor="#2d7165"
+        android:textSize="20sp"
+        android:text="Völlur:"
+        android:layout_alignParentLeft="true"/>
+
     <Spinner
         android:id="@+id/courses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textview_start_time"
+        android:layout_below="@+id/textview_courses"
         android:textColor="#2d7165"
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="10dp"/>
@@ -86,7 +99,8 @@
         android:layout_marginBottom="10dp"
         android:layout_below="@+id/courses"
         android:layout_toLeftOf="@+id/rl_fjoldiFraNotanda"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="5dp"
+        android:textColor="#2d7165"/>
 
     <EditText
         android:layout_width="50dp"
@@ -105,6 +119,10 @@
         android:text="@string/button_lausirtimar"
         android:id="@+id/button_lausir_timar"
         android:layout_below="@+id/dates"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="#2d7165"
+        android:textColor="#FFFFFF"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"/>
 
 </RelativeLayout>

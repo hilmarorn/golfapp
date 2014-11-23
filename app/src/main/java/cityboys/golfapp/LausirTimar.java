@@ -12,8 +12,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 // Notkun: Intent lausir_timar = new Intent(this, LausirTimar.class);
 //         startActivity(lausir_timar);
@@ -77,10 +83,31 @@ public class LausirTimar extends Activity {
         endTime = pastActivity.getStringExtra("EndTime");
         fjoldi = pastActivity.getStringExtra("Fjoldi");
 
-        // Skrifa gögnin út til notanda
-        TextView onlyView = (TextView) findViewById(R.id.onlyView);
-        onlyView.setText("Engir tímar fundust " + date + " á " + course + " milli " + startTime +
-                " og " + endTime + " fyrir " + fjoldi + " einstakling/a");
+        // Skrifa út hvaða völlur var valinn
+        TextView textView_course = (TextView)findViewById(R.id.lt_vollur);
+        textView_course.setText(course);
+
+        // Lausir rástímar
+        ArrayList<String> times = makeDates.getCurrentTime();
+        String[] GRID_DATA = new String[times.size()];
+        GRID_DATA = times.toArray(GRID_DATA);
+
+        // Finna GridView
+        GridView gridView = (GridView) findViewById(R.id.grid_lausir_timar);
+
+        // Custom Adapter fyrir GridView-ið
+        gridView.setAdapter(new CustomGridAdapter(this, GRID_DATA));
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v,
+                                    int position, long id) {
+                Toast.makeText(
+                        getApplicationContext(),
+                        ((TextView) v.findViewById(R.id.grid_item_label))
+                                .getText(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
 

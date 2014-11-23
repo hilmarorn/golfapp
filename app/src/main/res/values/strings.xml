@@ -125,6 +125,7 @@
     <string name="header_rastimaleit">Rástímaleit</string>
     <string name="header_rastimayfirlit">Rástímayfirlit</string>
     <string name="header_rastimar">Veldu golfklúbb</string>
+    <string name="header_lausir_timar">Lausir tímar</string>
 
     <!-- Buttons -->
     <string name="button_lausirtimar">Lausir Tímar</string>
