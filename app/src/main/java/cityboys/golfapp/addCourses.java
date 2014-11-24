@@ -12,34 +12,20 @@ public class addCourses {
     Fyrir: currentAdapter er af taginu ArrayAdapter<String> og view er view-ið sem kallað er úr
     Eftir: búið er að bæta golfvöllunum við currentAdapter
     */
-    public static void add(ArrayAdapter<String> currentAdapter, View view, String identifier) {
+    public static void add(ArrayAdapter<String> currentAdapter, String identifier) {
         // Finna golfvelli ef beðið er um það
         if(identifier.equals("courses")) {
-            /*String[] string_courses = view.getResources().getStringArray(R.array.courses);
-            for(String course : string_courses){
-                currentAdapter.add(course);
-                currentAdapter.notifyDataSetChanged();
-            }*/
-
             for(int i=0; i<Courses.courseArray.length; i++){
                 currentAdapter.add(Courses.courseArray[i].getClubShortName()+" - "+Courses.courseArray[i].getCourseName());
                 currentAdapter.notifyDataSetChanged();
             }
 
-        } else if(identifier.equals("")) {
-            // Finna listann með Golfklúbbunum
-            //String[] string_clubs = view.getResources().getStringArray(R.array.clubs);
-            // Golfvöllum bætt við
-            /*for(String club : string_clubs) {
-                currentAdapter.add(club);
-                currentAdapter.notifyDataSetChanged();
-            }*/
-
+        } else if(identifier.equals("clubs")) {
             for(int i=0; i<Clubs.clubArray.length; i++){
-                currentAdapter.add(Clubs.clubArray[i].getClubShortName()+" - "+Clubs.clubArray[i].getClubName());
+                //currentAdapter.add(Clubs.clubArray[i].getClubShortName()+" - "+Clubs.clubArray[i].getClubName());
+                currentAdapter.add(Clubs.clubArray[i].getClubName());
                 currentAdapter.notifyDataSetChanged();
             }
-
         }
     }
 }

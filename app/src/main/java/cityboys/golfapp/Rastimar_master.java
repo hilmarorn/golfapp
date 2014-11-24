@@ -29,7 +29,7 @@ public class Rastimar_master extends FragmentActivity {
 
     protected static ActionBar actionBar;
     // Þetta ætti að vera deafault klúbburinn hjá innskráðum notanda
-    protected static String selectedClub;
+    protected static String selectedCourse;
 
     // Allt fyrir fragment-in
     protected final static int NUM_PAGE = 3;         // Fjöldi rástímasíða
@@ -54,7 +54,11 @@ public class Rastimar_master extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rastima_master);
 
-        selectedClub = User.getGolfClub();
+        // TODO: Kannski að færa þetta í User klasann?
+        for (int i = 0; i < Courses.courseArray.length; i++) {
+            if (User.getGolfClub().equals(Courses.courseArray[i].getClubName()))
+                Rastimar_master.selectedCourse = Courses.courseArray[i].getClubShortName() + " - " + Courses.courseArray[i].getCourseName();
+        }
 
         // Búa til Viewpager og PageAdapter. Því næst tengja þá saman
         myViewpager = (ViewPager)findViewById(R.id.pager);

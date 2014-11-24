@@ -19,8 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".profile"
-            android:label="@string/golfer_name" >
+            android:name=".profile" >
         </activity>
         <activity
             android:name=".Skorkort"

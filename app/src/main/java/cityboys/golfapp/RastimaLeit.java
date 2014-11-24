@@ -71,7 +71,7 @@ public class RastimaLeit {
 
         //Setja inn upplýsingar í spinner-ana
         makeDates.loadDates(dateAdapter);
-        addCourses.add(courseAdapter, view, "courses");
+        addCourses.add(courseAdapter, "courses");
         addTime();
 
         // onClickListeners fyrir Spinner-ana

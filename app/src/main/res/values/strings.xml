@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">Golf App</string>
-    <string name="golfer_name">Sigmar Sigurðsson</string>
     <string name="action_settings">Settings</string>
     <string name="action_search">"Search"</string>
     <string name="action_refresh">Refresh</string>
@@ -16,104 +15,6 @@
         <item>Rástímar</item>
         <item>Hjálp</item>
         <item>Skrá út</item>
-    </string-array>
-
-    <string-array name="clubs">
-        <item>Golfklúbbur Akureyrar</item>
-        <item>Golfklúbbur Borgarness</item>
-        <item>Golfklúbbur Reykjavíkur</item>
-        <item>Golfklúbburinn Glanni</item>
-        <item>Golfklúbburinn Keilir</item>
-        <item>Golfklúbburinn Leynir</item>
-        <item>Golfklúbburinn Úthlíð</item>
-        <item>Golfklúbbur Ásatúns</item>
-        <item>Golfklúbbur Brautarholts</item>
-        <item>Golfklúbburinn Flúðir</item>
-        <item>Golfklúbbur Grindavíkur</item>
-        <item>Golfklúbbur Hveragerðis</item>
-        <item>Golfklúbbur Hellu</item>
-        <item>Golfklúbburinn Kiðjaberg</item>
-        <item>Golfkl. Kópavogs/Garðabæjar</item>
-        <item>Golfklúbburinn Kjölur</item>
-        <item>Golfklúbburinn Lundur</item>
-        <item>Golfklúbburinn Mostri</item>
-        <item>Golfklúbburinn Oddur</item>
-        <item>Golfklúbbur Selfoss</item>
-        <item>Golfklúbbur Suðurnesja</item>
-        <item>Golfklúbbur Sandgerðis</item>
-        <item>Golfklúbbur Sauðárkróks</item>
-        <item>Golfklúbbur Vestmannaeyja</item>
-        <item>Golfklúbburinn Vestarr</item>
-        <item>Golfklúbbur Vatnsleysustrandar</item>
-        <item>Golfklúbbur Þorlákshafnar</item>
-        <item>Golfklúbburinn Þverá Hellishólum</item>
-        <item>Golfklúbbur Öndverðaness</item>
-        <item>Nesklúbburinn</item>
-    </string-array>
-
-    <string-array name="courses">
-        <item>GÁ - Álftanessvöllur</item>
-        <item>GB - Brautarholtsvöllur</item>
-        <item>GK - Hvaleyrarvöllur</item>
-        <item>GKG - Leirdalur</item>
-        <item>GKJ - Hlíðavöllur</item>
-        <item>GO - Urriðavöllur</item>
-        <item>GOB - Bakkakotsvöllur</item>
-        <item>GR - Grafarholtsvöllur</item>
-        <item>GR - Korpúlfsstaðir 18 holur</item>
-        <item>GR - Korpúlfsstaður 9 holur</item>
-        <item>GSE - Setbergsvöllur</item>
-        <item>NK - Nesvöllur</item>
-        <item>GB - Hamarsvöllur</item>
-        <item>GGB - Glannavöllur</item>
-        <item>GHF - Húsafellsvöllur</item>
-        <item>GJÓ - Fróðárvöllur</item>
-        <item>GL - Garðavöllur</item>
-        <item>GMS - Víkurvöllur</item>
-        <item>GSR - Reykholtsdalsvöllur</item>
-        <item>GST - Garðavöllur undir Jökli</item>
-        <item>GVG - Bárarvöllur</item>
-        <item>GBB - Litlueyrarvöllur</item>
-        <item>GBO - Syðridalsvöllur</item>
-        <item>GGL - Meðaldalsvöllur</item>
-        <item>GHÓ - Skeljavíkurvöllur</item>
-        <item>GÍ - Tungudalsvöllur</item>
-        <item>GP - Vesturbotnsvöllur</item>
-        <item>GKS - Hólsvöllur</item>
-        <item>GÓS - Vatnahverfisvöllur</item>
-        <item>GSK - Háagerðisvöllur</item>
-        <item>GSS - Hlíðarendavöllur</item>
-        <item>GA - Jaðarsvöllur</item>
-        <item>GH - Katlavöllur</item>
-        <item>GHD - Arnarholtsvöllur</item>
-        <item>GHV - Hvammsvöllur</item>
-        <item>GKM - Krossdalsvöllur</item>
-        <item>GLF - Lundsvöllur</item>
-        <item>GOG - Ásbyrgisvöllur</item>
-        <item>GÓ - Skeggjabrekkuvöllur</item>
-        <item>GVF - Skálavöllur</item>
-        <item>GBE - Byggðarholtsvöllur</item>
-        <item>GFH - Ekkjufellsvöllur</item>
-        <item>GHH - Silfurnesvöllur</item>
-        <item>GKD - Djúpavogsvöllur</item>
-        <item>GKF - Kollur</item>
-        <item>GN - Grænanesvöllur</item>
-        <item>GSF - Hagavöllur</item>
-        <item>GÁS - Ásatúnsvöllur</item>
-        <item>GD - Dalbúi</item>
-        <item>GEY - Haukadalsvöllur</item>
-        <item>GF - Selsvöllur</item>
-        <item>GHG - Gufudalsvöllur</item>
-        <item>GHR - Strandarvöllur</item>
-        <item>GKB - Kiðjabergsvöllur</item>
-        <item>GKV - Víkurvöllur í Mýrdal</item>
-        <item>GLK - Efri Vík</item>
-        <item>GOS - Svarfhólsvöllur</item>
-        <item>GÚ - Úthlíðarvöllur</item>
-        <item>GV - Vestmannaeyjavöllur</item>
-        <item>GÞ - Þorlákshafnarvöllur</item>
-        <item>GÞH - Þverárvöllur</item>
-        <item>GÖ - Öndverðarnesvöllur</item>
     </string-array>
 
     <string name="hello_world">Hello world!</string>

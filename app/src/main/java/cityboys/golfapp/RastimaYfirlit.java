@@ -93,8 +93,8 @@ public class RastimaYfirlit {
 
         // Fylla inní þá
         makeDates.loadDates(dateYfirlitAdapter);
-        // TODO: Breyta tóma strengnum í "courses" þegar ListView click komið
-        addCourses.add(courseYfirlitAdapter, view, "");
+
+        addCourses.add(courseYfirlitAdapter, "courses");
         courses_yfirlit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
@@ -110,7 +110,7 @@ public class RastimaYfirlit {
     }
 
     public static void changeValueInSpinner() {
-        int selectedClubPosition = courseYfirlitAdapter.getPosition(Rastimar_master.selectedClub);
+        int selectedClubPosition = courseYfirlitAdapter.getPosition(Rastimar_master.selectedCourse);
         courses_yfirlit.setSelection(selectedClubPosition, true);
         courseYfirlitAdapter.notifyDataSetChanged();
     }

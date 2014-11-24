@@ -12,10 +12,7 @@ import android.widget.ListView;
 public class Rastimar {
 
     private static ListView club_list;    // View-ið fyrir golfvellina
-    private static String string_clubs[]; // Fylki sem inniheldur golfvellina
-    // Segir til hvort búið sé að gera skjáinn í RástímaYfirlit
-    public static boolean firstTimeInScreen;
-    private static ArrayAdapter<String> clubAdapter;
+    private static ArrayAdapter<String> clubAdapter; //Adapter fyrir golfklubbana
 
     /*
     Notkun: Rastimar.initScreen(view)
@@ -23,8 +20,6 @@ public class Rastimar {
     Eftir: Búið er að gera Rastimar fragment-ið
      */
     public static void initScreen(View view) {
-        string_clubs = view.getContext().getResources().getStringArray(R.array.clubs);
-        firstTimeInScreen = true;
         makeListView(view);
     }
 
@@ -47,8 +42,11 @@ public class Rastimar {
         */
         // Adapter fyrir ListView og hann festur við
         clubAdapter = new ArrayAdapter<String>(view.getContext(),
-                android.R.layout.simple_list_item_1, android.R.id.text1, string_clubs);
+                android.R.layout.simple_list_item_1, android.R.id.text1);
         club_list.setAdapter(clubAdapter);
+
+        // Setja upplýsingar í Adapter-inn
+        addCourses.add(clubAdapter, "clubs");
 
         club_list.setOnItemClickListener(myClickListener);
     }
@@ -56,7 +54,13 @@ public class Rastimar {
     private static AdapterView.OnItemClickListener myClickListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-            Rastimar_master.selectedClub = (String) adapterView.getItemAtPosition(position);
+            String selectedClub = (String) adapterView.getItemAtPosition(position);
+
+            for(int i = 0; i < Courses.courseArray.length; i++) {
+                if(selectedClub.equals(Courses.courseArray[i].getClubName()))
+                    Rastimar_master.selectedCourse = Courses.courseArray[i].getClubShortName() + " - " + Courses.courseArray[i].getCourseName();
+            }
+
             Rastimar_master.actionBar.setSelectedNavigationItem(Rastimar_master.NUM_PAGE - 1);
         }
     };
