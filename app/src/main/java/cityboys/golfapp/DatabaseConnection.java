@@ -15,15 +15,17 @@ import java.net.URLEncoder;
  */
 public class DatabaseConnection extends AsyncTask<Void, Void, Boolean> {
 
-    private final String mUsername;
-    private final String mPassword;
+    private final String mArg1;
+    private final String mArg2;
+    private final String mArg3;
     private final String mLink;
     private final char mType;
     public String mData;
 
-    DatabaseConnection(String username, String password, String link, char type) {
-        mUsername = username;
-        mPassword = password;
+    DatabaseConnection(String arg1, String arg2, String arg3, String link, char type) {
+        mArg1 = arg1;
+        mArg2 = arg2;
+        mArg3 = arg3;
         mLink = link;
         mType = type;
         this.mData = "";
@@ -34,19 +36,30 @@ public class DatabaseConnection extends AsyncTask<Void, Void, Boolean> {
 
         try {
             String data = "";
-            if(mUsername!=null || mPassword!=null) {
-                data = URLEncoder.encode("username", "UTF-8")
-                        + "=" + URLEncoder.encode(mUsername, "UTF-8");
-                data += "&" + URLEncoder.encode("password", "UTF-8")
-                        + "=" + URLEncoder.encode(mPassword, "UTF-8");
+
+            switch(this.mType) {
+                case 'i':
+                    data = URLEncoder.encode("course_id", "UTF-8")
+                            + "=" + URLEncoder.encode(mArg1, "UTF-8");
+                    data += "&" + URLEncoder.encode("user_id", "UTF-8")
+                            + "=" + URLEncoder.encode(User.getUserId(), "UTF-8");
+                    data += "&" + URLEncoder.encode("startDate", "UTF-8")
+                            + "=" + URLEncoder.encode(mArg2, "UTF-8");
+                    data += "&" + URLEncoder.encode("startTime", "UTF-8")
+                            + "=" + URLEncoder.encode(mArg3, "UTF-8");
+                    break;
             }
+
             URL url = new URL(mLink);
             URLConnection conn = url.openConnection();
             conn.setDoOutput(true);
             OutputStreamWriter wr = new OutputStreamWriter
                     (conn.getOutputStream());
-            if(mUsername!=null || mPassword!=null) {
-                wr.write(data);
+
+            switch(this.mType) {
+                case 'i':
+                    wr.write(data);
+                    break;
             }
             wr.flush();
             BufferedReader reader = new BufferedReader
@@ -82,6 +95,11 @@ public class DatabaseConnection extends AsyncTask<Void, Void, Boolean> {
             case 'g':
                 if(success){
                     Clubs.initClubs(this.mData);
+                }
+                break;
+            case 's':
+                if(success){
+                    StartingTimes.initStartingTimes(this.mData);
                 }
                 break;
         }

@@ -153,13 +153,18 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
             /*Establish database connection to get courses*/
             String courseLink="https://notendur.hi.is/~hoh40/Hugbunadarverkfraedi1/getCourses.php";
-            DatabaseConnection mCourseTask = new DatabaseConnection(null, null, courseLink, 'c');
+            DatabaseConnection mCourseTask = new DatabaseConnection(null, null, null, courseLink, 'c');
             mCourseTask.execute();
 
             /*Establish database connection to get clubs*/
             String clubLink="https://notendur.hi.is/~hoh40/Hugbunadarverkfraedi1/getClubs.php";
-            DatabaseConnection mClubTask = new DatabaseConnection(null, null, clubLink, 'g');
+            DatabaseConnection mClubTask = new DatabaseConnection(null, null, null, clubLink, 'g');
             mClubTask.execute();
+
+            /*Establish database connection to get starting times*/
+            String startLink="https://notendur.hi.is/~hoh40/Hugbunadarverkfraedi1/getStartingTimes.php";
+            DatabaseConnection mStartTask = new DatabaseConnection(null, null, null, startLink, 's');
+            mStartTask.execute();
 
             /*Establish database connection to get user information*/
             String link="https://notendur.hi.is/~hoh40/Hugbunadarverkfraedi1/getProfileData.php";

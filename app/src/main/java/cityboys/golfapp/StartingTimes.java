@@ -6,19 +6,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
- * Created by hilmarhergeirsson on 15/11/14.
+ * Created by hilmarhergeirsson on 26/11/14.
  */
-public class Courses {
+public class StartingTimes {
 
-    public static Course[] courseArray;
+    public static StartingTime[] startingArray;
 
-    public static void initCourses(String courseData) {
+    public static void initStartingTimes(String startingData) {
         //set data from database as Json and assign to variables
 
         try {
-            JSONArray Jarray = new JSONArray(courseData);
+            JSONArray Jarray = new JSONArray(startingData);
 
-            courseArray = new Course[Jarray.length()];
+            startingArray = new StartingTime[Jarray.length()];
 
             for(int i=0;i<Jarray.length();i++)
             {
@@ -27,11 +27,13 @@ public class Courses {
 
                 //assign variables to the course
                 String course_name = Jasonobject.getString("course_name");
-                String club_name = Jasonobject.getString("club_name");
-                String short_club_name = Jasonobject.getString("short_club_name");
                 String course_id = Jasonobject.getString("course_id");
+                String user_name = Jasonobject.getString("user_name");
+                String user_id = Jasonobject.getString("user_id");
+                String startDate = Jasonobject.getString("startDate");
+                String startTime = Jasonobject.getString("startTime");
 
-                courseArray[i] = new Course(course_name,club_name,short_club_name, course_id);
+                startingArray[i] = new StartingTime(course_name,course_id,user_name, user_id, startDate, startTime);
 
             }
         }
@@ -40,5 +42,4 @@ public class Courses {
             Log.e("log_tag", "Error parsing data " + e.toString());
         }
     }
-
 }
