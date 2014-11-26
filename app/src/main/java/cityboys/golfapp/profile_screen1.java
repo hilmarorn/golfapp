@@ -1,5 +1,6 @@
 package cityboys.golfapp;
 
+import android.graphics.drawable.BitmapDrawable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -36,6 +37,9 @@ public class profile_screen1 {
         avg_point_count.setText(User.getAvgPointCount());
 
         ImageView profile_picture = (ImageView) view.findViewById(R.id.imageView2);
-        profile_picture.setImageBitmap(User.getProfilePicture());
+        //profile_picture.setImageBitmap(User.getProfilePicture());
+
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(User.getProfilePicture());
+        profile_picture.setImageDrawable(bitmapDrawable);
     }
 }
