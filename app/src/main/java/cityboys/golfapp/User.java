@@ -1,5 +1,6 @@
 package cityboys.golfapp;
 
+import android.graphics.Bitmap;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 
@@ -37,6 +38,9 @@ public class User {
     private static String bogey_percentage;
     private static String double_bogey_percentage;
 
+    private static String profile_picture_url;
+    private static Bitmap profile_picture;
+
     public static void initUser(String userInfo) {
         //set data from database as Json and assign to variables
         try {
@@ -72,6 +76,11 @@ public class User {
                 par_percentage = String.valueOf(100*total_par/sumTotal)+"%";
                 bogey_percentage = String.valueOf(100*total_bogey/sumTotal)+"%";
                 double_bogey_percentage = String.valueOf(100*total_double_bogey/sumTotal)+"%";
+
+                profile_picture_url = Jasonobject.getString("profile_picture");
+
+                /*Load the user profile picture*/
+                //new UserImageLoader("https://notendur.hi.is/~hoh40/Hugbunadarverkfraedi1/S3/"+profile_picture_url).execute();
             }
         }
         catch (Exception e) {
@@ -164,6 +173,18 @@ public class User {
         return double_bogey_percentage;
     }
 
+    public static void setProfilePicture(Bitmap loadedImage) {
+        profile_picture = loadedImage;
+    }
+
+    public static Bitmap getProfilePicture() {
+        return profile_picture;
+    }
+
+    public static String getProfilePictureUrl() {
+        return profile_picture_url;
+    }
+
     public static void clearUserData() {
         //clear user variables
         user_id = null;
@@ -187,5 +208,7 @@ public class User {
         par_percentage = null;
         bogey_percentage = null;
         double_bogey_percentage = null;
+        profile_picture = null;
+        profile_picture_url = null;
     }
 }

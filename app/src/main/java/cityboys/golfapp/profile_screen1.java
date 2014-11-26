@@ -1,6 +1,7 @@
 package cityboys.golfapp;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /*
@@ -33,5 +34,8 @@ public class profile_screen1 {
 
         TextView avg_point_count = (TextView) view.findViewById(R.id.textView20);
         avg_point_count.setText(User.getAvgPointCount());
+
+        ImageView profile_picture = (ImageView) view.findViewById(R.id.imageView2);
+        profile_picture.setImageBitmap(User.getProfilePicture());
     }
 }

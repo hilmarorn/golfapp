@@ -10,6 +10,8 @@ import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 
@@ -29,6 +31,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.URL;
@@ -101,6 +104,36 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         getLoaderManager().initLoader(0, null, this);
     }
 
+    public class UserImageLoader extends AsyncTask<String, Void, Bitmap> {
+        //ImageView bmImage;
+        String url;
+
+        public UserImageLoader(String url) {
+            //this.bmImage = bmImage;
+            this.url = url;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            //String urldisplay = urls[0];
+            Bitmap mIcon = null;
+            try {
+                InputStream in = new java.net.URL(this.url).openStream();
+                mIcon = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return mIcon;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            //bmImage.setImageBitmap(result);
+            User.setProfilePicture(result);
+
+            Intent open_profile = new Intent(getApplicationContext(), profile.class);
+            startActivity(open_profile);
+        }
+    }
 
     /**
      * Attempts to sign in or register the account specified by the login form.
@@ -330,9 +363,14 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                     break;
                 }
 
+                /*Initialize the user data*/
                 User.initUser(sb.toString());
-                Intent open_profile = new Intent(getApplicationContext(), profile.class);
-                startActivity(open_profile);
+
+                /*Load the user profile picture*/
+                new UserImageLoader("https://notendur.hi.is/~hoh40/Hugbunadarverkfraedi1/S3/"+User.getProfilePictureUrl()).execute();
+
+                //Intent open_profile = new Intent(getApplicationContext(), profile.class);
+                //startActivity(open_profile);
                 return true;
             } catch (Exception e) {
                 System.out.println("Exception: " + e.getMessage());
