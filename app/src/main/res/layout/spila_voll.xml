@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_marginLeft="20dp"
@@ -101,17 +101,20 @@
                 android:layout_gravity="center_horizontal" />
 
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Sækja skorkort"
                 android:id="@+id/saekjaskorkort_button"
                 android:layout_gravity="center"
                 android:focusableInTouchMode="false"
                 android:layout_marginTop="20dp"
-                android:onClick="Saekjaskorkort" />
+                android:onClick="Saekjaskorkort"
+                android:background="#2d7165"
+                android:textColor="#ffffff" />
 
         </LinearLayout>
-    </RelativeLayout>
+
+    </ScrollView>
 
     <!-- The navigation drawer -->
     <ListView android:id="@+id/left_drawer"

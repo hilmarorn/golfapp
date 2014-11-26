@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.content.res.Configuration;
+import android.widget.TextView;
 
 /*
 Notkun: Intent open_skor = new Intent(this, Skorkort.class);
@@ -39,6 +40,9 @@ public class SpilaVoll extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.spila_voll);
+
+        TextView kylfingur = (TextView) findViewById(R.id.spv_id_kylfingur);
+        kylfingur.setText(User.getFullName());
 
         // Núllstilla nav drawer
         nav_menu_values = getResources().getStringArray(R.array.nav_drawer);
@@ -131,14 +135,17 @@ public class SpilaVoll extends Activity {
             case 0:
                 Intent open_profile = new Intent(this, profile.class);
                 startActivity(open_profile);
+                finish();
                 break;
             case 1:
                 Intent open_skorkort = new Intent(this, Skorkort.class);
                 startActivity(open_skorkort);
+                finish();
                 break;
             case 2:
                 Intent open_rastimar = new Intent(this, Rastimar_master.class);
                 startActivity(open_rastimar);
+                finish();
                 break;
             case 4:
                 Intent open_login = new Intent(this, LoginActivity.class);

@@ -6,7 +6,9 @@
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
         <LinearLayout
             android:orientation="vertical" android:layout_width="match_parent"
@@ -23,14 +25,16 @@
                 android:textColor="#2d7165"/>
 
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Spila Völl"
                 android:id="@+id/sk_spilavoll_button"
                 android:layout_gravity="center"
                 android:focusableInTouchMode="false"
                 android:layout_marginTop="20dp"
-                android:onClick="SpilaNyjanVoll" />
+                android:onClick="SpilaNyjanVoll"
+                android:background="#2d7165"
+                android:textColor="#ffffff" />
 
         </LinearLayout>
 
