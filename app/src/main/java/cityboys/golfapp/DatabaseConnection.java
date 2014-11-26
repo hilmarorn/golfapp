@@ -102,6 +102,17 @@ public class DatabaseConnection extends AsyncTask<Void, Void, Boolean> {
                     StartingTimes.initStartingTimes(this.mData);
                 }
                 break;
+            case 'i':
+                if(success){
+                    System.out.println("Test");
+                    System.out.println(this.mData);
+                    //TODO: Reload starting time by calling a database connection
+                    /*Establish database connection to get starting times*/
+                    //String startLink="https://notendur.hi.is/~hoh40/Hugbunadarverkfraedi1/getStartingTimes.php";
+                    //DatabaseConnection mStartTask = new DatabaseConnection(null, null, null, startLink, 's');
+                    //mStartTask.execute();
+                }
+                break;
         }
     }
 }

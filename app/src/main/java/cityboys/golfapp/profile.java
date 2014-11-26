@@ -143,6 +143,10 @@ Allt sem tengist Navigation Menu
         switch(position) {
             case 0:
                 // Gerum ekkert, erum í þessum skjá
+                /*Test for inserting new starting time*/
+                //String insertLink="https://notendur.hi.is/~hoh40/Hugbunadarverkfraedi1/insertStartingTime.php";
+                //DatabaseConnection mInsertTask = new DatabaseConnection("1", "2014-11-26", "11:00", insertLink, 'i');
+                //mInsertTask.execute();
                 break;
             case 1:
                 Intent open_skorkort = new Intent(this, Skorkort.class);
