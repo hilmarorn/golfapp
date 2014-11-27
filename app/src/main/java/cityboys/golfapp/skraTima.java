@@ -8,7 +8,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,8 +22,9 @@ import java.text.SimpleDateFormat;
 import static cityboys.golfapp.RastimaYfirlit.addPlayers;
 
 /*
-Klasinn er ekki í notkun eins og er.
-Verður tekinn í notkun þegar það þarf staðfestingar skjá fyrir Rástíma
+Notkun: Intent skraTima = new Intent(this, skraTima.class)
+Fyrir: ekkert
+Eftir: búið er að ræsa skraTima activity-inu
  */
 public class skraTima extends Activity {
 
@@ -84,17 +84,23 @@ public class skraTima extends Activity {
 
         myDrawerLayout.setDrawerListener(myDrawerToggle);
 
+        // Finnum activity-ið sem kallaði og upplýsingarnar frá því
         Intent previousActivity = getIntent();
         date = previousActivity.getStringExtra("date");
         course = previousActivity.getStringExtra("course");
         time = previousActivity.getStringExtra("time");
 
+        // Skrifum út staðfestingar textann til notanda
         TextView infoText = (TextView)findViewById(R.id.sk_info);
         infoText.setText("Þú ert að fara skrá þig á rástíma "+date+" klukkan "+time+ " á " +course);
     }
 
+    /*
+    Notkun: Þegar ýtt er á takkann í skjánum
+    Fyrir: ekkert
+    Eftir: búið er að skrá notanda á tímann sem hann valdi
+     */
     public void stadfestaRastima(View view) {
-
         // Setja gögnin á rétt format
         String[] arrayDateToSend = date.split("/");
         String dateToSend = arrayDateToSend[2]+"-"+arrayDateToSend[1]+"-"+arrayDateToSend[0];
@@ -108,12 +114,12 @@ public class skraTima extends Activity {
             }
         }
 
-        /*Test for inserting new starting time*/
+        // Búum til gagnatengingu til þess að senda rástíma til gagnagrunns
         String insertLink="https://notendur.hi.is/~hoh40/Hugbunadarverkfraedi1/insertStartingTime.php";
-        // 1: course_id, 2: startDate, 3: startTime
         DatabaseConnection mInsertTask = new DatabaseConnection(course_id, dateToSend, time, insertLink, 'i');
         mInsertTask.execute();
 
+        // Búum til nýjan skjá og setjum inn rétta blaðsíðu til að fara á
         Intent rastimar = new Intent(this, Rastimar_master.class);
         rastimar.putExtra("pageNumber", "2");
         startActivity(rastimar);

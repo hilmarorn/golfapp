@@ -28,8 +28,7 @@ Eftir: Búið er að búa til nýtt Activity sem inniheldur rástíma skráningu
 public class Rastimar_master extends FragmentActivity {
 
     protected static ActionBar actionBar;
-    // Þetta er deafault klúbburinn hjá innskráðum notanda
-    protected static String selectedCourse;
+    protected static String selectedCourse; // Þetta er deafault klúbburinn hjá innskráðum notanda
 
     // Allt fyrir fragment-in
     protected final static int NUM_PAGE = 3;         // Fjöldi rástímasíða
@@ -147,12 +146,12 @@ public class Rastimar_master extends FragmentActivity {
         if(pageNumber != null) {
             actionBar.setSelectedNavigationItem(Integer.valueOf(pageNumber));
         } else {
+            // Ef ekki er verið að koma úr skraTima þá finnum við heima golfvöll notanda
             for (int i = 0; i < Courses.courseArray.length; i++) {
                 if (User.getGolfClub().equals(Courses.courseArray[i].getClubName()))
                     selectedCourse = Courses.courseArray[i].getClubShortName() + " - " + Courses.courseArray[i].getCourseName();
             }
         }
-
     }
 
     @Override

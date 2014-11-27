@@ -12,58 +12,76 @@ import android.widget.TextView;
  */
 public class CustomGridAdapter extends BaseAdapter {
 
+    // Context-ið sem er verið að vinna með
     private Context context;
-    // Ekki alveg viss með að hafa final hér þar sem þetta er dynamic
-    // Skiptir samt kannski ekki máli
-    private final String[] gridValues;
+    // Gildin sem adapter-inn á að halda utan um
+    private String[] gridValues;
 
-    //Constructor to initialize values
+    /*
+    Notkun: new CustomGridAdapter(context, values)
+    Fyrir: context er context-ið hjá activity-inu og values er af taginu String[]
+    Eftir: Búið er að tengja þennan adapter við GridLayout og setja inn gildi
+     */
     public CustomGridAdapter(Context context, String[ ] gridValues) {
         this.context        = context;
         this.gridValues     = gridValues;
     }
 
+    /*
+    Notkun: CustomGridAdapter.getCount()
+    Fyrir: CustomGridAdapter er adapter af réttu tagi
+    Eftir: búið er að skila hversu mörg gildi eru í CustomGridAdapter
+     */
     @Override
     public int getCount() {
         // Number of times getView method call depends upon gridValues.length
         return gridValues.length;
     }
 
+    /*
+    Yfirskrifað til að skila engu gildi þar sem ekki er þörf fyrir þetta
+     */
     @Override
     public Object getItem(int position) {
         return null;
     }
 
+    /*
+    Yfirskrifað til að skila engu gildi þar sem ekki er þörf fyrir þetta
+     */
     @Override
     public long getItemId(int position) {
         return 0;
     }
 
 
-    // Number of times getView method call depends upon gridValues.length
+    // Kallað er á þetta fall jafn oft og gildið á gridValues.length
     public View getView(int position, View convertView, ViewGroup parent) {
-        // LayoutInflator to call external grid_item.xml file
+        /*
+        LayoutInflator til að geta kallað grid_item.xml sem er útlitið á hverju
+        TextView sem búið er til fyrir gildin
+        */
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View gridView;
 
         if (convertView == null) {
-
             gridView = new View(context);
 
-            // get layout from grid_item.xml ( Defined Below )
+            // Inflate-a rétta útlitinu
             gridView = inflater.inflate( R.layout.grid_item , null);
 
-            // set value into textview
+            // Finna rétta TextView-ið
             TextView textView = (TextView) gridView
                     .findViewById(R.id.grid_item_label);
 
+            // Fylla inní það
             textView.setText(gridValues[position]);
 
+            // Ekki notað eins og er, á að gefa okkur gildið sem verið er að vinna með
             String arrLabel = gridValues[ position ];
         } else {
-
             gridView = (View) convertView;
         }
 

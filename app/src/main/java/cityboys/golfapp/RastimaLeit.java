@@ -1,14 +1,12 @@
 package cityboys.golfapp;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-
 import java.util.ArrayList;
 
 /*
@@ -16,15 +14,18 @@ import java.util.ArrayList;
  */
 public class RastimaLeit {
 
+    // Allir spinner-ar sem verða notaðair
     private static Spinner dates_leit, course_leit, start_time, end_time;
+    // Adapter-ar fyrir spinner-ana
     private static ArrayAdapter<String> dateAdapter, courseAdapter, startAdapter, endAdapter;
+    // Breytur til að halda utan um gildin í spinner-unum
     private static String selectedRastimaDate, selectedCourse, selectedStartTime,
                             fjoldiTiladSkra, selectedEndTime;
-    private static String string_times[] = new String[] {"08:00", "09:00", "10:00", "11:00", "12:00", "13:00"};
+    // EditText þar sem notandi getur sagt hvað hann vill skrá marga
     private static EditText fjoldiFraNotanda;
 
     /*
-    Notkun: Rastimar.init()
+    Notkun: Rastimar.init(view)
     Fyrir: view er view-ið sem verið er að vinna með
     Eftir: Búið er að gera Rastímar fragment-ið
      */
@@ -116,6 +117,7 @@ public class RastimaLeit {
     Eftir: búið er að finna takkann og festa onClickListener á hann
      */
     private static void makeButtonListener(View view) {
+        // Finna takkann sem á að festa listener á
         Button lausir_timar = (Button) view.findViewById(R.id.button_lausir_timar);
         lausir_timar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,10 +133,10 @@ public class RastimaLeit {
     Eftir: búið er að fylla út rétta tímasetningu í spinner-ana sem kölluðu á fallið
     */
     public static void addTime() {
-        // TODO: Gera þetta dynamicly og frá núverandi tíma
-
+        // Fáum lista af tímum
         ArrayList<String> formatedTime = makeDates.getCurrentTime();
 
+        // Setjum í spinner-ana
         for(String time : formatedTime) {
             startAdapter.add(time);
             endAdapter.add(time);
@@ -149,6 +151,7 @@ public class RastimaLeit {
     Eftir: búið er að taka öll gögn frá spinner-unum og flytja yfir í næsta skjá
     */
     public static void findAvailableTime(View view) {
+        // Búinn til nýr Intent og allar upplýsingar settar í hann og hann síðan ræstur
         Intent lausir_timar = new Intent(view.getContext(), LausirTimar.class);
         lausir_timar.putExtra("Date", selectedRastimaDate);
         lausir_timar.putExtra("Course", selectedCourse);

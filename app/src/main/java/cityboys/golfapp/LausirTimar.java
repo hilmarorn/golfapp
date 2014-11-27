@@ -16,9 +16,6 @@ import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 // Notkun: Intent lausir_timar = new Intent(this, LausirTimar.class);
@@ -87,7 +84,7 @@ public class LausirTimar extends Activity {
         TextView textView_course = (TextView)findViewById(R.id.lt_vollur);
         textView_course.setText(course);
 
-        // Lausir rástímar
+        // Skrifa út lausa rástíma
         ArrayList<String> times = makeDates.getCurrentTime();
         String[] GRID_DATA = new String[times.size()];
         GRID_DATA = times.toArray(GRID_DATA);
@@ -98,9 +95,11 @@ public class LausirTimar extends Activity {
         // Custom Adapter fyrir GridView-ið
         gridView.setAdapter(new CustomGridAdapter(this, GRID_DATA));
 
+        // onItemClickListener fyrir GridLayout adapter-inn
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
+                // Skrifað er út hvaða gildi var smellt á
                 Toast.makeText(
                         getApplicationContext(),
                         ((TextView) v.findViewById(R.id.grid_item_label))

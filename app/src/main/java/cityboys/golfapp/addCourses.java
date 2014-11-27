@@ -1,6 +1,5 @@
 package cityboys.golfapp;
 
-import android.view.View;
 import android.widget.ArrayAdapter;
 
 /*
@@ -13,7 +12,8 @@ public class addCourses {
     Eftir: búið er að bæta golfvöllunum við currentAdapter
     */
     public static void add(ArrayAdapter<String> currentAdapter, String identifier) {
-        // Finna golfvelli ef beðið er um það
+        // Hér er bætt við annað hvort völlum eða klúbbum í innsendan ArrayAdapter
+        // Gögnin er sótt í klasa sem fá gögnin frá gagnagrunni
         if(identifier.equals("courses")) {
             for(int i=0; i<Courses.courseArray.length; i++){
                 currentAdapter.add(Courses.courseArray[i].getClubShortName()+" - "+Courses.courseArray[i].getCourseName());

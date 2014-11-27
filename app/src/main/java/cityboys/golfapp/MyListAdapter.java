@@ -12,8 +12,6 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
-// TODO: Kíkja betur á þennan klasa
-
 /*
     Notkun: MyListAdapter myAdapter = new MyListAdapter(context, myList);
     Fyrir: context er skjárinn sem er verið vinna í og myList er listinn sem á að tengja
@@ -79,7 +77,7 @@ public class MyListAdapter extends BaseExpandableListAdapter {
         TextView childItem = (TextView) view.findViewById(R.id.childItem);
         childItem.setText(detailInfo.getName().trim());
 
-        // Annað hvert barn er litað grátt
+        // Annað hvert barn er litað grátt, verð0ur kannski notað
         /*if(childPosition%2 == 0) {
             view.setBackgroundColor(Color.GRAY);
         } else {

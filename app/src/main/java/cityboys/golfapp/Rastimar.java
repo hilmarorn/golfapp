@@ -1,6 +1,5 @@
 package cityboys.golfapp;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -46,13 +45,16 @@ public class Rastimar {
     private static AdapterView.OnItemClickListener myClickListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+            // Klúbburinn sem er valinn
             String selectedClub = (String) adapterView.getItemAtPosition(position);
 
+            // Hér er fundin réttur golfvöllur út frá golfklúbbnum
             for(int i = 0; i < Courses.courseArray.length; i++) {
                 if(selectedClub.equals(Courses.courseArray[i].getClubName()))
                     Rastimar_master.selectedCourse = Courses.courseArray[i].getClubShortName() + " - " + Courses.courseArray[i].getCourseName();
             }
 
+            // Færum okkur yfir í Rástímayfirlit skjáinn
             Rastimar_master.actionBar.setSelectedNavigationItem(Rastimar_master.NUM_PAGE - 1);
         }
     };

@@ -1,6 +1,5 @@
 package cityboys.golfapp;
 
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -17,9 +16,6 @@ Lýsing: Klasinn tekur inn ArrayAdapter<String> sem bundinn er við Spinner elem
       setur inn réttar dagsetningar í Spinner-inn
 */
 public class makeDates {
-
-    //private static String[] times;
-
     // Notkun: makeDates.loadDates();
     // Fyrir: currentAdapter verður að vera af taginu ArrayAdapter<String>
     // Eftir: Búið er að setja dagsetningar inn í Spinner
@@ -44,6 +40,11 @@ public class makeDates {
         }
     }
 
+    /*
+    Notkun: makeDates.getCurrentTime()
+    Fyrir: ekkert
+    Eftir: skilað er ArrayList<String> sem inniheldur tíma
+     */
     public static ArrayList<String> getCurrentTime() {
         // Finna núverandi tíma og setja hann á rétt form
         DateFormat dateFormat = new SimpleDateFormat("HH:mm");
@@ -67,11 +68,9 @@ public class makeDates {
         // ArrayList fyrir tímana
         ArrayList<String> times = new ArrayList<String>();
 
-        // TODO: Held að þetta sé frekar memory intensive, þarf líklegast að breyta
+        // Tímar settir inn í ArrayList<String>
         for(int i = startHour; i < numHours; i++) {
             for(int j = startMin*10; j <= numMins; j += 10) {
-                // TODO: Þetta er skíta redding, þarf að finna betra
-                // er nauðsynlegt að sleppa if-else eða sleppur þetta?
                 if(j == 0) { stringToSend = String.valueOf(i) + ":00"; }
                 else { stringToSend = String.valueOf(i) + ":" + String.valueOf(j); }
                 times.add(stringToSend);
