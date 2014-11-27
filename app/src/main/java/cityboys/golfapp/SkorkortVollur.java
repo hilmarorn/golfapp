@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 
 public class SkorkortVollur extends Activity {
@@ -68,6 +69,48 @@ public class SkorkortVollur extends Activity {
         };
 
         myDrawerLayout.setDrawerListener(myDrawerToggle);
+
+        ArrayAdapter<CharSequence> hoggArrayAdapter= ArrayAdapter.createFromResource(this,R.array.fjoldihogga,android.R.layout.simple_spinner_dropdown_item);
+        /*int[] fjoldihogga = {1 , 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
+        ArrayAdapter <Integer> hoggArrayAdapter = new ArrayAdapter<Integer>( this,android.R.layout.simple_spinner_dropdown_item, fjoldihogga);
+        */
+        Spinner hogg1 = (Spinner) findViewById(R.id.sv_hoggspinner_1);
+        hogg1.setAdapter(hoggArrayAdapter);
+        Spinner hogg2 = (Spinner) findViewById(R.id.sv_hoggspinner_2);
+        hogg2.setAdapter(hoggArrayAdapter);
+        Spinner hogg3 = (Spinner) findViewById(R.id.sv_hoggspinner_3);
+        hogg3.setAdapter(hoggArrayAdapter);
+        Spinner hogg4 = (Spinner) findViewById(R.id.sv_hoggspinner_4);
+        hogg4.setAdapter(hoggArrayAdapter);
+        Spinner hogg5 = (Spinner) findViewById(R.id.sv_hoggspinner_5);
+        hogg5.setAdapter(hoggArrayAdapter);
+        Spinner hogg6 = (Spinner) findViewById(R.id.sv_hoggspinner_6);
+        hogg6.setAdapter(hoggArrayAdapter);
+        Spinner hogg7 = (Spinner) findViewById(R.id.sv_hoggspinner_7);
+        hogg7.setAdapter(hoggArrayAdapter);
+        Spinner hogg8 = (Spinner) findViewById(R.id.sv_hoggspinner_8);
+        hogg8.setAdapter(hoggArrayAdapter);
+        Spinner hogg9 = (Spinner) findViewById(R.id.sv_hoggspinner_9);
+        hogg9.setAdapter(hoggArrayAdapter);
+        Spinner hogg10 = (Spinner) findViewById(R.id.sv_hoggspinner_10);
+        hogg10.setAdapter(hoggArrayAdapter);
+        Spinner hogg11 = (Spinner) findViewById(R.id.sv_hoggspinner_11);
+        hogg11.setAdapter(hoggArrayAdapter);
+        Spinner hogg12 = (Spinner) findViewById(R.id.sv_hoggspinner_12);
+        hogg12.setAdapter(hoggArrayAdapter);
+        Spinner hogg13 = (Spinner) findViewById(R.id.sv_hoggspinner_13);
+        hogg13.setAdapter(hoggArrayAdapter);
+        Spinner hogg14 = (Spinner) findViewById(R.id.sv_hoggspinner_14);
+        hogg14.setAdapter(hoggArrayAdapter);
+        Spinner hogg15 = (Spinner) findViewById(R.id.sv_hoggspinner_15);
+        hogg15.setAdapter(hoggArrayAdapter);
+        Spinner hogg16 = (Spinner) findViewById(R.id.sv_hoggspinner_16);
+        hogg16.setAdapter(hoggArrayAdapter);
+        Spinner hogg17 = (Spinner) findViewById(R.id.sv_hoggspinner_17);
+        hogg17.setAdapter(hoggArrayAdapter);
+        Spinner hogg18 = (Spinner) findViewById(R.id.sv_hoggspinner_18);
+        hogg18.setAdapter(hoggArrayAdapter);
+
     }
 
     @Override
