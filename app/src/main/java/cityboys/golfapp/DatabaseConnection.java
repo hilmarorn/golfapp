@@ -13,6 +13,10 @@ import java.net.URLEncoder;
 /**
  * Created by hilmarhergeirsson on 21/11/14.
  */
+
+// Notkun: DatabaseConnection this_db_conn = new DatabaseConnection(String arg1, String arg2, String arg3, String link, char type);
+// Fyrir: ekkert
+// Eftir: búið er að gera nýjan StartingTime hlut
 public class DatabaseConnection extends AsyncTask<Void, Void, Boolean> {
 
     private final String mArg1;

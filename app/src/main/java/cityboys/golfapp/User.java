@@ -41,6 +41,9 @@ public class User {
     private static String profile_picture_url;
     private static Bitmap profile_picture;
 
+    // Notkun: User.initUser(userInfo);
+    // Fyrir: ekkert
+    // Eftir: búið er að gera nýjan User hlut
     public static void initUser(String userInfo) {
         //set data from database as Json and assign to variables
         try {

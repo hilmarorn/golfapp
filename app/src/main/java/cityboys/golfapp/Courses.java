@@ -12,6 +12,9 @@ public class Courses {
 
     public static Course[] courseArray;
 
+    // Notkun: Courses.initCourses(courseData);
+    // Fyrir: ekkert
+    // Eftir: búið er að gera nýjan Courses hlut
     public static void initCourses(String courseData) {
         //set data from database as Json and assign to variables
 

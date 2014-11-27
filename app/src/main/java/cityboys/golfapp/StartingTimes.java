@@ -12,6 +12,9 @@ public class StartingTimes {
 
     public static StartingTime[] startingArray;
 
+    // Notkun: StartingTimes.initStartingTimes(startingData);
+    // Fyrir: ekkert
+    // Eftir: búið er að gera nýjan StartingTimes hlut
     public static void initStartingTimes(String startingData) {
         //set data from database as Json and assign to variables
 

@@ -11,6 +11,9 @@ import org.json.JSONObject;
 public class Clubs {
     public static Club[] clubArray;
 
+    // Notkun: Clubs.initClubs(clubData);
+    // Fyrir: ekkert
+    // Eftir: búið er að gera nýjan Clubs hlut
     public static void initClubs(String clubData) {
         //set data from database as Json and assign to variables
 
