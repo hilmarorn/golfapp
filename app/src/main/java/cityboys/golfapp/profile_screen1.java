@@ -13,10 +13,10 @@ import android.widget.Toast;
 public class profile_screen1 {
     public static void initScreen(View view) {
 
+        /*ábendingargluggi sem birtist þegar view-ið er opnað*/
         Context context = view.getContext();
         CharSequence text = "Strjúktu til vinstri fyrir forgjöf og tölfræði";
         int duration = Toast.LENGTH_LONG;
-
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
 

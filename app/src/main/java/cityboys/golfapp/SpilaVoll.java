@@ -78,6 +78,7 @@ public class SpilaVoll extends Activity {
 
         myDrawerLayout.setDrawerListener(myDrawerToggle);
 
+        /*Möguleikum bætt í spinnera*/
         ArrayAdapter<CharSequence> teigarArrayAdapter= ArrayAdapter.createFromResource(this,R.array.teigar,android.R.layout.simple_spinner_dropdown_item);
         Spinner teigarspinner = (Spinner) findViewById(R.id.spv_teigar_spinner);
         teigarspinner.setAdapter(teigarArrayAdapter);

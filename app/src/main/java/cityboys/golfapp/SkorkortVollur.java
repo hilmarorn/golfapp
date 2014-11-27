@@ -72,6 +72,8 @@ public class SkorkortVollur extends Activity {
 
         myDrawerLayout.setDrawerListener(myDrawerToggle);
 
+
+        /*Möguleikar á fjöldi högga er bætt við í spinnera*/
         ArrayAdapter<CharSequence> hoggArrayAdapter= ArrayAdapter.createFromResource(this,R.array.fjoldihogga,android.R.layout.simple_spinner_dropdown_item);
 
         Spinner hogg1 = (Spinner) findViewById(R.id.sv_hoggspinner_1);
@@ -111,10 +113,10 @@ public class SkorkortVollur extends Activity {
         Spinner hogg18 = (Spinner) findViewById(R.id.sv_hoggspinner_18);
         hogg18.setAdapter(hoggArrayAdapter);
 
+        /*ábendingargluggi sem birtist þegar view-ið er opnað*/
         Context context = this;
         CharSequence text = "Snúðu skjá fyrir meiri upplýsingar";
         int duration = Toast.LENGTH_LONG;
-
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
 
