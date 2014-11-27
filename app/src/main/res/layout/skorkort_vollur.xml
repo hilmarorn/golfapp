@@ -10,17 +10,17 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp">
         <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginBottom="20dp">
+            android:layout_height="fill_parent">
 
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/sv_vollur_label"
                 android:textColor="#2d7165"
                 android:textStyle="bold"
@@ -144,8 +144,9 @@
                     android:id="@+id/sv_hoggspinner_1"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
-
-                    />
+                    android:padding="0dp"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="20dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -191,6 +192,9 @@
                     android:id="@+id/sv_hoggspinner_2"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="20dp"
 
                     />
             </LinearLayout>
@@ -237,6 +241,9 @@
                     android:id="@+id/sv_hoggspinner_3"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="20dp"
 
                     />
             </LinearLayout>
@@ -284,6 +291,9 @@
                     android:id="@+id/sv_hoggspinner_4"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="20dp"
 
                     />
             </LinearLayout>
@@ -330,6 +340,9 @@
                     android:id="@+id/sv_hoggspinner_5"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="20dp"
 
                     />
             </LinearLayout>
@@ -377,6 +390,9 @@
                     android:id="@+id/sv_hoggspinner_6"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="20dp"
 
                     />
             </LinearLayout>
@@ -423,6 +439,9 @@
                     android:id="@+id/sv_hoggspinner_7"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="20dp"
 
                     />
             </LinearLayout>
@@ -470,6 +489,9 @@
                     android:id="@+id/sv_hoggspinner_8"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="20dp"
 
                     />
             </LinearLayout>
@@ -516,6 +538,9 @@
                     android:id="@+id/sv_hoggspinner_9"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="20dp"
 
                     />
             </LinearLayout>
@@ -563,6 +588,9 @@
                     android:id="@+id/sv_hoggspinner_10"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="20dp"
 
                     />
             </LinearLayout>
@@ -609,6 +637,9 @@
                     android:id="@+id/sv_hoggspinner_11"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="20dp"
 
                     />
             </LinearLayout>
@@ -656,6 +687,9 @@
                     android:id="@+id/sv_hoggspinner_12"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="20dp"
 
                     />
             </LinearLayout>
@@ -702,6 +736,9 @@
                     android:id="@+id/sv_hoggspinner_13"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="20dp"
 
                     />
             </LinearLayout>
@@ -749,6 +786,9 @@
                     android:id="@+id/sv_hoggspinner_14"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="20dp"
 
                     />
             </LinearLayout>
@@ -795,6 +835,9 @@
                     android:id="@+id/sv_hoggspinner_15"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="20dp"
 
                     />
             </LinearLayout>
@@ -842,6 +885,9 @@
                     android:id="@+id/sv_hoggspinner_16"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="20dp"
 
                     />
             </LinearLayout>
@@ -888,6 +934,9 @@
                     android:id="@+id/sv_hoggspinner_17"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="20dp"
 
                     />
             </LinearLayout>
@@ -935,6 +984,9 @@
                     android:id="@+id/sv_hoggspinner_18"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
+                    android:padding="0dp"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="20dp"
 
                     />
             </LinearLayout>

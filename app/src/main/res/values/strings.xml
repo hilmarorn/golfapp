@@ -40,6 +40,30 @@
         <item>20</item>
     </string-array>
 
+    <string-array name="teigar">
+        <item>-</item>
+        <item>Gulir</item>
+        <item>Rauðir karla</item>
+    </string-array>
+
+    <string-array name="dagsetningar">
+        <item>25.11.2014</item>
+        <item>26.11.2014</item>
+        <item>27.11.2014</item>
+    </string-array>
+
+    <string-array name="fjoldihola">
+        <item>-</item>
+        <item>18 holur</item>
+        <item>Fyrri 9</item>
+        <item>Seinni 9</item>
+    </string-array>
+
+    <string-array name="vellir">
+        <item>-</item>
+        <item>Grafarholtsvöllur</item>
+    </string-array>
+
     <string name="hello_world">Hello world!</string>
 
     <!-- Strings for profile Activity -->
