@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.content.res.Configuration;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 /*
@@ -76,6 +77,24 @@ public class SpilaVoll extends Activity {
         };
 
         myDrawerLayout.setDrawerListener(myDrawerToggle);
+
+        ArrayAdapter<CharSequence> teigarArrayAdapter= ArrayAdapter.createFromResource(this,R.array.teigar,android.R.layout.simple_spinner_dropdown_item);
+        Spinner teigarspinner = (Spinner) findViewById(R.id.spv_teigar_spinner);
+        teigarspinner.setAdapter(teigarArrayAdapter);
+
+        ArrayAdapter<CharSequence> dagsArrayAdapter= ArrayAdapter.createFromResource(this,R.array.dagsetningar,android.R.layout.simple_spinner_dropdown_item);
+        Spinner dagsspinner = (Spinner) findViewById(R.id.spv_dags_spinner);
+        dagsspinner.setAdapter(dagsArrayAdapter);
+
+        ArrayAdapter<CharSequence> fjHolaArrayAdapter= ArrayAdapter.createFromResource(this,R.array.fjoldihola,android.R.layout.simple_spinner_dropdown_item);
+        Spinner fjhola = (Spinner) findViewById(R.id.spv_fjhola_spinner);
+        fjhola.setAdapter(fjHolaArrayAdapter);
+
+        ArrayAdapter<CharSequence> vellirArrayAdapter= ArrayAdapter.createFromResource(this,R.array.vellir,android.R.layout.simple_spinner_dropdown_item);
+        Spinner vellir = (Spinner) findViewById(R.id.spv_vollur_spinner);
+        vellir.setAdapter(vellirArrayAdapter);
+
+
     }
 
     // Býr til nýtt activity þegar ýtt er á hnapp

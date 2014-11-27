@@ -1,6 +1,7 @@
 package cityboys.golfapp;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.drawable.ColorDrawable;
@@ -14,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 
 public class SkorkortVollur extends Activity {
@@ -71,9 +73,7 @@ public class SkorkortVollur extends Activity {
         myDrawerLayout.setDrawerListener(myDrawerToggle);
 
         ArrayAdapter<CharSequence> hoggArrayAdapter= ArrayAdapter.createFromResource(this,R.array.fjoldihogga,android.R.layout.simple_spinner_dropdown_item);
-        /*int[] fjoldihogga = {1 , 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
-        ArrayAdapter <Integer> hoggArrayAdapter = new ArrayAdapter<Integer>( this,android.R.layout.simple_spinner_dropdown_item, fjoldihogga);
-        */
+
         Spinner hogg1 = (Spinner) findViewById(R.id.sv_hoggspinner_1);
         hogg1.setAdapter(hoggArrayAdapter);
         Spinner hogg2 = (Spinner) findViewById(R.id.sv_hoggspinner_2);
@@ -110,6 +110,13 @@ public class SkorkortVollur extends Activity {
         hogg17.setAdapter(hoggArrayAdapter);
         Spinner hogg18 = (Spinner) findViewById(R.id.sv_hoggspinner_18);
         hogg18.setAdapter(hoggArrayAdapter);
+
+        Context context = this;
+        CharSequence text = "Snúðu skjá fyrir meiri upplýsingar";
+        int duration = Toast.LENGTH_LONG;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
 
     }
 

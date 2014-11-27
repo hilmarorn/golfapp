@@ -1,15 +1,24 @@
 package cityboys.golfapp;
 
+import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /*
  * Created by Busli on 15.11.2014.
  */
 public class profile_screen1 {
     public static void initScreen(View view) {
+
+        Context context = view.getContext();
+        CharSequence text = "Strjúktu til vinstri fyrir forgjöf og tölfræði";
+        int duration = Toast.LENGTH_LONG;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
 
         /*set user values*/
         TextView handicap = (TextView) view.findViewById(R.id.textView6);
