@@ -28,7 +28,7 @@ Eftir: Búið er að búa til nýtt Activity sem inniheldur rástíma skráningu
 public class Rastimar_master extends FragmentActivity {
 
     protected static ActionBar actionBar;
-    // Þetta ætti að vera deafault klúbburinn hjá innskráðum notanda
+    // Þetta er deafault klúbburinn hjá innskráðum notanda
     protected static String selectedCourse;
 
     // Allt fyrir fragment-in
@@ -53,12 +53,6 @@ public class Rastimar_master extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rastima_master);
-
-        // TODO: Kannski að færa þetta í User klasann?
-        for (int i = 0; i < Courses.courseArray.length; i++) {
-            if (User.getGolfClub().equals(Courses.courseArray[i].getClubName()))
-                Rastimar_master.selectedCourse = Courses.courseArray[i].getClubShortName() + " - " + Courses.courseArray[i].getCourseName();
-        }
 
         // Búa til Viewpager og PageAdapter. Því næst tengja þá saman
         myViewpager = (ViewPager)findViewById(R.id.pager);
@@ -144,6 +138,21 @@ public class Rastimar_master extends FragmentActivity {
         };
 
         myDrawerLayout.setDrawerListener(myDrawerToggle);
+
+        // Hér er verið að tjékka hvort verið sé að kalla frá skraTima.java og ef svo er
+        // velja rétta blaðsíðu.
+        Intent previousActivity = getIntent();
+        String pageNumber = previousActivity.getStringExtra("pageNumber");
+
+        if(pageNumber != null) {
+            actionBar.setSelectedNavigationItem(Integer.valueOf(pageNumber));
+        } else {
+            for (int i = 0; i < Courses.courseArray.length; i++) {
+                if (User.getGolfClub().equals(Courses.courseArray[i].getClubName()))
+                    selectedCourse = Courses.courseArray[i].getClubShortName() + " - " + Courses.courseArray[i].getCourseName();
+            }
+        }
+
     }
 
     @Override

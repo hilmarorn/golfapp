@@ -7,15 +7,15 @@ public class StartingTime {
 
     private final String course_name;
     private final String course_id;
-    private final String user_name;
+    private final String full_name;
     private final String user_id;
     private final String startDate;
     private final String startTime;
 
-    StartingTime(String course_name, String course_id, String user_name, String user_id, String startDate, String startTime) {
+    StartingTime(String course_name, String course_id, String full_name, String user_id, String startDate, String startTime) {
         this.course_name = course_name;
         this.course_id = course_id;
-        this.user_name = user_name;
+        this.full_name = full_name;
         this.user_id = user_id;
         this.startDate = startDate;
         this.startTime = startTime;
@@ -30,7 +30,7 @@ public class StartingTime {
     }
 
     public String getUserName(){
-        return this.user_name;
+        return this.full_name;
     }
 
     public String getUserId(){

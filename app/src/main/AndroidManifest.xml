@@ -45,6 +45,9 @@
             android:name=".SpilaVoll"
             android:label="@string/title_spila_voll" >
         </activity>
+        <activity
+            android:name=".skraTima"
+            android:label="Skrá rástíma" />
     </application>
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->

@@ -1,12 +1,14 @@
 package cityboys.golfapp;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +16,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
+import static cityboys.golfapp.RastimaYfirlit.addPlayers;
 
 /*
 Klasinn er ekki í notkun eins og er.
@@ -32,10 +39,14 @@ public class skraTima extends Activity {
     private ListView myDrawerList;
     private ActionBarDrawerToggle myDrawerToggle; // Heldur utan hvort nav drawer sér opið/lokað
 
+    private static Context myContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.rastima_leit);
+        setContentView(R.layout.skra_tima);
+
+        myContext = getBaseContext();
 
         /////////////////////////////
         // Fyrir navigation drawer //
@@ -78,11 +89,35 @@ public class skraTima extends Activity {
         course = previousActivity.getStringExtra("course");
         time = previousActivity.getStringExtra("time");
 
-        TextView msg = (TextView)findViewById(R.id.rastimaLeit_title);
-        msg.setText("Ertu viss um að þú viljir bóka rástíma " + date + " á " + course +
-                " klukkan " + time + "?");
+        TextView infoText = (TextView)findViewById(R.id.sk_info);
+        infoText.setText("Þú ert að fara skrá þig á rástíma "+date+" klukkan "+time+ " á " +course);
     }
 
+    public void stadfestaRastima(View view) {
+
+        // Setja gögnin á rétt format
+        String[] arrayDateToSend = date.split("/");
+        String dateToSend = arrayDateToSend[2]+"-"+arrayDateToSend[1]+"-"+arrayDateToSend[0];
+        // Finna course id
+        String[] arrayCourseToSend = course.split("-");
+        String courseToSend = arrayCourseToSend[1].trim();
+        String course_id = "";
+        for(int i = 0; i < Courses.courseArray.length; i++) {
+            if(courseToSend.equals(Courses.courseArray[i].getCourseName())) {
+                course_id = Courses.courseArray[i].getCourseId();
+            }
+        }
+
+        /*Test for inserting new starting time*/
+        String insertLink="https://notendur.hi.is/~hoh40/Hugbunadarverkfraedi1/insertStartingTime.php";
+        // 1: course_id, 2: startDate, 3: startTime
+        DatabaseConnection mInsertTask = new DatabaseConnection(course_id, dateToSend, time, insertLink, 'i');
+        mInsertTask.execute();
+
+        Intent rastimar = new Intent(this, Rastimar_master.class);
+        rastimar.putExtra("pageNumber", "2");
+        startActivity(rastimar);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

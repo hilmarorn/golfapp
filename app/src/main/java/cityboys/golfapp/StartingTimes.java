@@ -28,12 +28,12 @@ public class StartingTimes {
                 //assign variables to the course
                 String course_name = Jasonobject.getString("course_name");
                 String course_id = Jasonobject.getString("course_id");
-                String user_name = Jasonobject.getString("user_name");
+                String full_name = Jasonobject.getString("full_name");
                 String user_id = Jasonobject.getString("user_id");
                 String startDate = Jasonobject.getString("startDate");
                 String startTime = Jasonobject.getString("startTime");
 
-                startingArray[i] = new StartingTime(course_name,course_id,user_name, user_id, startDate, startTime);
+                startingArray[i] = new StartingTime(course_name,course_id,full_name, user_id, startDate, startTime);
 
             }
         }

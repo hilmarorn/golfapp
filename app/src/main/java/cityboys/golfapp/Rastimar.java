@@ -32,14 +32,6 @@ public class Rastimar {
         // ListView fundið
         club_list = (ListView)view.findViewById(R.id.r_club_list);
 
-        // Glósur um hvernig þetta virkar
-        /*
-        Define a new Adapter
-        First parameter - Context
-        Second parameter - Layout for the row
-        Third parameter - ID of the TextView to which the data is written
-        Forth - the Array of data
-        */
         // Adapter fyrir ListView og hann festur við
         clubAdapter = new ArrayAdapter<String>(view.getContext(),
                 android.R.layout.simple_list_item_1, android.R.id.text1);

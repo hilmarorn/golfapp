@@ -36,4 +36,9 @@ public class DetailInfo {
         if(userId == id) return true;
         return false;
     }
+
+    public void clearAll() {
+        name = "";
+        userId = "";
+    }
 }
