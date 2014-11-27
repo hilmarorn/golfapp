@@ -153,12 +153,12 @@
       <file leaf-file-name="LoginActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cityboys/golfapp/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.8716216" vertical-offset="0" max-vertical-offset="5265">
-              <caret line="133" column="40" selection-start-line="133" selection-start-column="40" selection-end-line="133" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.5608108" vertical-offset="4446" max-vertical-offset="5295">
+              <caret line="367" column="45" selection-start-line="367" selection-start-column="45" selection-end-line="367" selection-end-column="45" />
               <folding>
-                <element signature="e#5249#5291#0" expanded="true" />
-                <element signature="e#5487#5527#0" expanded="true" />
-                <element signature="e#14311#14355#0" expanded="true" />
+                <element signature="e#5271#5313#0" expanded="true" />
+                <element signature="e#5509#5549#0" expanded="true" />
+                <element signature="e#14347#14391#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2239,12 +2239,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cityboys/golfapp/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.8716216" vertical-offset="0" max-vertical-offset="5265">
-          <caret line="133" column="40" selection-start-line="133" selection-start-column="40" selection-end-line="133" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.5608108" vertical-offset="4446" max-vertical-offset="5295">
+          <caret line="367" column="45" selection-start-line="367" selection-start-column="45" selection-end-line="367" selection-end-column="45" />
           <folding>
-            <element signature="e#5249#5291#0" expanded="true" />
-            <element signature="e#5487#5527#0" expanded="true" />
-            <element signature="e#14311#14355#0" expanded="true" />
+            <element signature="e#5271#5313#0" expanded="true" />
+            <element signature="e#5509#5549#0" expanded="true" />
+            <element signature="e#14347#14391#0" expanded="true" />
           </folding>
         </state>
       </provider>

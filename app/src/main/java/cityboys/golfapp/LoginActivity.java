@@ -132,6 +132,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
             Intent open_profile = new Intent(getApplicationContext(), profile.class);
             startActivity(open_profile);
+            finish();
         }
     }
 
@@ -384,8 +385,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             showProgress(false);
 
             if (success) {
-                finish();
-            } else {
+                //finish();
+            }
+            else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
             }
