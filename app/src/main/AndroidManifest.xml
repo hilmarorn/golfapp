@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/MyTheme" >
         <activity
-            android:name=".LoginActivity"
+            android:name="cityboys.user.LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/LoginTheme"
             android:windowSoftInputMode="adjustResize|stateVisible" >
@@ -19,14 +19,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".profile" >
+            android:name="cityboys.user.profile" >
         </activity>
         <activity
-            android:name=".Skorkort"
+            android:name="cityboys.skorkort.Skorkort"
             android:label="@string/title_skorkort" >
         </activity>
         <activity
-            android:name=".Rastimar_master"
+            android:name="cityboys.rastimar.Rastimar_master"
             android:label="@string/title_rastimar" >
         </activity>
         <activity
@@ -34,19 +34,19 @@
             android:label="@string/title_activity_test" >
         </activity>
         <activity
-            android:name=".LausirTimar"
+            android:name="cityboys.rastimar.LausirTimar"
             android:label="@string/title_activity_lausir_timar" >
         </activity>
         <activity
-            android:name=".SkorkortVollur"
+            android:name="cityboys.skorkort.SkorkortVollur"
             android:label="@string/title_skorkort_vollur" >
         </activity>
         <activity
-            android:name=".SpilaVoll"
+            android:name="cityboys.skorkort.SpilaVoll"
             android:label="@string/title_spila_voll" >
         </activity>
         <activity
-            android:name=".skraTima"
+            android:name="cityboys.rastimar.skraTima"
             android:label="Skrá rástíma" />
     </application>
 

@@ -1,71 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<pre-dex-items>
+<items version="2" >
 
     <item
-        dex="/Users/hilmarhergeirsson/Documents/Skoli/Hugbunadarverkefni1/tmp/golfapp/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-bca9cd8c8082330ef7549e0398af852faae531fd.jar"
-        jar="/Applications/Android Studio.app/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
+        jar="C:\AndroidStudio\workspace\golfapp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\4.2.42\classes.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
+        sha1="e5f81129dfb3d02df80126512bc98278ed2bb40a">
+        <dex dex="C:\AndroidStudio\workspace\golfapp\app\build\intermediates\pre-dexed\debug\classes-85624739a4451e9d85fda4d7177c4fc49f40a6ee.jar" />
+    </item>
     <item
-        dex="/Users/hilmarhergeirsson/Documents/Skoli/Hugbunadarverkefni1/tmp/golfapp/app/build/intermediates/pre-dexed/debug/classes-97cfbe711de0c445750263c72aee8f4e920b824f.jar"
-        jar="/Users/hilmarhergeirsson/Documents/Skoli/Hugbunadarverkefni1/tmp/golfapp/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar"
+        jar="C:\Users\Busli\Documents\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\20.0.0\support-annotations-20.0.0.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa">
+        <dex dex="C:\AndroidStudio\workspace\golfapp\app\build\intermediates\pre-dexed\debug\support-annotations-20.0.0-913a2e371ef01ba0ecdf4e6c3d05c31f57e582cb.jar" />
+    </item>
     <item
-        dex="/Users/hilmarhergeirsson/Documents/Skoli/Hugbunadarverkefni1/Sprettur3/golfapp/app/build/intermediates/pre-dexed/debug/classes-f8556d40664a2c200fb366e9f47ff79a4c4f32a8.jar"
-        jar="/Users/hilmarhergeirsson/Documents/Skoli/Hugbunadarverkefni1/Sprettur3/golfapp/app/build/intermediates/exploded-aar/com.android.support/support-v13/20.0.0/classes.jar"
+        jar="C:\AndroidStudio\workspace\golfapp\app\build\intermediates\exploded-aar\com.android.support\support-v13\20.0.0\classes.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="e128103d5281ddd26195a7f980b36d0d005a4e56"/>
+        sha1="e128103d5281ddd26195a7f980b36d0d005a4e56">
+        <dex dex="C:\AndroidStudio\workspace\golfapp\app\build\intermediates\pre-dexed\debug\classes-2e2f1700e9c03fc7287420c78ce3ef632680a5b1.jar" />
+    </item>
     <item
-        dex="/Users/hilmarhergeirsson/Documents/Skoli/Hugbunadarverkefni1/tmp/golfapp/app/build/intermediates/pre-dexed/debug/classes-6b3258c5e71b6fff757ae869e9ecdcb59264006a.jar"
-        jar="/Users/hilmarhergeirsson/Documents/Skoli/Hugbunadarverkefni1/tmp/golfapp/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/4.2.42/classes.jar"
+        jar="C:\AndroidStudio\workspace\golfapp\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\libs\internal_impl-20.0.0.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="e5f81129dfb3d02df80126512bc98278ed2bb40a"/>
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d">
+        <dex dex="C:\AndroidStudio\workspace\golfapp\app\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-746a8651a11a7d6eb1cfa4c530b25144be7eecaa.jar" />
+    </item>
     <item
-        dex="/Users/hilmarhergeirsson/Documents/Skoli/Hugbunadarverkefni1/tmp/golfapp/app/build/intermediates/pre-dexed/debug/classes-7b68e6eb17d644d2969e0043f0c3424ac73e430a.jar"
-        jar="/Users/hilmarhergeirsson/Documents/Skoli/Hugbunadarverkefni1/tmp/golfapp/app/build/intermediates/exploded-aar/com.android.support/support-v13/20.0.0/classes.jar"
+        jar="C:\AndroidStudio\workspace\golfapp\app\build\intermediates\exploded-aar\com.android.support\support-v13\20.0.0\libs\internal_impl-20.0.0.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="e128103d5281ddd26195a7f980b36d0d005a4e56"/>
+        sha1="27bbd3982cdfe4468a9bf99c8c773734a9049e33">
+        <dex dex="C:\AndroidStudio\workspace\golfapp\app\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-89a34eaf669640941fc3e401a10825957083e632.jar" />
+    </item>
     <item
-        dex="/Users/hilmarhergeirsson/Documents/Skoli/Hugbunadarverkefni1/Sprettur3/golfapp/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-44c28a239b8f5d8b190f0250a19e8165291d693f.jar"
-        jar="/Users/hilmarhergeirsson/Documents/Skoli/Hugbunadarverkefni1/Sprettur3/golfapp/app/build/intermediates/exploded-aar/com.android.support/support-v13/20.0.0/libs/internal_impl-20.0.0.jar"
+        jar="C:\AndroidStudio\workspace\golfapp\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\classes.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="27bbd3982cdfe4468a9bf99c8c773734a9049e33"/>
-    <item
-        dex="/Users/hilmarhergeirsson/Documents/Skoli/Hugbunadarverkefni1/tmp/golfapp/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-342f3cb64036d4fc73b6f1f069831fad62e69323.jar"
-        jar="/Users/hilmarhergeirsson/Documents/Skoli/Hugbunadarverkefni1/tmp/golfapp/app/build/intermediates/exploded-aar/com.android.support/support-v13/20.0.0/libs/internal_impl-20.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="27bbd3982cdfe4468a9bf99c8c773734a9049e33"/>
-    <item
-        dex="/Users/hilmarhergeirsson/Documents/Skoli/Hugbunadarverkefni1/Sprettur3/golfapp/app/build/intermediates/pre-dexed/debug/classes-3fbf6ac502e6bc669805e30a917423e45445d3b9.jar"
-        jar="/Users/hilmarhergeirsson/Documents/Skoli/Hugbunadarverkefni1/Sprettur3/golfapp/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
-    <item
-        dex="/Users/hilmarhergeirsson/Documents/Skoli/Hugbunadarverkefni1/Sprettur3/golfapp/app/build/intermediates/pre-dexed/debug/classes-3fc93db73796b045a330fbdbfa717956aa5d7b5f.jar"
-        jar="/Users/hilmarhergeirsson/Documents/Skoli/Hugbunadarverkefni1/Sprettur3/golfapp/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/4.2.42/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="e5f81129dfb3d02df80126512bc98278ed2bb40a"/>
-    <item
-        dex="/Users/hilmarhergeirsson/Documents/Skoli/Hugbunadarverkefni1/tmp/golfapp/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-4fcc8dc4e46f2617aec06427efc341c238c14c15.jar"
-        jar="/Users/hilmarhergeirsson/Documents/Skoli/Hugbunadarverkefni1/tmp/golfapp/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
-    <item
-        dex="/Users/hilmarhergeirsson/Documents/Skoli/Hugbunadarverkefni1/Sprettur3/golfapp/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-3a8d3e5050d23e8d96bf901719415e561ace09a6.jar"
-        jar="/Users/hilmarhergeirsson/Documents/Skoli/Hugbunadarverkefni1/Sprettur3/golfapp/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0">
+        <dex dex="C:\AndroidStudio\workspace\golfapp\app\build\intermediates\pre-dexed\debug\classes-3f347802ddf3dfa31b8805b00f701209cc1d7fe2.jar" />
+    </item>
 
-</pre-dex-items>
+</items>
